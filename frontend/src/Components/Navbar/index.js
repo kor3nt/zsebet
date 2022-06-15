@@ -1,41 +1,68 @@
-import React, {useState} from 'react'
-import Video from '../../Img/video.mp4'
-import { 
-    HeroContainer, 
-    HeroBg, 
-    VideoBg, 
-    HeroContent, 
-    HeroH1, 
-    HeroP, 
-    HeroBtnWrapper, 
-    ArrowForward, 
-    ArrowRight,
-    Button 
-} from './HeroElements';
+import React, {useEffect, useState} from 'react';
+import { FaBars } from 'react-icons/fa'
+import {
+    Nav, 
+    NavbarContainer, 
+    NavLogo, 
+    LogoColor, 
+    MobileIcon, 
+    NavMenu, 
+    NavItem, 
+    NavLinks,
+    NavBtn,
+    NavBtnLink
+} from './NavbarElements';
 
-//https://www.pexels.com/pl-pl/szukaj/videos/bet%20website/
 
-const HeroSection = () => {
-    const [hover, setHover] = useState(false);
+const Navbar = ({toggle}) => {
+    const [scrollNav, setScrollNav] = useState(false);
 
-    const onHover = () => {
-        setHover(!hover)
+    const changeNav = () => {
+        if(window.scrollY >= 80){
+            setScrollNav(true)
+        }
+        else{
+            setScrollNav(false)
+        }
     }
 
+    useEffect(() => {
+        window.addEventListener('scroll', changeNav)
+    }, [])
+
     return (
-        <HeroContainer id="home">
-            <HeroBg>
-                <VideoBg autoPlay loop muted src={Video} type='video/mp4'></VideoBg>
-            </HeroBg>
-            <HeroContent>
-                <HeroH1>Obstawianie nie było jeszcze takie proste</HeroH1>
-                <HeroP>Utwórz nowe konto już teraz i odbierz 1000 ZSE COINSÓW.</HeroP>
-                <HeroBtnWrapper>
-                    <Button to="/signup" onMouseEnter={onHover} onMouseLeave={onHover}>Utwórz konto {hover ? <ArrowForward/> : <ArrowRight/>}</Button>
-                </HeroBtnWrapper>
-            </HeroContent>
-        </HeroContainer>
+        <>
+            <Nav scrollNav={scrollNav}>
+                <NavbarContainer>
+                    <NavLogo to="/">ZSE <LogoColor>BET</LogoColor></NavLogo>
+                    <MobileIcon onClick={toggle}>
+                        <FaBars />
+                    </MobileIcon>
+                    <NavMenu>
+                        <NavItem>
+                            <NavLinks to="home">Home</NavLinks>
+                        </NavItem>
+
+                        <NavItem>
+                            <NavLinks to="about">O Nas</NavLinks>
+                        </NavItem>
+                        
+                        <NavItem>
+                            <NavLinks to="joinus">Dołącz do nas</NavLinks>
+                        </NavItem>
+
+                        <NavItem>
+                            <NavLinks to="access">Dostęp</NavLinks>
+                        </NavItem>
+                    </NavMenu>
+
+                    <NavBtn>
+                        <NavBtnLink to="/signup">Zaloguj</NavBtnLink>
+                    </NavBtn>
+                </NavbarContainer>
+            </Nav>
+        </>
     )
 }
 
-export default HeroSection;
+export default Navbar;
