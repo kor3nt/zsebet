@@ -22,20 +22,37 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.post('/signin', (req, res) => {
+app.post('/signup', (req, res) => {
 
+    
     const nickname = req.body.nickname
     const password = req.body.password
-    const name = req.body.name
+    const name1 = req.body.name1
     const surname = req.body.surname
     const email = req.body.email
     const otp = Math.floor(Math.random() * 100000) + 90000
 
-    db.query("INSERT INTO zsebet_users VALUES (NULL, ?,?,?,?,?, 0,?)", 
-    [nickname, password, name, surname, email, otp],
+    db.query("SELECT * FROM zsebet_users WHERE nick=? OR email=?", 
+    [nickname, email],
     (err, result) => {
-        console.log(err);
+        if (err) console.log(err);
+        
+        if(result.length > 0){
+            res.send("Istnieje już taki użytkownik!")
+        }
+        else{
+            db.query("INSERT INTO zsebet_users VALUES (NULL, ?,?,?,?,?, 0,?)", 
+            [nickname, password, name1, surname, email, otp],
+            (err, result) => {
+               if (err) console.log(err);
+            });
+        }
     });
+   
+
+    
+
+    
 });
 
 const port = 3001;
