@@ -4,7 +4,9 @@ import validate from './validateinfo';
 import './Form.css'
 
 const FormSignup = ({submitForm}) => {
-    const {handleChange, values, handleSubmit, errors} = useForm(submitForm, validate);
+    const {handleChange, values, handleSubmit, errors,registerStatus} = useForm(submitForm, validate);
+
+    
 
     return (
         <div className='form-content-right'>
@@ -12,8 +14,8 @@ const FormSignup = ({submitForm}) => {
                 <h1><span className="span-color">Dołącz do nas już teraz!</span> Utwórz swoje konto, wypełniając poniższe informacje.</h1>
 
                 <div className='form-inputs'>
-                    <label htmlFor="name" className='form-label'>Imię</label>
-                    <input id="name" type="text" className="form-input" name="name" placeholder="Imię" value={values.name} onChange={handleChange}/>
+                    <label htmlFor="name1" className='form-label'>Imię</label>
+                    <input id="name1" type="text" className="form-input" name="name1" placeholder="Imię" value={values.name1} onChange={handleChange}/>
                     {errors.name && <p>{errors.name}</p>}
                 </div>
                 
@@ -52,7 +54,10 @@ const FormSignup = ({submitForm}) => {
                     {errors.password2 && <p>{errors.password2}</p>}
                 </div>
                 
-
+                <div className='form-inputs'>
+                    <p>{registerStatus}</p>
+                </div>
+                
                 <button className='form-input-btn' type="submit">Zarejestruj</button>
                 <span className='form-input-login'>Masz już konto? <a href="#">Zaloguj się</a></span>
             </form>

@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
+import Axios from 'axios'
 
 const useForm = (callback, validate) => {
     const [values, setValues] = useState({
-        name: '',
+        name1: '',
         surname: '',
         email: '',
         username: '',
@@ -21,10 +22,24 @@ const useForm = (callback, validate) => {
             [name]: value
         });
     };
-
+    
+    const [registerStatus, setRegisterStatus] = useState("");
     const handleSubmit = e => {
         e.preventDefault();
 
+        Axios.post("http://localhost:3001/signup",{
+            nickname: values.username,
+            password: values.password, 
+            name1: values.name1, 
+            surname: values.surname, 
+            email: values.email
+        }).then((response) => {
+            if(response.data){
+                setRegisterStatus(response.data);
+            } else{
+                setRegisterStatus("");
+            }
+        });
         setErrors(validate(values));
         setIsSubmitting(true);
     }
@@ -35,7 +50,7 @@ const useForm = (callback, validate) => {
         }
     }, [errors])
 
-    return {handleChange, values, handleSubmit, errors};
+    return {handleChange, values, handleSubmit, errors, registerStatus};
 }
 
 export default useForm;

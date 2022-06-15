@@ -1,9 +1,9 @@
 export default function validateInfo(values) {
     let errors = {}
 
-    if(!values.name.trim()){
+    if(!values.name1.trim()){
         errors.name = "Podaj imię!"
-    } else if(!/^[a-zA-ZąćęłńóżźśĄĆĘŁŃÓŻŹĆŚ]{2,}$/.test(values.name)){
+    } else if(!/^[a-zA-ZąćęłńóżźśĄĆĘŁŃÓŻŹĆŚ]{2,}$/.test(values.name1)){
         errors.name = "Podaj imię!"
     }
 
