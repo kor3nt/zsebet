@@ -31,7 +31,7 @@ const HeroSection = () => {
                 <HeroH1>Obstawianie nie było jeszcze takie proste</HeroH1>
                 <HeroP>Utwórz nowe konto już teraz i odbierz 1000 ZSE COINSÓW.</HeroP>
                 <HeroBtnWrapper>
-                    <Button to="/signin" onMouseEnter={onHover} onMouseLeave={onHover}>Utwórz konto {hover ? <ArrowForward/> : <ArrowRight/>}</Button>
+                    <Button to="/signup" onMouseEnter={onHover} onMouseLeave={onHover}>Utwórz konto {hover ? <ArrowForward/> : <ArrowRight/>}</Button>
                 </HeroBtnWrapper>
             </HeroContent>
         </HeroContainer>
