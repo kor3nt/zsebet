@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZSEBET</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="Nav">
+        <div id="NavbarContainer">
+            <a href="#" id="NavLogo">ZSE<span id="LogoColor">BET</span></a>
+
+            <div id="MobileIcon"><i id="Menu" class="fa fa-bars" aria-hidden="true"></i></div>
+
+            <ul id="NavMenu">
+                <li class="NavItem"><a class="NavLinks" href="#home">Home</a></li>
+                <li class="NavItem"><a class="NavLinks" href="#about">O Nas</a></li>
+                <li class="NavItem"><a class="NavLinks" href="#joinus">Dołącz do nas</a></li>
+                <li class="NavItem"><a class="NavLinks" href="#access">Dostęp</a></li>
+            </ul>
+
+            <nav id="NavBtn">
+                <a href="SignIn" id="NavBtnLink">Zaloguj</a>
+            </nav>
+        </div>     
+    </nav>
+
+    <aside id="SidebarContainer">
+        <div id="Icon">
+            <i id="CloseIcon" class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        
+        <div id="SidebarWrapper">
+            <ul id="SidebarMenu">
+                <li id='phone-home' class="SidebarLink"><a class="NavLinks" href="#home">Home</a></li>
+                <li id='phone-about' class="SidebarLink"><a class="NavLinks" href="#about">O Nas</a></li>
+                <li id='phone-joinus' class="SidebarLink"><a class="NavLinks" href="#joinus">Dołącz do nas</a></li>
+                <li id='phone-access' class="SidebarLink"><a class="NavLinks" href="#access">Dostęp</a></li>
+            </ul>
+            <div id="SideBtnWrap">
+                <a href="SignIn" id="SidebarRoute">Zaloguj</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Hero Section -->
+    <div id="home" class="HeroContainer">
+        <div id="HeroBg">
+            <video id="VideoBg" autoPlay loop muted src="Img/video.mp4" type='video/mp4'></video>
+        </div>
+
+        <div id="HeroContent">
+            <h1 id="HeroH1">Obstawianie nie było jeszcze takie proste</h1>
+            <p id="HeroP">Utwórz nowe konto już teraz i odbierz 1000 ZSE COINSÓW.</p>
+        
+            <div id="HeroBtnWrapper">
+                <a href="SignUp" id="Button">Utwórz konto 
+                    <span id="ArrowRight"><i class="fa fa-angle-right" aria-hidden="true"></i></span> 
+                    <span id="ArrowForward"><i class="fa fa-caret-right" aria-hidden="true"></i></span></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Section -->
+    <div class="InfoSection">
+        <div class="InfoContainer InfoContainerBlack" id="about">
+            <div class="InfoWrapper">
+                <div class="InfoRow InfoRowRight">
+                    <div class="Column1">
+                        <div class="TextWrapper">
+                            <p class="TopLine">Premium Zakłady</p>
+                            <h1 class="Heading White">Zakłady z zerowymi opłatami</h1>
+                            <p class="Subtitle White">Uzyskaj dostęp do naszej ekskluzywnej aplikacji, która umożliwia obstawianie meczy bez ponoszenia żadnych opłat.</p>
+                        </div>
+                    </div>
+                    <div class="Column2">
+                        <div class="ImgWrap">
+                            <img class="Img" alt="about" src="Img/svg1.svg"> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="InfoContainer InfoContainerWhite" id="joinus">
+            <div class="InfoWrapper">
+                <div class="InfoRow InfoRowLeft">
+                    <div class="Column1">
+                        <div class="TextWrapper">
+                            <p class="TopLine">Dołącz do nas</p>
+                            <h1 class="Heading Black">Utowrzenie konta jest niezwykle proste</h1>
+                            <p class="Subtitle Black">Utworzenie konta zajmie mniej niż 10 minut. 
+                                Wystarczy, że podasz kilka informacji o sobie. 
+                                Dla naszych użytkowników przewidywane są kody oraz wiele ciekawych nagród.</p>
+                        </div>
+                    </div>
+                    <div class="Column2">
+                        <div class="ImgWrap">
+                            <img class="Img" alt="joinus" src="Img/svg2.svg"> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="InfoContainer InfoContainerBlack" id="access">
+            <div class="InfoWrapper">
+                <div class="InfoRow InfoRowRight">
+                    <div class="Column1">
+                        <div class="TextWrapper">
+                            <p class="TopLine">Nielimitowany Dostęp</p>
+                            <h1 class="Heading White">Zaloguj się do swojego konta w dowolnym momencie</h1>
+                            <p class="Subtitle White">Wszystko czego potrzebujesz aby się zalogować to połączenie z internetem i telefon lub komputer.</p>
+                        </div>
+                    </div>
+                    <div class="Column2">
+                        <div class="ImgWrap">
+                            <img class="Img" alt="access" src="Img/svg3.svg"> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div id="FooterWrap">
+            <div id="SocialMedia">
+                <div id="SocialMediaWraper">
+                    <a href="#home" id="SocialMediaLogo">ZSE<span id="SocialMediaSpan">BET</span></a>
+                    <small id="WebsiteRights">ZSEBET &copy; 2022 Wszelkie prawa zastrzeżone.</small>
+
+                    <div id="WebsiteCreators">
+                        <p id="WebsiteText">Created by: <a href="https://www.facebook.com/DuolyStudio" target="_blank" id="FooterLinkOther">Duoly </a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scroll.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>
