@@ -1,26 +1,63 @@
-// Get input's id
-const name1 = document.getElementById("name1") 
-const surname = document.getElementById("surname") 
-const username = document.getElementById("username") 
-const email = document.getElementById("email") 
-const password = document.getElementById("password") 
-const password2 = document.getElementById("password2") 
+$(document).ready(function() {
+    $("#submit").click(function( event ){
+        // Get input's id
+        const name1 = $("#name1").val();
+        const surname = $("#surname").val();
+        const username = $("#username").val();
+        const email = $("#email").val();
+        const password = $("#password").val(); 
+        const password2 = $("#password2").val();
 
-// Validate and send to php file
-function validateForm(){
-    const nameValidate = checkName(name1.value.trim(), document.getElementById('errors-name'), "Podaj imię!");
-    const surnameValidate = checkName(surname.value.trim(), document.getElementById('errors-surname'), "Podaj nazwisko!");
-    const usernameValidate = checkUsername();
-    const emailValidate = checkEmail();
-    const passwordValidate = checkPassword();
-    const confirmPasswordValidate = CheckConfirmPassowrd();
+        // Random otp code
+        const otp = Math.floor(100000 + Math.random() * 900000);
 
-    if(nameValidate && surnameValidate && usernameValidate && emailValidate && passwordValidate && confirmPasswordValidate){
-        return true;
-    }
+        // Check values of inputs and validate 
+        const nameValidate = checkName(name1.trim(), document.getElementById('errors-name'), "Podaj imię!");
+        const surnameValidate = checkName(surname.trim(), document.getElementById('errors-surname'), "Podaj nazwisko!");
+        const usernameValidate = checkUsername(username);
+        const emailValidate = checkEmail(email);
+        const passwordValidate = checkPassword(password);
+        const confirmPasswordValidate = CheckConfirmPassowrd(password2, password);
+        
+        // Send data to php file
+        if(nameValidate && surnameValidate && usernameValidate && emailValidate && passwordValidate && confirmPasswordValidate){
+            $('.loading').show();
+            $.ajax({
+                type: "POST",
+                url: "register.php",
+                data: {
+                    name: name1.trim(),
+                    surname: surname.trim(),
+                    username: username.trim(),
+                    email: email.trim(),
+                    password: password.trim(),
+                    otp: otp
+            },
+            cache: false,
+            success: function(data) {
+                console.log(data);
 
-    return false;
-}
+                if(data == 'nicks'){
+                    document.getElementById('errors-username').innerHTML = "Istnieje już gracz o takim nicku! Wybierz inny.";
+                    $('.loading').hide();
+                }
+                
+                if(data == 'emails'){
+                    document.getElementById('errors-email').innerHTML = "Istnieje już konto przypisane do tego adresu e-mail!";
+                    $('.loading').hide();
+                }
+
+                if(data == 'servers'){
+                    alert('Błąd serwera! Przepraszamy za niedogodności i prosimy o skontaktowanie się z administracją!')
+                }
+            }
+            });
+        }
+        event.preventDefault();
+        return false;
+    });
+    
+});
 
 // Validate name and surname
 function checkName(value, error, errorValue){
@@ -35,8 +72,8 @@ function checkName(value, error, errorValue){
 }
 
 // Validate username
-function checkUsername(){
-    if(!username.value.trim() || !/^[a-zA-Z0-9ąćęłńóżźśĄĆĘŁŃÓŻŹĆŚ._%+-]{3,}$/.test(username.value.trim())){
+function checkUsername(username){
+    if(!username.trim() || !/^[a-zA-Z0-9ąćęłńóżźśĄĆĘŁŃÓŻŹĆŚ._%+-]{3,}$/.test(username.trim())){
         document.getElementById('errors-username').innerHTML = "Podaj nick!";
         return false;
     } 
@@ -47,12 +84,12 @@ function checkUsername(){
 }
 
 // Validate email
-function checkEmail(){
-    if(!email.value.trim()){
+function checkEmail(email){
+    if(!email.trim()){
         document.getElementById('errors-email').innerHTML = "Podaj e-mail!";
         return false;
     } 
-    else if(!/^[a-zA-Z0-9._%+-]+@(zse.krakow.pl)$/.test(email.value.trim())){
+    else if(!/^[a-zA-Z0-9._%+-]+@(zse.krakow.pl)$/.test(email.trim())){
         document.getElementById('errors-email').innerHTML = "E-mail jest nie poprawny!";
         return false;
     }
@@ -63,24 +100,24 @@ function checkEmail(){
 }
 
 // Validate password
-function checkPassword(){
-    if(!password.value.trim()){
+function checkPassword(password){
+    if(!password.trim()){
         document.getElementById('errors-password').innerHTML = 'Podaj hasło!';
         return false;
     }   
-    else if(password.value.trim().length < 6){
+    else if(password.trim().length < 6){
         document.getElementById('errors-password').innerHTML = 'Hasło musi być dłuższe niż 6 znaków!';
         return false;
     }
-    else if (password.value.trim().search(/[a-z]/i) < 0) {
+    else if (password.trim().search(/[a-z]/i) < 0) {
         document.getElementById('errors-password').innerHTML = "Hasło musi zawierać literę!";
         return false;
     }
-    else if (password.value.trim().search(/[0-9]/) < 0) {
+    else if (password.trim().search(/[0-9]/) < 0) {
         document.getElementById('errors-password').innerHTML = "Hasło musi zawierać liczbę!";
         return false;
     }
-    else if(password.value.trim().search(/\W|_/g) < 0){
+    else if(password.trim().search(/\W|_/g) < 0){
         document.getElementById('errors-password').innerHTML = "Hasło musi zawierać znak specjalny!";
         return false;
     }
@@ -91,13 +128,13 @@ function checkPassword(){
 }
 
 // Validate confirmed password
-function CheckConfirmPassowrd(){
-    if(!password2.value.trim()){
+function CheckConfirmPassowrd(password2, password){
+    if(!password2.trim()){
         document.getElementById('errors-password2').innerHTML = 'Musisz potwierdzić hasło!';
         return false;
 
     } 
-    else if(password2.value.trim() !== password.value.trim()){
+    else if(password2.trim() !== password.trim()){
         document.getElementById('errors-password2').innerHTML =  'Hasła nie są podobne!';
         return false;
     }
