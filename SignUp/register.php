@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // Get variable from js file
 $name = $_POST['name'];
 $surname = $_POST['surname'];
@@ -34,7 +36,6 @@ try
 		{
 			$its_ok = false;
 			echo 'emails';
-            return false;
 		}		
 
 		// Whether the nick is in the database
@@ -47,15 +48,23 @@ try
 		{
 			$its_ok = false;
             echo 'nicks';
-            return false;
     	}
 				
 		if ($its_ok == true)
 		{
-			if ($connect->query("INSERT INTO zsebet_users VALUES (NULL, '$username', '$password', '$name', '$surname', '$email', 1000, 0, '$otp', 'user')"))
+			if ($connect->query("INSERT INTO zsebet_users VALUES (NULL, '$username', '$password', '$name', '$surname', '$email', 0, '$otp', 'user')"))
 			{
-				$_SESSION['udanarejestracja']=true;
-				header('Location: clear.php');
+				if ($connect->query("INSERT INTO zsebet_amount VALUES (NULL, '$username', 1000)"))
+				{
+					$_SESSION['verify'] = 0;
+					$_SESSION['otp'] = $otp;
+					$_SESSION['nick'] = $username;
+					echo 'success';
+				}
+				else
+				{
+					throw new Exception($connect->error);
+				}
 			}
 			else
 			{
@@ -71,6 +80,6 @@ try
 catch(Exception $e)
 {
 	echo 'servers';
-	// echo '<br />Informacja developerska: '.$e;
+	// echo 'Informacja developerska: '.$e;
 }
 ?>

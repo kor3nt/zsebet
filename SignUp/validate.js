@@ -35,26 +35,35 @@ $(document).ready(function() {
             },
             cache: false,
             success: function(data) {
-                console.log(data);
+                //console.log(data);
 
-                if(data == 'nicks'){
-                    document.getElementById('errors-username').innerHTML = "Istnieje już gracz o takim nicku! Wybierz inny.";
+                // Nick already used
+                const returnNick = /nicks/;
+                if(returnNick.test(data)){
+                    document.getElementById('errors-username').innerHTML = "Istnieje już gracz o takim nicku!";
                     $('.loading').hide();
                 }
                 
-                if(data == 'emails'){
+                // Email already used
+                const returnEmail = /emails/;
+                if(returnEmail.test(data)){
                     document.getElementById('errors-email').innerHTML = "Istnieje już konto przypisane do tego adresu e-mail!";
                     $('.loading').hide();
                 }
 
-                if(data == 'servers'){
+                // Successfully returned
+                if(/success/.test(data)){
+                    window.location.href = "../Verify";
+                }
+
+                // The server is down
+                if(/servers/.test(data)){
                     alert('Błąd serwera! Przepraszamy za niedogodności i prosimy o skontaktowanie się z administracją!')
                 }
             }
             });
         }
         event.preventDefault();
-        return false;
     });
     
 });

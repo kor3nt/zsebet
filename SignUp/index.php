@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+    if ((isset($_SESSION['verify'])) && ($_SESSION['verify'] == 0))
+    {
+        header('Location: ../verify');
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
