@@ -1,9 +1,11 @@
 <?php 
     session_start();
-    if ((isset($_SESSION['verify'])) && ($_SESSION['verify'] == 0))
-    {
+    if ((isset($_SESSION['verify'])) && ($_SESSION['verify'] == 0)){
         header('Location: ../verify');
-        exit();
+    }
+
+    if((isset($_SESSION['verify'])) && ($_SESSION['verify'] == 1)){
+        header('Location: ../');
     }
 ?>
 

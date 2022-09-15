@@ -1,9 +1,8 @@
 <?php
     session_start();
-    if (!isset($_SESSION['otp']))
+    if (!isset($_SESSION['otp']) || !($_SESSION['verify'] == 0))
     {
         header('Location: ../');
-        exit();
     }
 ?>
 
