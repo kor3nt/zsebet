@@ -6,7 +6,7 @@
 }
 
 body{
-    background: #9c9c9c;
+    background: #a9e4ff;
 }
 
 /* Form */
@@ -148,6 +148,7 @@ body{
 /* Footer */
 footer{
     background-color: #118ab2;
+    z-index: -110;
 }
 
 #FooterWrap{
@@ -204,6 +205,7 @@ footer{
     color: #fff;
 }
 
+
 #FooterLinkOther{
     color: #ffb703 ;
     text-decoration: none;
@@ -213,7 +215,13 @@ footer{
     color: #fff;
     text-decoration: underline;
 }
-
+.background {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
 /* Media - Phones */
 @media screen and (max-width: 1000px ) {
     .form-content-right{
