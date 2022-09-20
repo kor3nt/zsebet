@@ -21,6 +21,7 @@ html {
     position: sticky;
     top: 0;
     z-index: 10;
+    transition: 0.6s;
 }
 
 #NavbarContainer{
@@ -32,7 +33,9 @@ html {
     padding: 0 24px;
     max-width: 1100px;
 }
-
+.sticky{
+    background-color: #1f1f1f !important;
+}
 #NavLogo{
     color: #fff;
     justify-self: flex-start;

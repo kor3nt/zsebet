@@ -1,9 +1,7 @@
-window.onscroll = function() {scrollFunction()};
+window.addEventListener("scroll",  function(){
+  var header = document.querySelector("nav");
+  header.classList.toggle("sticky", window.scrollY > 0);
+})
 
-function scrollFunction() {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-      document.getElementById("Nav").style.background = "#1f1f1f";
-    } else {
-      document.getElementById("Nav").style.background = "none";
-    }
-}
+
+
