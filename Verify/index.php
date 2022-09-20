@@ -49,6 +49,9 @@
                 </div>
                 <small id='error'></small>
                 <button class='form-input-btn' type="submit" id='submit'>Zweryfikuj</button>
+                <button class='form-input-btn' type="button" onclick="sendMail()" id='resend'>Nie dotarł kod? Wyślij ponowanie</button>
+                <br>
+                <span id="email"></span>
             </form>
         </div>
     </div>
@@ -67,6 +70,6 @@
         </div>
     </footer>
 
-    <script src="verify.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

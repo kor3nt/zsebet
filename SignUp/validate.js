@@ -35,7 +35,7 @@ $(document).ready(function() {
             },
             cache: false,
             success: function(data) {
-                //console.log(data);
+                // console.log(data);
 
                 // Nick already used
                 const returnNick = /nicks/;

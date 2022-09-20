@@ -9,6 +9,7 @@ $username = $_POST['username'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 $otp = $_POST['otp'];
+$token = md5(rand());
 
 $its_ok = true;
 
@@ -52,14 +53,27 @@ try
 				
 		if ($its_ok == true)
 		{
-			if ($connect->query("INSERT INTO zsebet_users VALUES (NULL, '$username', '$password', '$name', '$surname', '$email', 0, '$otp', 'user')"))
+			if ($connect->query("INSERT INTO zsebet_users VALUES (NULL, '$username', '$password', '$name', '$surname', '$email', 0, '$otp', 'user', '$token')"))
 			{
+
 				if ($connect->query("INSERT INTO zsebet_amount VALUES (NULL, '$username', 1000)"))
 				{
 					$_SESSION['verify'] = 0;
 					$_SESSION['otp'] = $otp;
 					$_SESSION['nick'] = $username;
+					$_SESSION['email'] = $email;
 					echo 'success';
+
+					require_once "sendMail.php";
+					sendMail($email, $otp);
+					
+					// $mailer = sendMail($email, $otp);
+					// if($mailer){
+					// 	echo 'send';
+					// }
+					// else{
+					// 	echo 'error';
+					// }
 				}
 				else
 				{
@@ -80,6 +94,6 @@ try
 catch(Exception $e)
 {
 	echo 'servers';
-	// echo 'Informacja developerska: '.$e;
+	echo 'Informacja developerska: '.$e;
 }
 ?>

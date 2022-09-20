@@ -14,11 +14,12 @@
         }
         else{
             if($otp == $_SESSION['otp']){
-                $nick = $_SESSION['nick'];
+                $nick = $_SESSION['username'];
                 if ($connect->query("UPDATE zsebet_users SET verify=1 WHERE nick LIKE '$nick'"))
                 {
                     $_SESSION['verify'] = 1;
                     unset($_SESSION['otp']);
+                    unset($_SESSION['email']);
                     echo 'success';
                 }
                 else{

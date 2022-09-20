@@ -3,7 +3,6 @@
 
     // Get variable from js file
     $email = $_POST['email'];
-    $password = $_POST['password'];
 
     require_once "../connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
@@ -27,20 +26,10 @@
                     if($users > 0){
                         $row = $result->fetch_assoc();
 
-                        if (password_verify($password, $row['password'])){
-                            $_SESSION['username'] = $row['nick'];
-                            $_SESSION['email'] = $row['email'];
-                            $_SESSION['verify'] = $row['verify'];
-                            
-                            if($_SESSION['verify'] == 0){
-                                $_SESSION['otp'] = $row['otp'];
-                                echo 'otp';
-                                return false;
-                            }
-
-                            echo 'success';
-                            return false;
-                        }
+                        $_SESSION['email'] = $row['email'];
+                        
+                        echo 'success';
+                        return false;
                     }
             }       
             $connect->close();

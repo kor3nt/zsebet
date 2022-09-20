@@ -38,7 +38,7 @@ $(document).ready(function() {
                 },
                 cache: false,
                 success: function(data) {
-                    console.log(data);
+
                     // The otp is not the same
                     if(/error/.test(data)){
                         document.getElementById('error').innerHTML = "Kod jest nie poprawny!";
@@ -63,8 +63,56 @@ $(document).ready(function() {
 
         event.preventDefault();
     });
+
+    
 });
 
 function isNumber(value){
     return (/^[0-9]$/.test(value));
+}
+
+
+let time = 0;
+function sendMail(){
+    if(time == 0){
+        $('.loading').show();
+        $.ajax({
+            type: "POST",
+            url: "resend.php",
+            cache: false,
+            success: function(data) {
+                // console.log(data);
+                if(/error/.test(data)){
+                    document.getElementById('email').innerHTML = "E-mail nie zostal wyslany! Skontaktuj się z Administracją!".fontcolor('red');
+                    $('.loading').hide();
+                }
+
+                if(/send/.test(data)){
+                    document.getElementById('email').innerHTML = "E-mail zostal wyslany".fontcolor('#32e800');
+                    $('.loading').hide();
+                }
+            }
+        });
+
+
+        //set time here
+        time = 5;
+    }
+   
+
+    // Locking the button for 30 seconds
+    const x = setInterval(function () {
+        if (time == 0) {
+            clearInterval(x);
+            document.getElementById('resend').disabled = false;
+            document.getElementById('resend').innerHTML = "Nie dotarł kod? Wyślij ponowanie";
+            document.getElementById('email').innerHTML = "";
+        }
+        else{
+            document.getElementById('resend').innerHTML = 'Spróbuj ponowanie za ' + time + ' sekund';
+            time--;
+        }
+    }, 1000);
+    
+    document.getElementById('resend').disabled = true;
 }

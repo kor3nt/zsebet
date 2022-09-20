@@ -8,6 +8,10 @@
     if((isset($_SESSION['verify'])) && ($_SESSION['verify'] == 1)){
         header('Location: ../');
     }
+
+    if(!$_GET['token'] ){
+        header('Location: ../ForgetPassword');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -38,26 +42,32 @@
                 <div class="lds-ring"><div></div><div></div></div>
             </div>
             
-
+            <!-- http://localhost/zsebet/ForgetPassword/forgetPassword.php?token=111sasd1&email=klaudiusz.jedrzejczyk@zse.krakow.pl -->
             <!-- Form -->
             <form class='form' id='form'>
                 <h1>ZSE<span class="span-color">BET</span> </h1>
+                
+                <input id="token" type="text" class="form-input" name="token" placeholder="token" value=" <?php echo $_GET["token"] ?>"/>
+
                 <div class='form-inputs'>
                     <label for="email" class='form-label'>E-mail</label>
-                    <input id="email" type="email" class="form-input" name="email" placeholder="E-mail"/>
+                    <input id="email" type="email" class="form-input" name="email" placeholder="E-mail" value=" <?php echo $_GET["email"] ?>"/>
+                    <small id="error"></small>
                 </div>
-                
 
                 <div class='form-inputs'>
                     <label for="password" class='form-label'>Hasło</label>
-                    <input id="password"  type="password" class="form-input" name="password" placeholder="Hasło"/>
-                
-                    <small id="error"></small>
+                    <input id="password" type="password" class="form-input" name="password" placeholder="Hasło"/>
+                    <small id="error-password"></small>
+                </div>
+
+                <div class='form-inputs'>
+                    <label for="password2" class='form-label'>Potwierdź hasło</label>
+                    <input id="password2" type="password" class="form-input" name="password2" placeholder="Potwierdź hasło"/>
+                    <small id="error-password2"></small>
                 </div>
                 
-                <button class='form-input-btn' type="submit" id='submit'>Zaloguj</button>
-                <span class='form-input-login'><a href="../ForgetPassword">Zapomniałeś hasła?</a></span>
-                <span class='form-input-login'>Chcesz otworzyć nowe konto? <a href="../SignUp">Zarejestruj się</a></span>
+                <button class='form-input-btn' type="submit" id='submit'>Zmień hasło</button>
             </form>
         </div>
     </div>
@@ -76,6 +86,6 @@
         </div>
     </footer>
 
-    <script src="login.js"></script>
+    <script src="validateMail.js"></script>
 </body>
 </html>
