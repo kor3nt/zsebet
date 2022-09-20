@@ -24,7 +24,7 @@ $(document).ready(function() {
 
                     // Successfully returned
                     if(/success/.test(data)){
-                        window.location.href = "forgetPassword.php";
+                        $('#send').show();
                     }
 
                     // The server is down

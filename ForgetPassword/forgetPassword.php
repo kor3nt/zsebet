@@ -9,7 +9,7 @@
         header('Location: ../');
     }
 
-    if(!$_GET['token'] ){
+    if(!$_GET['token'] || !$_GET['email']){
         header('Location: ../ForgetPassword');
     }
 ?>
@@ -41,30 +41,43 @@
             <div class="loading">
                 <div class="lds-ring"><div></div><div></div></div>
             </div>
-            
-            <!-- http://localhost/zsebet/ForgetPassword/forgetPassword.php?token=111sasd1&email=klaudiusz.jedrzejczyk@zse.krakow.pl -->
+
+            <!-- success screen -->
+            <div id="send">
+                <div class="wrapper">
+                    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+                </div>
+
+                <div class="text-success">
+                    <h1>Zmieniono!</h1>
+                    <p>Twoje hasło zostało zmienione.</p><br>
+                    <a class='return-button' href='../SignIn'>Powrót</a>
+                </div>
+            </div>
+
             <!-- Form -->
             <form class='form' id='form'>
                 <h1>ZSE<span class="span-color">BET</span> </h1>
                 
-                <input id="token" type="text" class="form-input" name="token" placeholder="token" value=" <?php echo $_GET["token"] ?>"/>
+                <input style='display: none;' id="token" type="text" class="form-input" name="token" placeholder="token" value=" <?php echo $_GET["token"] ?>"/>
 
                 <div class='form-inputs'>
                     <label for="email" class='form-label'>E-mail</label>
                     <input id="email" type="email" class="form-input" name="email" placeholder="E-mail" value=" <?php echo $_GET["email"] ?>"/>
-                    <small id="error"></small>
+                    <small id="errors-email"></small>
                 </div>
 
                 <div class='form-inputs'>
                     <label for="password" class='form-label'>Hasło</label>
                     <input id="password" type="password" class="form-input" name="password" placeholder="Hasło"/>
-                    <small id="error-password"></small>
+                    <small id="errors-password"></small>
                 </div>
 
                 <div class='form-inputs'>
                     <label for="password2" class='form-label'>Potwierdź hasło</label>
                     <input id="password2" type="password" class="form-input" name="password2" placeholder="Potwierdź hasło"/>
-                    <small id="error-password2"></small>
+                    <small id="errors-password2"></small>
+                    <small id="error"></small>
                 </div>
                 
                 <button class='form-input-btn' type="submit" id='submit'>Zmień hasło</button>
@@ -86,6 +99,6 @@
         </div>
     </footer>
 
-    <script src="validateMail.js"></script>
+    <script src="resetPassword.js"></script>
 </body>
 </html>

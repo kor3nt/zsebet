@@ -8,7 +8,7 @@ require "../PHPMailer/PHPMailer.php";
 require "../PHPMailer/SMTP.php";
 require "../PHPMailer/Exception.php";
 
-function sendMail($email, $otp){
+function sendMail($email, $link){
         $mail = new PHPMailer();
 
 		//smtp settings 
@@ -26,8 +26,8 @@ function sendMail($email, $otp){
 		$mail -> isHTML(true);
 		$mail -> setFrom("zsecup@zse.krakow.pl");
 		$mail -> addAddress($email);
-		$mail -> Subject = "Kod weryfikujący";
-		$mail -> Body = $otp;
+		$mail -> Subject = "Odzyskaj hasło";
+		$mail -> Body = $link;
 
 		if($mail -> Send()){
             $mail -> smtpClose();

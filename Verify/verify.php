@@ -2,12 +2,13 @@
 <?php 
     session_start();
 
-    $otp = $_POST['otp'];
-
     require_once "../connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
     try {
         $connect = new mysqli($host, $db_user, $db_password, $db_name);
+
+        $otp = mysqli_real_escape_string($connect, $_POST['otp']);
+
         if ($connect->connect_errno!=0)
         {
             throw new Exception(mysqli_connect_errno());

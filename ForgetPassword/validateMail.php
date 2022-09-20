@@ -1,9 +1,6 @@
 <?php
     session_start();
 
-    // Get variable from js file
-    $email = $_POST['email'];
-
     require_once "../connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
 
@@ -12,6 +9,10 @@
     try 
     {
         $connect = new mysqli($host, $db_user, $db_password, $db_name);
+
+        // Get variable from js file
+        $email =  mysqli_real_escape_string($connect,$_POST['email']);
+
         if ($connect->connect_errno!=0)
         {
             throw new Exception(mysqli_connect_errno());
@@ -26,8 +27,13 @@
                     if($users > 0){
                         $row = $result->fetch_assoc();
 
-                        $_SESSION['email'] = $row['email'];
-                        
+                        $email= $row['email'];
+                        $token= $row['token'];
+                        $link = "http://localhost/zsebet/ForgetPassword/forgetPassword.php?token=".$token."&email=".$email;
+
+                        require_once "sendMail.php";
+					    sendMail($email, $link);
+
                         echo 'success';
                         return false;
                     }

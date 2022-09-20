@@ -1,10 +1,6 @@
 <?php
     session_start();
 
-    // Get variable from js file
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
     require_once "../connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
 
@@ -13,6 +9,11 @@
     try 
     {
         $connect = new mysqli($host, $db_user, $db_password, $db_name);
+        // Get variable from js file
+        $email = mysqli_real_escape_string($connect, $_POST['email']);
+        $password = mysqli_real_escape_string($connect, $_POST['password']);
+
+
         if ($connect->connect_errno!=0)
         {
             throw new Exception(mysqli_connect_errno());

@@ -2,25 +2,25 @@
 
 session_start();
 
-// Get variable from js file
-$name = $_POST['name'];
-$surname = $_POST['surname'];
-$username = $_POST['username'];
-$email = $_POST['email'];
-$password = $_POST['password'];
-$otp = $_POST['otp'];
-$token = md5(rand());
-
-$its_ok = true;
-
-$password = password_hash($password, PASSWORD_DEFAULT);
-
 require_once "../connect.php";
 mysqli_report(MYSQLI_REPORT_STRICT);
 
 try 
 {
 	$connect = new mysqli($host, $db_user, $db_password, $db_name);
+	// Get variable from js file
+	$name = mysqli_real_escape_string($connect, $_POST['name']);
+	$surname = mysqli_real_escape_string($connect, $_POST['surname']);
+	$username = mysqli_real_escape_string($connect, $_POST['username']);
+	$email = mysqli_real_escape_string($connect, $_POST['email']);
+	$password = mysqli_real_escape_string($connect, $_POST['password']);
+	$otp = $_POST['otp'];
+	$token = md5(rand());
+	// 
+	$its_ok = true;
+
+	$password = password_hash($password, PASSWORD_DEFAULT);
+
 	if ($connect->connect_errno!=0)
 	{
 		throw new Exception(mysqli_connect_errno());
