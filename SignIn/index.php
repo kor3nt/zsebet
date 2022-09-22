@@ -1,7 +1,6 @@
 <?php 
     session_start();
-    if ((isset($_SESSION['verify'])) && ($_SESSION['verify'] == 0))
-    {
+    if ((isset($_SESSION['verify'])) && ($_SESSION['verify'] == 0)){
         header('Location: ../verify');
     }
 
@@ -26,6 +25,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
+    <canvas class="background"></canvas>
     <div class='form-container'>
         <div class='form-content-left'>
             <img class='form-img' src="../Img/svg6.svg" alt='join' />
@@ -77,5 +77,18 @@
     </footer>
 
     <script src="login.js"></script>
+
+    <script src="../particles.js-master/dist/particles.min.js"></script>
+    <script>
+        window.onload = function() {
+            Particles.init({
+                selector: '.background',
+                connectParticles: true,
+                maxParticles: 200,
+                color: ["#0099ff"]
+
+            });
+        };
+    </script>
 </body>
 </html>

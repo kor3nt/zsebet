@@ -22,9 +22,9 @@ body{
 }
 
 .form-content-left {
-    background: linear-gradient(90deg,
-        rgb(255, 205, 39) 0%,
-        rgb(236, 193, 0) 100%
+    background: linear-gradient(163deg,
+        #ffbf00 25%,
+        #0099ff 75%
     );
     border-radius: 10px 0 0 10px;
     position: relative;
@@ -42,7 +42,7 @@ body{
 .form-content-right {
     border-radius: 0 10px 10px 0;
     position: relative;
-    background: rgb(17, 17, 17);
+    background: rgb(37, 37, 37);
 }
 
 .form {
@@ -105,8 +105,8 @@ body{
     margin-top: 10px;
     border-radius: 2px;
     background: linear-gradient(90deg,
-        rgb(255, 205, 39) 0%,
-        rgb(236, 193, 0) 100%
+        #ffbf00  0%,
+        #ffbf00  100%
     );
     outline: none;
     border: none;
@@ -147,7 +147,7 @@ body{
 
 /* Footer */
 footer{
-    background-color: #1f1f1f;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #FooterWrap{
@@ -382,3 +382,5 @@ footer{
 .return-button:hover{
     color: #fff;
 }
+
+.background {     position: absolute;     display: block;     top: 0;     left: 0;     z-index: -1;   }

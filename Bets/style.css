@@ -1,0 +1,325 @@
+html {
+    scroll-behavior: smooth;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+body{
+    background-color: #e8e9eb;
+}
+
+/* Navigation */
+
+#Nav{
+    background: #1f1f1f;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: 0.6s;
+}
+
+#NavbarContainer{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    padding: 0 10px;
+    max-width: 1500px;
+}
+
+#NavLogo{
+    color: #fff;
+    justify-self: flex-start;
+    cursor: pointer;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    margin-left: 0px;
+    font-weight: bold;
+}
+
+.yellow-color{
+    color: #ffbf00;
+}
+
+#NavMenu{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+    margin-right: -22px;
+}
+
+.NavItem{
+    height: 80px;
+}
+
+.NavLinks{
+    font-weight: bold;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+    cursor: pointer;
+}
+
+.NavLinks:hover{
+    color: #777777;
+}
+
+.yellow-color-nav{
+    color: #ffbf00;
+}
+
+.NavLinks:hover .yellow-color-nav{
+    color: #b98b00;
+}
+
+.yellow-coins{
+    background-color: #ffbf00;
+    padding-top: 2px;
+    padding-right: 1px;
+    height: 20px;
+    width: 20px;
+    border-radius: 15px;
+    color: white;
+    margin-right: -25px;
+    z-index: 2;
+}
+
+.NavLinks:hover .yellow-coins{
+    background-color: #b98b00;    
+}
+
+#Bg-coins{
+    padding: 5px 10px 5px 30px;
+    background-color: black;
+    border-radius: 15px;
+}
+
+/* Main */
+.Section{
+    padding-top: 20px;
+}
+
+.Container{
+    width: 100%;
+}
+
+.Wrapper{
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 98%;
+}
+
+.History{
+    width: 20%;
+    float: left;
+    margin-bottom: 15px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+
+    background: #fff;
+    border-radius: 5px;
+}
+
+.Main{
+    width: 60%;
+    float: left;
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+.Bets{
+    width: 20%;
+    float: left;
+    margin-bottom: 15px;
+    right: 0;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+
+    height: 800px;
+
+    background: #fff;
+    border-radius: 5px;
+}
+
+.text-yellow{
+    color: #ffbf00;
+}
+
+.text-blue{
+    color: #0099ff;
+}
+
+/* History */
+.HistoryElements{
+    padding: 0 15px;
+}
+
+.event{
+    margin-bottom: 20px;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* background: #1f1f1f;
+    color: #fff; */
+
+    background: #fff;
+    color: #000000;
+    border: 1px solid #c4c4c4;
+
+    border-radius: 5px;
+    text-align: center;
+}
+
+.event h3{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.History h4{
+    padding-top: 20px;
+    padding-bottom: 15px;
+    text-align: center;
+
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 15px;
+}
+
+/* Main */
+.MainMatch{
+    width: 100%;
+    background-color: #fff;
+    padding: 20px 0px;
+    border-radius: 5px;
+    border: 1px solid #c4c4c4;
+    margin-bottom: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.left{
+    padding-left: 10px;
+    width: 30%;
+    float: left;
+}
+
+.center{
+    width: 20%;
+    float: left;
+    text-align: center;
+}
+
+.right{
+    width: 50%;
+    float: left;
+}
+
+.right button{
+    width: 46%;
+    margin-left: 2%;
+    padding: 5px 0px;
+    border-radius: 10px;
+    border: 1px solid #ffbf00;
+    background: #ffbf00;
+}
+
+.right button:hover{
+    border: 1px solid #fcd665;
+    background: #fcd665;
+}
+
+/* Bets */
+.MatchElements{
+    padding: 0 15px;
+    overflow-y: auto;
+    max-height: 600px;
+}
+
+.Bets h4{
+    padding-top: 20px;
+    padding-bottom: 15px;
+    text-align: center;
+
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 15px;
+}
+
+.Match{
+    margin-bottom: 15px;
+    padding: 10px 5px 10px 5px;
+    width: 100%;
+    /* background: #1f1f1f; */
+    /* color: #fff; */
+    background: #fff;
+    color: #000000;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+}
+
+.winner{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.text-bold{
+    font-weight: bold;
+}
+
+.CloseElement{
+    padding-right: 5px;
+    text-align: right;
+}
+
+.BetInput{
+    margin-left: 30px;
+    padding: 5px 0px 5px 5px;
+}
+
+.InfoBets{
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.BetsBtn{
+    padding: 10px 0;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 25px;
+    border: 1px solid #ffbf00;
+    background: #ffbf00;
+}
+
+.BetsBtn:hover{
+    border: 1px solid #fcd665;
+    background: #fcd665;
+}
