@@ -170,24 +170,43 @@ body{
 /* History */
 .HistoryElements{
     padding: 0 15px;
+
+    overflow-y: auto;
+    max-height: 800px;
 }
 
-.event{
+.player{
     margin-bottom: 20px;
     width: 100%;
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 10px;
     padding-bottom: 10px;
-    /* background: #1f1f1f;
-    color: #fff; */
 
     background: #fff;
     color: #000000;
     border: 1px solid #c4c4c4;
 
     border-radius: 5px;
+    
+}
+
+.left-player{
+    width: 10%;
+    float: left;
+    text-align: left;
+}
+
+.center-player{
+    width: 70%;
+    float: left;
     text-align: center;
+}
+
+.right-player{
+    width: 20%;
+    float: left;
+    text-align: right;
 }
 
 .event h3{
@@ -205,6 +224,19 @@ body{
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     margin-bottom: 15px;
 }
+
+.gold{
+    color: #ffbf00;
+}
+
+.silver{
+    color: #777777;
+}
+
+.bronze{
+    color: #853719;
+}
+
 
 /* Main */
 .MainMatch{
@@ -239,18 +271,49 @@ body{
     float: left;
 }
 
-.right button{
+.custom-radio input{
+    display: none;
+}
+
+.radio-btn{
+    float: left;
     width: 46%;
     margin-left: 2%;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+}
+
+.radio-btn span{
+    font-size: smaller;;
+}
+
+.grey{
+    color:#8f8f8f;
+}
+
+.custom-radio input + .radio-btn{
     padding: 5px 0px;
     border-radius: 10px;
     border: 1px solid #ffbf00;
     background: #ffbf00;
+    transition: 0.5s;
 }
 
-.right button:hover{
+.custom-radio input:hover + .radio-btn{
     border: 1px solid #fcd665;
     background: #fcd665;
+}
+
+.custom-radio input:checked + .radio-btn{
+    border: 1px solid #1f1f1f;
+    background: #1f1f1f;
+    color: #ffbf00;
+}
+
+.custom-radio input:checked + .radio-btn > i{
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
 }
 
 /* Bets */
