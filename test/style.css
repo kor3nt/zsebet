@@ -14,70 +14,46 @@ body{
 }
 
 /* Navigation */
-
 #Nav{
-    background: #1f1f1f;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    transition: 0.6s;
+    background-color: #1f1f1f;
+    width: 100%;
 }
 
 #NavbarContainer{
-    display: flex;
-    justify-content: space-between;
-    height: 80px;
-    z-index: 1;
-    width: 100%;
-    padding: 0 10px;
-    max-width: 1500px;
+    padding: 20px 50px;
 }
 
 #NavLogo{
-    color: #fff;
-    justify-self: flex-start;
-    cursor: pointer;
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-    margin-left: 0px;
-    font-weight: bold;
+    width: 20%;
+    float: left;
+    color: white;
 }
 
 .yellow-color{
     color: #ffbf00;
 }
 
-#NavMenu{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    text-align: center;
-    margin-right: -22px;
+#NavInfo{
+    
+    width: 80%;
+    float: left;
+    text-align: right;
 }
 
-.NavItem{
-    height: 80px;
+#NavMenu{
+    padding: 10px 0px;
+    list-style: none;
+    display: inline-flex;
 }
 
 .NavLinks{
-    font-weight: bold;
-    color: #fff;
-    display: flex;
-    align-items: center;
+    padding: 0px 20px;
     text-decoration: none;
-    padding: 0 1rem;
-    height: 100%;
-    cursor: pointer;
+    color: white;
 }
 
 .NavLinks:hover{
-    color: #777777;
+    color: #777777
 }
 
 .yellow-color-nav{
@@ -89,14 +65,12 @@ body{
 }
 
 .yellow-coins{
+    text-align: center;
     background-color: #ffbf00;
-    padding-top: 2px;
-    padding-right: 1px;
-    height: 20px;
-    width: 20px;
+    padding: 3px 6px;
     border-radius: 15px;
     color: white;
-    margin-right: -25px;
+    margin-left: 20px;
     z-index: 2;
 }
 
@@ -105,91 +79,51 @@ body{
 }
 
 #Bg-coins{
-    padding: 5px 10px 5px 30px;
+    padding: 5px 0px 5px 10px;
     background-color: black;
     border-radius: 15px;
 }
 
-/* Navigation - mobile */
-#MobileIcon {
+#userNav{
     display: none;
 }
-#SidebarContainer{
+
+
+/* Button Phone */
+.shopButton{
+    display: none;
     position: fixed;
-    z-index: 999;
-    width: 100%;
-    height: 100%;
-    background: #0d0d0d;
-    display: grid;
-    align-items: center;
-    top: 0;
-    left: 0;
-    transition: 0.3s ease-in-out;
-    opacity: 0%;
-    left: -100%;
+    right: 20px;
+    bottom: 30px;
 }
 
-#CloseIcon{
-    color: #fff;
+.shopButton a{
+    color: white;
+    text-decoration: none;
+    background: #0099ff;
+    padding: 20px 20px;
+    border-radius: 50px;
+}
+
+.shopButton a:hover{
+    background: #6dc5ff;
 }
 
 #Icon{
+    display: none;
     position: absolute;
     top: 1.2rem;
     right: 1.5rem;
     background: transparent;
-    font-size: 2rem;
     cursor: pointer;
     outline: none;
+    color: red;
 }
 
-#SidebarWrapper{
-    color: #fff;
+#Icon:hover{
+    color: rgb(255, 160, 160);
 }
 
-#SidebarMenu{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 80px);
-    text-align: center;
-}
-
-.SidebarLink{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    text-decoration: none;
-    list-style: none;
-    transition: 0.2s ease-in-out;
-    text-decoration: none;
-    color: #fff;
-    cursor: pointer;
-}
-
-.SidebarLink:hover{
-    color: #ffbf00;
-    transition: 0.2s ease-in-out;
-}
-
-#SidebarRoute{
-    border-radius: 50px;
-    background: #ffbf00;
-    white-space: nowrap;
-    padding: 16px 64px;
-    color: #010606;
-    font-size: 16px;
-    outline: none;
-    border: none;
-    transition: all 0.2 ease-in-out;
-    text-decoration: none;
-}
-
-#SidebarRoute:hover{
-    transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #010606;
-}
 
 /* Main */
 .Section{
@@ -206,8 +140,13 @@ body{
     width: 98%;
 }
 
+.left-panel{
+    width: 80%;
+    float: left;
+}
+
 .History{
-    width: 20%;
+    width: 30%;
     float: left;
     margin-bottom: 15px;
     position: -webkit-sticky;
@@ -219,13 +158,13 @@ body{
 }
 
 .Main{
-    width: 60%;
+    width: 70%;
     float: left;
     margin-bottom: 15px;
     padding: 0 15px;
 }
 
-.Bets{
+#betMenu{
     width: 20%;
     float: left;
     margin-bottom: 15px;
@@ -234,10 +173,12 @@ body{
     position: sticky;
     top: 100px;
 
-    height: 800px;
+    height: 600px;
 
     background: #fff;
     border-radius: 5px;
+
+    transition: 0.3s ease-in-out;
 }
 
 .text-yellow{
@@ -253,7 +194,7 @@ body{
     padding: 0 15px;
 
     overflow-y: auto;
-    max-height: 800px;
+    max-height: 600px;
 }
 
 .player{
@@ -401,10 +342,10 @@ body{
 .MatchElements{
     padding: 0 15px;
     overflow-y: auto;
-    max-height: 600px;
+    max-height: 400px;
 }
 
-.Bets h4{
+#betMenu h4{
     padding-top: 20px;
     padding-bottom: 15px;
     text-align: center;
@@ -436,7 +377,7 @@ body{
     font-weight: bold;
 }
 
-.BetsInfo{
+#betMenuInfo{
     width: 95%;
     float: left;
 }
@@ -476,7 +417,7 @@ body{
     width: 100%;
 }
 
-.BetsBtn{
+#betMenuBtn{
     padding: 10px 0;
     margin-top: 20px;
     width: 100%;
@@ -485,7 +426,7 @@ body{
     background: #ffbf00;
 }
 
-.BetsBtn:hover{
+#betMenuBtn:hover{
     border: 1px solid #fcd665;
     background: #fcd665;
 }
@@ -493,38 +434,160 @@ body{
 
 /* Media - Phones */
 
-@media screen and (max-width: 960px){
-    #NavMenu{
+@media screen and (max-width: 1500px){
+    .History{
+        width: 100%;
+        float: left;
+        margin-bottom: 15px;
+        position: relative;
+        top: 0px;
+
+    }
+    
+    .Main{
+        width: 100%;
+        float: left;
+        padding: 0px 0px;
+    }
+    .left-panel{
+        padding: 0px 20px;
+        width: 60%;
+        float: left;
+    }
+    
+    #betMenu{
+        width: 40%;
+        float: left;
+    }
+
+    .left{
+        
+        width: 60%;
+        float: left;
+    }
+    
+    .center{
+        width: 40%;
+        float: left;
+        text-align: center;
+    }
+    
+    .right{
+        padding-top: 20px;
+        width: 100%;
+        float: left;
+    }
+
+    .HistoryElements{
+        max-height: 300px;
+    }
+}
+
+@media screen and (max-width: 750px){
+    #userNav{
+        display: block;
+    }
+
+    #profil{
         display: none;
     }
 
-    #MobileIcon{
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 60%);
-        font-size: 1.8rem;
-        cursor: pointer;
-        color: #fff;
+    #tickets{
+        display: none;
     }
 
     #NavLogo{
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translate(10%, 60%);
+        width: 100%;
     }
     
+    #NavInfo{ 
+        width: 100%;
+        text-align: center;
+    }
+    .NavLinks{
+        padding: 0px;
+        font-size: 16px;
+    }
+
+    .NavItem{
+        padding: 20px;
+    }
+
     #NavbarContainer{
-        max-width: 100px;
+        padding: 10px 5px;
+    }
+
+    #NavLogo{
+        text-align: center;
+    }
+
+    #NavMenu{
+        padding: 0px;
+    }
+
+    .History{
+        width: 100%;
     }
     
+    .Main{
+        width: 100%;
+    }
+    .left-panel{
+        width: 100%;
+    }
+    
+    #betMenu{
+        width: 40%;
+    }
+
+    .left{
+        width: 100%;
+    }
+    
+    .center{
+        padding-top: 5px;
+        width: 100%;
+    }
+    
+    .right{
+        width: 100%;
+    }
+    .HistoryElements{
+        max-height: 200px;
+    }
+
+    .shopButton{
+        display: block;
+    }
+
+    #Icon{
+        display: block;
+    }
+
+    #betMenu{
+        width: 100%;
+        opacity: 0%;
+        left: -100%;
+        margin-bottom: 15px;
+        top: 0;
+        position: absolute;
+        height: 100%;
+    }
+
+    .MatchElements{
+        max-height: 80%;
+    }
+
+    #betMenu input{
+        margin-top: 15px;
+    }
 }
 
-@media screen and (max-width: 480px){
-    #SidebarMenu{
-        grid-template-rows: repeat(6, 60px);
+@media screen and (max-width: 285px){
+    .radio-btn{
+        width: 92%;
+        margin-left: 4%;
+        margin-right: 4%;
+        margin-top: 10px
     }
 }

@@ -18,15 +18,31 @@
         <div id="NavbarContainer">
             <p id="NavLogo">ZSE<span class='yellow-color'>BET</span></p>
             
+            <div id="MobileIcon"><i id="Menu" class="fa fa-bars" aria-hidden="true"></i></div>
+
             <div id="NavInfo">
                 <ul id="NavMenu">
-                    <li class="NavItem"><a class="NavLinks" href="#"><span class="yellow-coins">+</span><span id='Bg-coins'>&nbsp; 100000</a></span></li>
-                    <li class="NavItem"><a class="NavLinks" href="#"><i class="fa fa-ticket yellow-color-nav" aria-hidden="true"></i><span>&nbsp; Moje kupony</span></a></li>
+                    <li class="NavItem"><a class="NavLinks" href="#"><span class="yellow-coins">+</span><span id='Bg-coins'>&nbsp; 100000</span></a></li>
+                    <li class="NavItem"><a class="NavLinks" href="#"><i class="fa fa-ticket yellow-color-nav" aria-hidden="true"></i><span id='tickets'>&nbsp; Moje kupony</span></a></li>
                     <li class="NavItem"><a class="NavLinks" href="#">Kor3nt</a></li>
                 </ul>
             </div>
         </div>
     </div>
+
+    <aside id="SidebarContainer">
+        <div id="Icon">
+            <i id="CloseIcon" class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        
+        <div id="SidebarWrapper">
+            <ul id="SidebarMenu">
+                <li id='phone-coins' class="SidebarLink"><a class="NavLinks" href="#"><span class="yellow-coins">+</span><span id='Bg-coins'>&nbsp; 100000</span></a></li>
+                <li id='phone-ticket' class="SidebarLink"><a class="NavLinks" href="#"><i class="fa fa-ticket yellow-color-nav" aria-hidden="true"></i><span id='tickets'>&nbsp; Moje kupony</span></a></li>
+                <li id='phone-profil' class="SidebarLink"><a class="NavLinks" href="#">Kor3nt</a></li>
+            </ul>
+        </div>
+    </aside>
 
     <div class="Section">
         <div class="Container">
@@ -124,5 +140,6 @@
     </div>
     
     <script src="script.js"></script>
+    <script src="menu.js"></script>
 </body>
 </html>

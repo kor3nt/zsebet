@@ -24,11 +24,10 @@ function addBet(element) {
     bets[element.value] = {
         'id': element.value,
         'yourBet': element.id,
-        'game': game,
-        'multiple': multiple
+        'game': game
     };
 
-     console.log(bets);
+    console.log(bets);
     // console.log(game);
     // console.log(teamA);
     // console.log(teamB);
