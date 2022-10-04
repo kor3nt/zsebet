@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $("#submit").click(function( event ){
-        // Get input's id
+        // Ustawienie zmiennym wartości z inputów
         const name1 = $("#name1").val();
         const surname = $("#surname").val();
         const username = $("#username").val();
@@ -8,10 +8,10 @@ $(document).ready(function() {
         const password = $("#password").val(); 
         const password2 = $("#password2").val();
 
-        // Random otp code
+        // Generowanie randomowego kodu otp
         const otp = Math.floor(100000 + Math.random() * 900000);
 
-        // Check values of inputs and validate 
+        // Sprawdzanie zmiannych funkcjami do walidacji
         const nameValidate = checkName(name1.trim(), document.getElementById('errors-name'), "Podaj imię!");
         const surnameValidate = checkName(surname.trim(), document.getElementById('errors-surname'), "Podaj nazwisko!");
         const usernameValidate = checkUsername(username);
@@ -19,7 +19,7 @@ $(document).ready(function() {
         const passwordValidate = checkPassword(password);
         const confirmPasswordValidate = CheckConfirmPassowrd(password2, password);
         
-        // Send data to php file
+        // Wysyłanie danych do pliku php
         if(nameValidate && surnameValidate && usernameValidate && emailValidate && passwordValidate && confirmPasswordValidate){
             $('.loading').show();
             $.ajax({
@@ -37,26 +37,26 @@ $(document).ready(function() {
             success: function(data) {
                 // console.log(data);
 
-                // Nick already used
+                // Nick już istnieje w bazie
                 const returnNick = /nicks/;
                 if(returnNick.test(data)){
                     document.getElementById('errors-username').innerHTML = "Istnieje już gracz o takim nicku!";
                     $('.loading').hide();
                 }
                 
-                // Email already used
+                // Email został użyty, przypisany do innego konta
                 const returnEmail = /emails/;
                 if(returnEmail.test(data)){
                     document.getElementById('errors-email').innerHTML = "Istnieje już konto przypisane do tego adresu e-mail!";
                     $('.loading').hide();
                 }
 
-                // Successfully returned
+                // Zwrócenie poprawnego wyniku
                 if(/success/.test(data)){
                     window.location.href = "../Verify";
                 }
 
-                // The server is down
+                // Serwer wyłączony / awaria
                 if(/servers/.test(data)){
                     alert('Błąd serwera! Przepraszamy za niedogodności i prosimy o skontaktowanie się z administracją!')
                 }
@@ -68,7 +68,7 @@ $(document).ready(function() {
     
 });
 
-// Validate name and surname
+// Walidacja imienia i nazwiska
 function checkName(value, error, errorValue){
     if(!value || !/^[ a-zA-ZąćęłńóżźśĄĆĘŁŃÓŻŹĆŚ]{2,}$/.test(value)){ 
         error.innerHTML = errorValue;
@@ -80,7 +80,7 @@ function checkName(value, error, errorValue){
     }
 }
 
-// Validate username
+// Walidacja nicku
 function checkUsername(username){
     if(!username.trim() || !/^[a-zA-Z0-9ąćęłńóżźśĄĆĘŁŃÓŻŹĆŚ._%+-]{3,}$/.test(username.trim())){
         document.getElementById('errors-username').innerHTML = "Podaj nick!";
@@ -92,7 +92,7 @@ function checkUsername(username){
     }  
 }
 
-// Validate email
+// Walidacja emaila
 function checkEmail(email){
     if(!email.trim()){
         document.getElementById('errors-email').innerHTML = "Podaj e-mail!";
@@ -108,7 +108,7 @@ function checkEmail(email){
     } 
 }
 
-// Validate password
+// Walidacja hasła
 function checkPassword(password){
     if(!password.trim()){
         document.getElementById('errors-password').innerHTML = 'Podaj hasło!';
@@ -136,7 +136,7 @@ function checkPassword(password){
     }
 }
 
-// Validate confirmed password
+// Walidacja potwierdzającego hasła
 function CheckConfirmPassowrd(password2, password){
     if(!password2.trim()){
         document.getElementById('errors-password2').innerHTML = 'Musisz potwierdzić hasło!';

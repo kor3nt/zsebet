@@ -5,7 +5,7 @@ mysqli_report(MYSQLI_REPORT_STRICT);
 try 
 {
 	$connect = new mysqli($host, $db_user, $db_password, $db_name);
-	// Get variable from js file
+	// Uzyskanie danych z pliku js
 	$token = mysqli_real_escape_string($connect, $_POST['token']);
 	$email = mysqli_real_escape_string($connect, $_POST['email']);
 	$password = mysqli_real_escape_string($connect, $_POST['password']);
@@ -19,7 +19,7 @@ try
 	}
 	else
 	{
-		// Check token and email 
+		// Sprawdzenie maila i tokenu
 		$result = $connect->query("SELECT id FROM zsebet_users WHERE email='$email' AND token='$token'");		
 
         if (!$result) throw new Exception($connect->error);

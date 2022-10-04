@@ -39,18 +39,18 @@ $(document).ready(function() {
                 cache: false,
                 success: function(data) {
 
-                    // The otp is not the same
+                    // Kod się nie zgadza z tym z bazy
                     if(/error/.test(data)){
                         document.getElementById('error').innerHTML = "Kod jest nie poprawny!";
                         $('.loading').hide();
                     }
 
-                    // Successfully returned
+                    // Zwrócenie poprawnego wyniku
                     if(/success/.test(data)){
-                        window.location.href = "../";
+                        window.location.href = "../Bets";
                     }
                     
-                    // The server is down
+                    // Serwer wyłączony / awaria
                     if(/servers/.test(data)){
                         alert('Błąd serwera! Przepraszamy za niedogodności i prosimy o skontaktowanie się z administracją!')
                     }
@@ -95,8 +95,8 @@ function sendMail(){
         });
 
 
-        //set time here
-        time = 5;
+        // Ustaw czas tutaj
+        time = 30;
     }
    
 

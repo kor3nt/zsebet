@@ -1,10 +1,10 @@
 $(document).ready(function() {
     $("#submit").click(function( event ){
-        // Get input's id
+        // Pozyskanie danych z inputów
         const email = $("#email").val();
         const password = $("#password").val(); 
         
-        // Send data to php file
+        // Przesłanie danych do pliku php
         if(checkEmail(email) && checkPassword(password)){
             $('.loading').show();
             $.ajax({
@@ -18,23 +18,23 @@ $(document).ready(function() {
             success: function(data) {
                 console.log(data);
                 
-                // Logins error
+                // Niepoprawny login
                 if(/error/.test(data)){
                     document.getElementById('error').innerHTML = 'Podaj poprawny email lub hasło!';
                     $('.loading').hide();
                 }
 
-                // OTP returned
+                // Niezweryfikowany użytkownik, przekierowanie do pliku z weryfikacja OTP 
                 if(/otp/.test(data)){
-                    window.location.href = "../verify";
+                    window.location.href = "../Verify";
                 }
 
-                // Successfully returned
+                // Zwrócenie poprawnego wyniku
                 if(/success/.test(data)){
-                    window.location.href = "../";
+                    window.location.href = "../Bets";
                 }
 
-                // The server is down
+                // Serwer wyłączony / awaria
                 if(/servers/.test(data)){
                     alert('Błąd serwera! Przepraszamy za niedogodności i prosimy o skontaktowanie się z administracją!')
                 }

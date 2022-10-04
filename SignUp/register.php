@@ -8,7 +8,7 @@ mysqli_report(MYSQLI_REPORT_STRICT);
 try 
 {
 	$connect = new mysqli($host, $db_user, $db_password, $db_name);
-	// Get variable from js file
+	// Uzyskanie danych z pliku js
 	$name = mysqli_real_escape_string($connect, $_POST['name']);
 	$surname = mysqli_real_escape_string($connect, $_POST['surname']);
 	$username = mysqli_real_escape_string($connect, $_POST['username']);
@@ -16,7 +16,7 @@ try
 	$password = mysqli_real_escape_string($connect, $_POST['password']);
 	$otp = $_POST['otp'];
 	$token = md5(rand());
-	// 
+
 	$its_ok = true;
 
 	$password = password_hash($password, PASSWORD_DEFAULT);
@@ -27,7 +27,7 @@ try
 	}
 	else
 	{
-		// Whether the email is in the database
+		// Sprawdzenie czy email został już użyty
 		$result = $connect->query("SELECT id FROM zsebet_users WHERE email='$email'");		
 
         if (!$result) throw new Exception($connect->error);
@@ -39,7 +39,7 @@ try
 			echo 'emails';
 		}		
 
-		// Whether the nick is in the database
+		// Sprawdzenie czy nick został już użyty
 		$result = $connect->query("SELECT id FROM zsebet_users WHERE nick='$username'");
 				
 		if (!$result) throw new Exception($connect->error);
@@ -60,7 +60,7 @@ try
 				{
 					$_SESSION['verify'] = 0;
 					$_SESSION['otp'] = $otp;
-					$_SESSION['nick'] = $username;
+					$_SESSION['username'] = $username;
 					$_SESSION['email'] = $email;
 					echo 'success';
 

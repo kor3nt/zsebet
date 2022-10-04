@@ -1,9 +1,9 @@
 $(document).ready(function() {
     $("#submit").click(function( event ){
-        // Get input's id
+        // Pozyskanie danych z inputów
         const email = $("#email").val();
         
-        // Send data to php file
+        // Przesłanie danych do pliku php
         if(checkEmail(email)){
             $('.loading').show();
             $.ajax({
@@ -16,18 +16,18 @@ $(document).ready(function() {
                 success: function(data) {
                     console.log(data);
                     
-                    // Return error
+                    // Zwrócenie błędu
                     if(/error/.test(data)){
                         document.getElementById('error').innerHTML = 'Podaj poprawny email!';
                         $('.loading').hide();
                     }
 
-                    // Successfully returned
+                    // Zwrócenie poprawnego wyniku
                     if(/success/.test(data)){
                         $('#send').show();
                     }
 
-                    // The server is down
+                    // Serwer wyłączony / awaria
                     if(/servers/.test(data)){
                         alert('Błąd serwera! Przepraszamy za niedogodności i prosimy o skontaktowanie się z administracją!')
                     }
@@ -40,7 +40,7 @@ $(document).ready(function() {
 });
 
 
-// Validate email
+// Walidacja emaila
 function checkEmail(email){
     if(!email.trim()){
         document.getElementById('error').innerHTML = 'Podaj poprawny email!';

@@ -1,5 +1,7 @@
-
 <?php 
+    session_start();
+
+    // Pobieranie nicków i ilości coinsów do tabelki graczy
     require_once "../connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
     try {
@@ -10,11 +12,12 @@
             throw new Exception(mysqli_connect_errno());
         }
         else{
-            if ($result = @$connect->query("SELECT * FROM zsebet_amount ORDER BY coins DESC"))
+            $nick = $_SESSION['username'];
+            if ($result = @$connect->query("SELECT * FROM zsebet_amount where nick LiKE '$nick'"))
             {
-                while($row = $result->fetch_assoc()){
-                    $table[] = $row;
-                }
+                $row = $result->fetch_assoc();
+                $table['nick'] = $nick;
+                $table['coins'] = $row['coins'];
                 echo json_encode($table);
             }
             else{

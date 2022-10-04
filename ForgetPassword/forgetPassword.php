@@ -2,15 +2,18 @@
     session_start();
     if ((isset($_SESSION['verify'])) && ($_SESSION['verify'] == 0))
     {
-        header('Location: ../verify');
+        header('Location: ../Verify');
+        exit();
     }
 
     if((isset($_SESSION['verify'])) && ($_SESSION['verify'] == 1)){
-        header('Location: ../');
+        header('Location: ../Bets');
+        exit();
     }
 
     if(!$_GET['token'] || !$_GET['email']){
         header('Location: ../ForgetPassword');
+        exit();
     }
 ?>
 
@@ -23,7 +26,7 @@
     <title>ZSEBET</title>
     <link rel="stylesheet" href="style.css">
 
-    <!-- Icons -->
+    <!-- Ikony -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- JQuery -->
@@ -38,12 +41,12 @@
         
         <div class='form-content-right'>
             
-            <!-- Loading screen -->
+            <!-- Ekran ładowania -->
             <div class="loading">
                 <div class="lds-ring"><div></div><div></div></div>
             </div>
 
-            <!-- success screen -->
+            <!-- Ekran powodzenia -->
             <div id="send">
                 <div class="wrapper">
                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
@@ -56,7 +59,7 @@
                 </div>
             </div>
 
-            <!-- Form -->
+            <!-- Formularz -->
             <form class='form' id='form'>
                 <h1>ZSE<span class="span-color">BET</span> </h1>
                 
@@ -85,6 +88,8 @@
             </form>
         </div>
     </div>
+
+    <!-- Footer -->
     <footer>
         <div id="FooterWrap">
             <div id="SocialMedia">

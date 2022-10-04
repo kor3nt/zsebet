@@ -9,7 +9,7 @@
     try 
     {
         $connect = new mysqli($host, $db_user, $db_password, $db_name);
-        // Get variable from js file
+        // Uzyskanie danych z pliku js
         $email = mysqli_real_escape_string($connect, $_POST['email']);
         $password = mysqli_real_escape_string($connect, $_POST['password']);
 
@@ -30,10 +30,10 @@
 
                         if (password_verify($password, $row['password'])){
                             $_SESSION['username'] = $row['nick'];
-                            $_SESSION['email'] = $row['email'];
                             $_SESSION['verify'] = $row['verify'];
                             
                             if($_SESSION['verify'] == 0){
+                                $_SESSION['email'] = $row['email'];
                                 $_SESSION['otp'] = $row['otp'];
                                 echo 'otp';
                                 return false;

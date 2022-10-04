@@ -9,7 +9,7 @@ body{
     background: #181818;
 }
 
-/* Form */
+/* Formularz */
 .form-container {
     margin: 30px auto;
     width: 1000px;
@@ -214,7 +214,7 @@ footer{
     text-decoration: underline;
 }
 
-/* Media - Phones */
+/* Media - Telefony - RWD */
 @media screen and (max-width: 1000px ) {
     .form-content-right{
         width: 100%;
@@ -250,7 +250,7 @@ footer{
 }
 
 
-/* Loading screen */
+/* Ekran ładowania */
 .loading{
     text-align: center;
     background: rgba(0, 0, 0, 0.5);

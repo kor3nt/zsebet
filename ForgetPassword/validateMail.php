@@ -10,7 +10,7 @@
     {
         $connect = new mysqli($host, $db_user, $db_password, $db_name);
 
-        // Get variable from js file
+        // Uzyskanie danych z pliku js
         $email =  mysqli_real_escape_string($connect,$_POST['email']);
 
         if ($connect->connect_errno!=0)
@@ -19,6 +19,7 @@
         }
         else
         {
+            // Sprawdzanie czy istnieje taki email i token
             if ($result = @$connect->query(
             sprintf("SELECT * FROM zsebet_users WHERE email LIKE '%s'",
             mysqli_real_escape_string($connect, $email))))

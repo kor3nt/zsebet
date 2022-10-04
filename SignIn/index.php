@@ -1,11 +1,13 @@
 <?php 
     session_start();
     if ((isset($_SESSION['verify'])) && ($_SESSION['verify'] == 0)){
-        header('Location: ../verify');
+        header('Location: ../Verify');
+        exit();
     }
 
     if((isset($_SESSION['verify'])) && ($_SESSION['verify'] == 1)){
-        header('Location: ../');
+        header('Location: ../Bets');
+        exit();
     }
 ?>
 
@@ -33,13 +35,13 @@
         
         <div class='form-content-right'>
             
-            <!-- Loading screen -->
+             <!-- Ekran ładowania -->
             <div class="loading">
                 <div class="lds-ring"><div></div><div></div></div>
             </div>
             
 
-            <!-- Form -->
+            <!-- Formularz -->
             <form class='form' id='form'>
                 <h1>ZSE<span class="span-color">BET</span> </h1>
                 <div class='form-inputs'>
@@ -61,6 +63,8 @@
             </form>
         </div>
     </div>
+
+    <!-- Footer -->
     <footer>
         <div id="FooterWrap">
             <div id="SocialMedia">

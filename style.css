@@ -9,7 +9,7 @@ html {
     font-family: 'Encode Sans Expanded', sans-serif;
 }
 
-/* Navigation */
+/* Nawigacja / Menu */
 #Nav{
     background: none;
     height: 80px;
@@ -109,7 +109,7 @@ html {
 }
 
 
-/* Navigation - Phone */
+/* Menu na telegonie */
 #MobileIcon {
     display: none;
 }
@@ -196,7 +196,7 @@ html {
     color: #010606;
 }
 
-/* Hero Section */
+/* Baner główny */
 #HeroContainer{
     background: #0c0c0c;
     display: flex;
@@ -318,7 +318,7 @@ html {
     display: none;
 }
 
-/* Info Section - Colors and Columns*/
+/* Sekcja informacyjna - Koloty itp. */
 .InfoContainerBlack{
     background-color: #010606;
 }
@@ -335,18 +335,18 @@ html {
     color: #f7f8fa;
 }
 
-/* Img in left site */
+/* Zdjęcie po lewej stronie */
 .InfoRowRight{
     grid-template-areas: 'col2 col1';
 }
 
-/* Img in right site */
+/* Zdjęcie po prawej stronie */
 .InfoRowLeft{
     grid-template-areas: 'col1 col2';
 }
 
 
-/* Info Section */
+/* Sekcja informacyjna */
 .InfoSection{
     padding-top: 700px;
 }
@@ -489,7 +489,7 @@ footer{
     text-decoration: underline;
 }
 
-/* Media - Phones */
+/* Media - Telefony - RWD */
 @media screen and (max-width: 960px) {
     #Nav{
         transition: 0.6s all ease;

@@ -3,20 +3,20 @@ const menuClose = document.getElementById("CloseIcon");
 const overlay = document.getElementById("SidebarContainer");
 
 
-// Open menu - phone
+// Otwieranie menu na telefonie
 menuOpen.addEventListener("click", () => {
     overlay.style.opacity = "100%"
     overlay.style.left = "0%"
 });
 
-// Close menu click X in menu - phone 
+// Zamknnięcie menu na telefonie, przycisk X
 menuClose.addEventListener("click", () => {
     overlay.style.opacity = "0%"
     overlay.style.left = "-100%"
 });
 
 
-// Close when click item in menu - phone
+// Zamykanie menu za każdym razem jak się kliknie coś z listy
 const home = document.getElementById("phone-home");
 const about = document.getElementById("phone-about");
 const joinus = document.getElementById("phone-joinus");

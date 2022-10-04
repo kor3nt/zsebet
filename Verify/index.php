@@ -3,6 +3,7 @@
     if (!isset($_SESSION['otp']) || !($_SESSION['verify'] == 0))
     {
         header('Location: ../');
+        exit();
     }
 ?>
 
@@ -15,7 +16,7 @@
     <title>ZSEBET</title>
     <link rel="stylesheet" href="style.css">
 
-    <!-- Icons -->
+    <!-- Ikony -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- JQuery -->
@@ -30,13 +31,13 @@
         
         <div class='form-content-right'>
             
-            <!-- Loading screen -->
+            <!-- Ekran ładowania -->
             <div class="loading">
                 <div class="lds-ring"><div></div><div></div></div>
             </div>
             
 
-            <!-- Form -->
+            <!-- Formularz -->
             <form class='form' id='form'>
                 <h1><span class="span-color">Został ostatni krok!</span> Podaj kod weryfikacyjny i utwórz konto.</h1>
 
@@ -56,6 +57,7 @@
             </form>
         </div>
     </div>
+    <!-- Footer -->
     <footer>
         <div id="FooterWrap">
             <div id="SocialMedia">

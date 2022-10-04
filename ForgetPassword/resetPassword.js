@@ -1,12 +1,12 @@
 $(document).ready(function() {
     $("#submit").click(function( event ){
-        // Get input's id
+        // Pozyskanie danych z inputów
         const token = $("#token").val();
         const email = $("#email").val();
         const password = $("#password").val(); 
         const password2 = $("#password2").val();
         
-        // Send data to php file
+        // Przesłanie danych do pliku php
         if(checkPassword(password) && CheckConfirmPassowrd(password2, password) && checkEmail(email)){
             $('.loading').show();
             $.ajax({
@@ -21,18 +21,18 @@ $(document).ready(function() {
             success: function(data) {
                 console.log(data);
 
-                // Email and Token is not correct
+                // Email lub Token niepoprawny
                 if(/token/.test(data)){
                     document.getElementById('error').innerHTML = "Nie poprawne dane!";
                     $('.loading').hide();
                 }
 
-                // Successfully returned
+                // Zwrócenie poprawnego wyniku
                 if(/success/.test(data)){
                     $('#send').show();
                 }
 
-                // The server is down
+                // Serwer wyłączony / awaria
                 if(/servers/.test(data)){
                     alert('Błąd serwera! Przepraszamy za niedogodności i prosimy o skontaktowanie się z administracją!')
                 }
@@ -44,7 +44,7 @@ $(document).ready(function() {
     
 });
 
-// Validate email
+// Walidacjia emaila
 function checkEmail(email){
     if(!email.trim()){
         document.getElementById('errors-email').innerHTML = "Podaj e-mail!";
@@ -60,7 +60,7 @@ function checkEmail(email){
     } 
 }
 
-// Validate password
+// Walidacjia Hasła
 function checkPassword(password){
     if(!password.trim()){
         document.getElementById('errors-password').innerHTML = 'Podaj hasło!';
@@ -88,7 +88,7 @@ function checkPassword(password){
     }
 }
 
-// Validate confirmed password
+// Walidacja potwierdzającego hasła
 function CheckConfirmPassowrd(password2, password){
     if(!password2.trim()){
         document.getElementById('errors-password2').innerHTML = 'Musisz potwierdzić hasło!';
