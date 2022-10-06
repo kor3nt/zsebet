@@ -61,69 +61,7 @@
                         </div>
 
                         <div class="Main">
-                            <div class="MainMatch">
-                                <div class="row">
-                                    <div class="left">
-                                        <small>Counter-Strike Global Offensive</small>
-                                        <h4>Fasolka Funclub - Mieszanka XD</h4>
-                                    </div>
-                                    <div class="center">
-                                        <small>21.02.2022</small><br>
-                                        <small>21:00</small>
-                                    </div>
-                                    <div class="right">
-                                        <form>
-                                            <label class="custom-radio">
-                                                <input type="radio" name="csgo:fasolka-mieszanka:2.1" value="21" id='fasola' onclick="addBet(this);" required>
-                                                <span class="radio-btn">
-                                                    Fasolka Funclub <br>
-                                                    <span>4.20</span>
-                                                </span>
-                                            </label>
-
-                                            <label class="custom-radio">
-                                                <input type="radio" name="csgo:fasolka-mieszanka:2.1" value="21" id='mieszanka' required onclick="addBet(this);">
-                                                <span class="radio-btn">
-                                                    Mieszanka XD <br>
-                                                    <span>4.20</span>
-                                                </span>
-                                            </label>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="MainMatch">
-                                <div class="row">
-                                    <div class="left">
-                                        <small>Counter-Strike Global Offensive</small>
-                                        <h4>FFC - XD</h4>
-                                    </div>
-                                    <div class="center">
-                                        <small>21.02.2022</small><br>
-                                        <small>21:00</small>
-                                    </div>
-                                    <div class="right">
-                                        <form>
-                                            <label class="custom-radio">
-                                                <input type="radio" name="csgo:ffc-xd:2.1" value="22" id='ffc' required onclick="addBet(this);">
-                                                <span class="radio-btn">
-                                                    FFC <br>
-                                                    <span>4.20</span>
-                                                </span>
-                                            </label>
-
-                                            <label class="custom-radio">
-                                                <input type="radio" name="csgo:ffc-xd:2.1" value="22" id='xd' required onclick="addBet(this);">
-                                                <span class="radio-btn">
-                                                    XD <br>
-                                                    <span>4.20</span>
-                                                </span>
-                                            </label>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            
+                          
                         </div>
                     </div>
 
@@ -139,7 +77,7 @@
                         <div class="InfoBets">
                             <small>Łączna stawka: <span id='totalBet' class="text-bold">0</span></small>
                             <p>Potencjalna wygrana: <span id='winning' class="text-bold text-blue">0</span></p>
-
+                            <small id='error'>Nie posiadasz wystarczającej liczby ZSE COINS!</small>
                             <button class="BetsBtn" id='betMenuBtn'>Obstaw</button>
                         </div>
                     </div>
@@ -148,6 +86,7 @@
         </div>  
     </div>
     
+    <script src="write.js"></script>
     <script src="script.js"></script>
     <script src="shopButton.js"></script>
 </body>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 20 Wrz 2022, 20:14
+-- Czas generowania: 06 Paź 2022, 22:59
 -- Wersja serwera: 10.4.21-MariaDB
 -- Wersja PHP: 8.0.10
 
@@ -33,6 +33,44 @@ CREATE TABLE `zsebet_amount` (
   `coins` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
+--
+-- Zrzut danych tabeli `zsebet_amount`
+--
+
+INSERT INTO `zsebet_amount` (`id`, `nick`, `coins`) VALUES
+(2, 'kor3nt1', 10001),
+(3, 'kor3nt2', 123123),
+(4, 'kor3nt12', 1000123),
+(5, 'kor3nt', 1000);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `zsebet_match`
+--
+
+CREATE TABLE `zsebet_match` (
+  `id` int(11) NOT NULL,
+  `TeamA` text COLLATE utf8_polish_ci NOT NULL,
+  `multipleTeamA` float NOT NULL,
+  `costTeamA` int(11) NOT NULL,
+  `TeamB` text COLLATE utf8_polish_ci NOT NULL,
+  `multipleTeamB` float NOT NULL,
+  `costTeamB` int(11) NOT NULL,
+  `game` text COLLATE utf8_polish_ci NOT NULL,
+  `winner` text COLLATE utf8_polish_ci DEFAULT NULL,
+  `date` datetime NOT NULL,
+  `block` int(11) NOT NULL COMMENT '0 - można obstawiać\r\n1 - zablokowany mecz'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `zsebet_match`
+--
+
+INSERT INTO `zsebet_match` (`id`, `TeamA`, `multipleTeamA`, `costTeamA`, `TeamB`, `multipleTeamB`, `costTeamB`, `game`, `winner`, `date`, `block`) VALUES
+(1, 'FFC', 2.1, 100, 'XD', 4.5, 10, 'Counter Strike Global Offensive', NULL, '2022-10-05 22:10:50', 0),
+(2, 'Fasola Funclub', 24, 0, 'Mieszanka', 3.1, 100, 'Counter Strike Global Offensive', NULL, '2022-10-05 20:10:50', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -46,11 +84,18 @@ CREATE TABLE `zsebet_users` (
   `name` text COLLATE utf8_polish_ci NOT NULL,
   `surname` text COLLATE utf8_polish_ci NOT NULL,
   `email` text COLLATE utf8_polish_ci NOT NULL,
-  `verify` int(11) NOT NULL,
+  `verify` int(11) NOT NULL COMMENT '0 - niezweryfikowany\r\n1 - zweryfikowany\r\n2 - zablokowany',
   `otp` text COLLATE utf8_polish_ci NOT NULL,
   `role` text COLLATE utf8_polish_ci NOT NULL,
   `token` text COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `zsebet_users`
+--
+
+INSERT INTO `zsebet_users` (`id`, `nick`, `password`, `name`, `surname`, `email`, `verify`, `otp`, `role`, `token`) VALUES
+(2, 'kor3nt', '$2y$10$W8LBJrNbskdyZbT2oQfOYuVmS/fevp4AjknnBdTEfgllp5N2iiRrq', 'Klaudiusz', 'Jędrzejczyk', 'klaudiusz.jedrzejczyk@zse.krakow.pl', 1, '170507', 'user', 'd19521a1e702e5d8a0df0fb4a1bef3eb');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -60,6 +105,12 @@ CREATE TABLE `zsebet_users` (
 -- Indeksy dla tabeli `zsebet_amount`
 --
 ALTER TABLE `zsebet_amount`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `zsebet_match`
+--
+ALTER TABLE `zsebet_match`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -76,13 +127,19 @@ ALTER TABLE `zsebet_users`
 -- AUTO_INCREMENT dla tabeli `zsebet_amount`
 --
 ALTER TABLE `zsebet_amount`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT dla tabeli `zsebet_match`
+--
+ALTER TABLE `zsebet_match`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT dla tabeli `zsebet_users`
 --
 ALTER TABLE `zsebet_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

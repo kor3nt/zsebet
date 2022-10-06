@@ -13,7 +13,7 @@ body{
     background-color: #e8e9eb;
 }
 
-/* Navigation */
+/* Nawigacja */
 #Nav{
     background-color: #1f1f1f;
     width: 100%;
@@ -89,7 +89,7 @@ body{
 }
 
 
-/* Button Phone */
+/* Guzik Menu na telefonie */
 .shopButton{
     display: none;
     position: fixed;
@@ -125,7 +125,7 @@ body{
 }
 
 
-/* Main */
+/* Główna sekcja */
 .Section{
     padding-top: 20px;
 }
@@ -189,7 +189,7 @@ body{
     color: #0099ff;
 }
 
-/* History */
+/* Topka graczy */
 .HistoryElements{
     padding: 0 15px;
 
@@ -260,7 +260,7 @@ body{
 }
 
 
-/* Main */
+/* Mecze do obstawiania */
 .MainMatch{
     width: 100%;
     background-color: #fff;
@@ -338,7 +338,7 @@ body{
     transform: translateX(-50%) scale(1);
 }
 
-/* Bets */
+/* Menu z podsumowaniem */
 .MatchElements{
     padding: 0 15px;
     overflow-y: auto;
@@ -360,8 +360,6 @@ body{
     margin-bottom: 15px;
     padding: 10px 5px 10px 5px;
     width: 100%;
-    /* background: #1f1f1f; */
-    /* color: #fff; */
     background: #fff;
     color: #000000;
     border: 1px solid #c4c4c4;
@@ -387,8 +385,6 @@ body{
     width: 5%;
     float: right;
 }
-
-
 
 .close{
     color: black;
@@ -431,8 +427,15 @@ body{
     background: #fcd665;
 }
 
+#error{
+    color:rgb(255, 0, 0);
+}
 
-/* Media - Phones */
+.errorsInput{
+    border: 2px solid red !important;
+}
+
+/* Media - Telefony - RWD */
 
 @media screen and (max-width: 1500px){
     .History{

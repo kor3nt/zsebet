@@ -1,5 +1,11 @@
 <?php
     session_start();
+    
+    if((isset($_SESSION['verify'])) && ($_SESSION['verify'] == 1)){
+        header('Location: ../Bets');
+        exit();
+    }
+
     if (!isset($_SESSION['otp']) || !($_SESSION['verify'] == 0))
     {
         header('Location: ../');

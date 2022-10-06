@@ -1,28 +1,3 @@
-// WYpisanie nicku i liczby coinsów z bazy danych
-$.ajax({
-    type: "GET",
-    url: "profil.php",
-}).done(function(data){
-    var profilTab = $.parseJSON(data);
-
-    $('#coins').html(profilTab['coins']);
-    $('#profil').html(profilTab['nick']);
-});
-
-// Uzyskanie topki z pliku php
-$.ajax({
-    type: "GET",
-    url: "players.php",
-}).done(function(data){
-    var result= $.parseJSON(data);
-    
-    for(var i = 0; i<result.length; i++){
-        $('.HistoryElements').append(
-            '<div class="player"><div class="row ' + (i==0 ? "gold" : i==1 ? "silver" : i==2 ? "bronze" : "") +'"><p class="left-player">' + (i+1) +'.</p><p class="center-player">' + result[i]['nick'] + '</p><p class="right-player">' + result[i]['coins'] + '</p></div></div>'
-        );
-    }
-});
-
 // Dodanie wybranego meczu do obszaru obstawiania
 let bets = new Array();
 
@@ -30,8 +5,18 @@ function addBet(element) {
     let game = (element.name).slice(0, (element.name).search(':')); 
     let teamA = (element.name).slice((element.name).search(':')+1, (element.name).search('-')); 
     let teamB = (element.name).slice((element.name).search('-')+1, (element.name).lastIndexOf(':')); 
-    let multiple = (element.name).slice((element.name).lastIndexOf(':')+1); 
     
+    let multipleTeamA = (element.name).slice((element.name).lastIndexOf(':')+1, (element.name).lastIndexOf('-')); 
+    let multipleTeamB = (element.name).slice((element.name).lastIndexOf('-')+1); 
+    let multiple = 0;
+
+    if(teamA == element.id){
+        multiple = multipleTeamA;
+    }
+    else{
+        multiple = multipleTeamB;
+    }
+
     bets[element.value] = {
         'id': element.value,
         'yourBet': element.id,
@@ -41,38 +26,34 @@ function addBet(element) {
         'winningAmount': 0
     };
 
-    console.log(bets);
-
     if(document.getElementById(element.name)){
         document.getElementById(element.name).remove(); 
+        updateAmountBet();
     }
 
     $('.MatchElements').append('<div class="Match" id="' + element.name + '"><div class="row"><div class="CloseElement"><small class="close" onclick="deleteBet(\''+ element.name + '\',\'' + element.id +'\',\''+ element.value +'\');"><i class="fa fa-trash-o" aria-hidden="true"></i></small></div><div class="BetsInfo"><small class="team">' + teamA +' - ' + teamB +'</small><p class="winner">Wynik meczu: <span class="text-bold text-blue">Wygrana '+ element.id + '</span></p><label>Kurs: <span class="text-bold text-yellow">'+ multiple +'</span></label><input class="BetInput" onchange="updateValue(this);" type="number" id="'+element.value+'" placeholder="Wprowadź stawkę"></div></div></div>');
     
 }
 
-
 // Kasowanie wybranego meczu z obszaru obstawiania
 function deleteBet(element, id, index){
-    bets.splice(index, 1);
+    delete bets[index];
 
     document.getElementById(element).remove(); 
     document.getElementById(id).checked = false;
     updateAmountBet();
-    // console.log(bets);
 }
 
 // Ustawianie kwoty
 function updateValue(e) {
-    if(!e.value){
-        console.log(e.value);
+    if(!e.value || e.value <= 0){
         e.value = 0;
     }
     bets[e.id]['amount'] = parseInt(e.value);
-    bets[e.id]['winningAmount'] = parseInt(e.value) * parseInt(bets[e.id]['multiple']);
-    // console.log(bets[e.id]);
+    bets[e.id]['winningAmount'] = parseInt(e.value * bets[e.id]['multiple']);
     updateAmountBet();
     
+    valuesInputs(bets[e.id]['amount'], bets[e.id]['id']);
 }
 
 // Ustawianie w tablicy kwoty i dodanie do podsumowania
@@ -83,7 +64,42 @@ function updateAmountBet(){
         amount += bets[i]['amount'];
         winningAmount += bets[i]['winningAmount'];
     }
+    
     document.getElementById('totalBet').innerHTML = amount;
     document.getElementById('winning').innerHTML = winningAmount.toFixed(0);
 }
 
+// Dodanie Listenera po kliknięciu guzik Obstaw
+const btnBet = document.getElementById("betMenuBtn");
+btnBet.addEventListener("click", betMatches);
+function betMatches(){
+    let errors = [];
+    let amount = 0;
+
+    for(var i in bets){
+        if(!valuesInputs(bets[i]['amount'], bets[i]['id'])){
+            errors[i] = bets[i]['id'];
+        }
+        else{
+            amount += bets[i]['amount'];
+        }
+
+        errors[0] = "ready";
+    }
+
+    if(errors.length == 1){
+        console.log('success')
+    }
+}
+
+// Sprawdzanie czy wartość jest wprowadzona i dodanie klasy
+function valuesInputs(amount, id){
+    if(amount <= 0){
+        document.getElementById(id).classList.add('errorsInput');
+        return false;
+    }
+    else{
+        document.getElementById(id).classList.remove('errorsInput');
+        return true;
+    }
+}
