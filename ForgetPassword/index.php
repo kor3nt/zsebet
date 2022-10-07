@@ -31,7 +31,7 @@
     <canvas class="background"></canvas>
     <div class='form-container'>
         <div class='form-content-left'>
-            <img class='form-img' src="../Img/svg6.svg" alt='join' />
+            <img class='form-img' src="../Img/svg7.svg" alt='join' />
         </div>
         
         <div class='form-content-right'>

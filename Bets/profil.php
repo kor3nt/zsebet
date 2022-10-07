@@ -1,7 +1,7 @@
 <?php 
     session_start();
 
-    // Pobieranie nicków i ilości coinsów do tabelki graczy
+    // Pobieranie nicku zalogowanego uzytkownika i ilości coinsów do tabelki graczy
     require_once "../connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
     try {

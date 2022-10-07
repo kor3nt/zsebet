@@ -27,6 +27,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
+    <!-- Ekran ładowania -->
+    <div class="loading">
+        <div class="lds-ring"><div></div><div></div></div>
+    </div>
+
     <div id="Nav">
         <div id="NavbarContainer">
             <div class="row">
@@ -36,7 +41,7 @@
                     <ul id="NavMenu">
                         <li class="NavItem"><a class="NavLinks" href="#"><span id='Bg-coins'><span id='coins'></span><span class="yellow-coins">+</span></span></a></li>
                         <li class="NavItem"><a class="NavLinks" href="#"><i class="fa fa-ticket yellow-color-nav" aria-hidden="true"></i><span id='tickets'>&nbsp; Moje kupony</span></a></li>
-                        <li class="NavItem"><a class="NavLinks" href="#"><i class="fa fa-user" id='userNav' aria-hidden="true"></i>&nbsp;<span id='profil'>Kor3nt</span></a></li>
+                        <li class="NavItem"><a class="NavLinks" href="#"><i class="fa fa-user" id='userNav' aria-hidden="true"></i>&nbsp;<span id='profil'></span></a></li>
                     </ul>
                 </div>
             </div>
@@ -61,7 +66,10 @@
                         </div>
 
                         <div class="Main">
-                          
+                            <div class="none">
+                                <h1><i class="fa fa-exclamation-circle" aria-hidden="true"></i></h1>
+                                <p>Brak meczy do obstawienia!</p>
+                            </div>
                         </div>
                     </div>
 
@@ -77,7 +85,7 @@
                         <div class="InfoBets">
                             <small>Łączna stawka: <span id='totalBet' class="text-bold">0</span></small>
                             <p>Potencjalna wygrana: <span id='winning' class="text-bold text-blue">0</span></p>
-                            <small id='error'>Nie posiadasz wystarczającej liczby ZSE COINS!</small>
+                            <small id='error'></small>
                             <button class="BetsBtn" id='betMenuBtn'>Obstaw</button>
                         </div>
                     </div>
