@@ -35,8 +35,6 @@ $(document).ready(function() {
             },
             cache: false,
             success: function(data) {
-                // console.log(data);
-
                 // Nick już istnieje w bazie
                 const returnNick = /nicks/;
                 if(returnNick.test(data)){

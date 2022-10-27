@@ -1,0 +1,228 @@
+html {
+    scroll-behavior: smooth;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+body{
+    background-color: #e8e9eb;
+}
+
+/* Nawigacja */
+#Nav{
+    background-color: #1f1f1f;
+    width: 100%;
+}
+
+#NavbarContainer{
+    padding: 20px 50px;
+}
+
+#NavLogo{
+    cursor: pointer;
+    width: 20%;
+    float: left;
+    color: white;
+}
+
+.yellow-color{
+    color: #ffbf00;
+}
+
+#NavInfo{
+    width: 80%;
+    float: left;
+    text-align: right;
+}
+
+#NavMenu{
+    padding: 10px 0px;
+    list-style: none;
+    display: inline-flex;
+}
+
+.NavLinks{
+    padding: 0px 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.NavLinks:hover{
+    color: #777777
+}
+
+.NavLinks:hover .yellow-color-nav{
+    color: #b98b00;
+}
+
+
+/* ROW */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Radio */
+.custom-radio input{
+    display: none;
+}
+
+.choose{
+    padding: 10px 10px 10px 30px;
+    background: #1f1f1f;
+}
+
+.radio-btn{
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+}
+
+.radio-btn span{
+    font-size: smaller;;
+}
+
+.custom-radio input + .radio-btn{
+    padding: 9px 70px;
+    border: 1px solid #1f1f1f;
+    background: #1f1f1f;
+    transition: 0.5s;
+    border-radius: 50px;
+    color: #fff;
+}
+
+.custom-radio input:hover + .radio-btn{
+    border: 1px solid #ffbf00;
+    background: #ffbf00;
+}
+
+.custom-radio input:checked + .radio-btn{
+    border: 1px solid #ffbf00;
+    background: #ffbf00;
+}
+
+.custom-radio input:checked + .radio-btn > i{
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+/* Mecze */
+.output{
+    margin: 20px 20px;
+}
+
+.match{
+    margin: 20px 0px;
+    border-radius: 3px;
+    padding: 10px 20px;
+    background: #fff;
+}
+
+.title{
+    width: 40%;
+    float: left;
+}
+
+.date{
+    text-align: center;
+    width: 30%;
+    float: left;
+}
+
+.buttons{
+    text-align: right;
+    width: 30%;
+    float: left;
+}
+
+.buttons button{
+    margin-left: 5px;
+}
+
+.buttons .btnEdit{
+    padding: 10px 20px;
+    border: 1px solid #36b0f7;
+    background: none;
+}
+
+.buttons .btnEdit:hover{
+    background: #36b0f7;
+}
+
+.buttons .btnBlock{
+    padding: 10px 20px;
+    border: 1px solid #f73636;
+    background: none;
+}
+
+.buttons .btnBlock:hover{
+    background: #f73636;
+}
+
+.buttons .btnUnlock{
+    padding: 10px 20px;
+    border: 1px solid #5df736;
+    background: none;
+}
+
+.buttons .btnUnlock:hover{
+    background: #5df736;
+}
+
+.winner{
+    color: #5df736;
+}
+
+.loser{
+    color: #f73636;
+}
+
+/* Media - Telefony - RWD */
+
+@media screen and (max-width: 750px){
+    .choose{
+        text-align: center;
+        padding: 10px 5px;
+    }
+     
+    .custom-radio input + .radio-btn{
+        padding: 5px 20px;
+        border-radius: 50px;
+    }
+
+    #NavLogo{
+        width: 100%;
+    }
+    
+    #NavInfo{ 
+        width: 100%;
+        text-align: center;
+    }
+    .NavLinks{
+        padding: 0px;
+        font-size: 16px;
+    }
+
+    .NavItem{
+        padding: 20px;
+    }
+
+    #NavbarContainer{
+        padding: 10px 5px;
+    }
+
+    #NavLogo{
+        text-align: center;
+    }
+
+    #NavMenu{
+        padding: 0px;
+    }
+
+}

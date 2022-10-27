@@ -81,7 +81,6 @@ function sendMail(){
             url: "resend.php",
             cache: false,
             success: function(data) {
-                // console.log(data);
                 if(/error/.test(data)){
                     document.getElementById('email').innerHTML = "E-mail nie zostal wyslany! Skontaktuj się z Administracją!".fontcolor('red');
                     $('.loading').hide();

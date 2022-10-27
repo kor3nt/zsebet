@@ -32,6 +32,7 @@
         <div class="lds-ring"><div></div><div></div></div>
     </div>
 
+    <!-- Nawigacja -->
     <div id="Nav">
         <div id="NavbarContainer">
             <div class="row">
@@ -41,13 +42,14 @@
                     <ul id="NavMenu">
                         <li class="NavItem"><a class="NavLinks" href="#"><span id='Bg-coins'><span id='coins'></span><span class="yellow-coins">+</span></span></a></li>
                         <li class="NavItem"><a class="NavLinks" href="#"><i class="fa fa-ticket yellow-color-nav" aria-hidden="true"></i><span id='tickets'>&nbsp; Moje kupony</span></a></li>
-                        <li class="NavItem"><a class="NavLinks" href="#"><i class="fa fa-user" id='userNav' aria-hidden="true"></i>&nbsp;<span id='profil'></span></a></li>
+                        <li class="NavItem"><a class="NavLinks" href="#"><i class="fa fa-user" id='userNav' aria-hidden="true"></i>&nbsp;<span id='profil'><?php echo $_SESSION['username']?></span></a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
     
+    <!-- Guzik do obstawiania na telefonie -->
     <div class="shopButton">
         <a href='#' id='btnShop'><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
     </div>
@@ -58,6 +60,7 @@
             <div class="Wrapper">
                 <div class="row">
                     <div class="left-panel">
+                        <!-- Topka -->
                         <div class="History">
                             <h4><i class="fa fa-users" aria-hidden="true"></i> &nbsp; Top:</h4>
                             <div class="HistoryElements">
@@ -65,6 +68,7 @@
                             </div>
                         </div>
 
+                        <!-- Mecze, które są możliwe do obstawiania -->
                         <div class="Main">
                             <div class="none">
                                 <h1><i class="fa fa-exclamation-circle" aria-hidden="true"></i></h1>
@@ -73,6 +77,7 @@
                         </div>
                     </div>
 
+                        <!-- Miejsce do obstawiania -->
                     <div class="Bets" id='betMenu'>
                         <h4><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; Kupon</h4>    
                         <div id="Icon">

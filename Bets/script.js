@@ -35,7 +35,7 @@ function addBet(element) {
     '"><div class="row"><div class="CloseElement"><small class="close" onclick="deleteBet(\''+
      element.name + '\',\'' + element.id +'\',\''+ element.value 
      +'\');"><i class="fa fa-trash-o" aria-hidden="true"></i></small></div><div class="BetsInfo"><small class="team">' 
-     + teamA +' - ' + teamB +'</small><p class="winner">Wynik meczu: <span class="text-bold text-blue">Wygrana '
+     + teamA +' - ' + teamB +'</small><p class="winner">Wynik meczu: <span class="text-bold text-blue">'
      + element.id + '</span></p><label>Kurs: <span class="text-bold text-yellow">'
      + multiple +'</span></label><input class="BetInput" onchange="updateValue(this);" min="10" type="number" id="'
      +element.value+'" placeholder="Wprowadź stawkę"></div></div></div>');
@@ -91,47 +91,48 @@ function betMatches(){
         }
         else{
             amount += bets[i]['amount'];
+            errors[0] = "ready";
         }
-
-        errors[0] = "ready";
     }
 
     if(errors.length == 1){
-        $('.loading').show();
+        
+        document.getElementById('error').innerHTML = '';
 
-        BetPhp = JSON.stringify(bets);
-        $.ajax({
-            type: "POST",
-            url: "bet.php",
-            data: {
-                bets: BetPhp,
-                amount: amount
-        },
-        cache: false,
-        success: function(data) {
-            // Za mało ZSE COINSÓW
-            if(/coins/.test(data)){
-                document.getElementById('error').innerHTML = 'Nie posiadasz wystarczającej liczby ZSE COINS!';
-                $('.loading').hide();
-            }
-
-            // Zwrócenie poprawnego wyniku
-            if(/success/.test(data)){
-                window.location.href = "../Bets";
-            }
-
-            // Serwer wyłączony / awaria
-            if(/servers/.test(data)){
-                alert('Błąd serwera! Przepraszamy za niedogodności i prosimy o skontaktowanie się z administracją!')
-            }
+        if(coins - amount < 0){
+            document.getElementById('error').innerHTML = 'Nie posiadasz wystarczającej liczby ZSE COINS!';
         }
-        });
+        else{
+            $('.loading').show();
+            BetPhp = JSON.stringify(bets);
+            $.ajax({
+                type: "POST",
+                url: "bet.php",
+                data: {
+                    bets: BetPhp,
+                    amount: amount
+                },
+                cache: false,
+                success: function(data) {
+                    console.log(data);
+                    // Zwrócenie poprawnego wyniku
+                    if(/success/.test(data)){
+                        window.location.href = "../Bets";
+                    }
+
+                    // Serwer wyłączony / awaria
+                    if(/servers/.test(data)){
+                        alert('Błąd serwera! Przepraszamy za niedogodności i prosimy o skontaktowanie się z administracją!')
+                    }
+                }
+            });
+        }
     }
 }
 
 // Sprawdzanie czy wartość jest wprowadzona i dodanie klasy
 function valuesInputs(amount, id){
-    if(amount < 10){
+    if(amount < 0){
         document.getElementById(id).classList.add('errorsInput');
         return false;
     }

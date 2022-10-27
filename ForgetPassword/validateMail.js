@@ -13,9 +13,7 @@ $(document).ready(function() {
                     email: email.trim(),
                 },
                 cache: false,
-                success: function(data) {
-                    console.log(data);
-                    
+                success: function(data) {           
                     // Zwrócenie błędu
                     if(/error/.test(data)){
                         document.getElementById('error').innerHTML = 'Podaj poprawny email!';

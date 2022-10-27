@@ -31,8 +31,9 @@
                         if (password_verify($password, $row['password'])){
                             $_SESSION['username'] = $row['nick'];
                             $_SESSION['verify'] = $row['verify'];
+                            $_SESSION['role'] = $row['role'];
                             
-                            if($_SESSION['verify'] == 0){
+                            if($row['verify'] == 0){
                                 $_SESSION['email'] = $row['email'];
                                 $_SESSION['otp'] = $row['otp'];
                                 echo 'otp';

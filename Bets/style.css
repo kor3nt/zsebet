@@ -24,6 +24,7 @@ body{
 }
 
 #NavLogo{
+    cursor: pointer;
     width: 20%;
     float: left;
     color: white;

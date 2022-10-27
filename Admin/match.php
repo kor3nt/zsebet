@@ -1,6 +1,5 @@
 <?php 
     // Pobieranie informacji o meczach
-
     session_start();
     require_once "../connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
@@ -12,8 +11,7 @@
             throw new Exception(mysqli_connect_errno());
         }
         else{
-            $nick = $_SESSION['username'];
-            if ($result = @$connect->query("SELECT * FROM zsebet_match WHERE NOT EXISTS (SELECT * FROM zsebet_bet WHERE zsebet_match.id = zsebet_bet.id_game AND nick='$nick') AND block != 1"))
+            if ($result = @$connect->query("SELECT * FROM zsebet_match"))
             {
                 $numberMatches = $result->num_rows;
                 if($numberMatches>0){

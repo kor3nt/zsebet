@@ -16,9 +16,16 @@
             if ($result = @$connect->query("SELECT * FROM zsebet_amount where nick LiKE '$nick'"))
             {
                 $row = $result->fetch_assoc();
-                $table['nick'] = $nick;
-                $table['coins'] = $row['coins'];
-                echo json_encode($table);
+                
+                $role = $connect->query("SELECT role FROM zsebet_users WHERE nick LIKE '$nick'");
+                if(!$result) throw new Exception($connect->error);
+                $role = $role->fetch_assoc();
+
+                $_SESSION['role'] = $role['role'];
+
+                echo json_encode($row['coins']);
+
+                
             }
             else{
                 throw new Exception($connect->error);

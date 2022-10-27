@@ -58,10 +58,13 @@ try
 
 				if ($connect->query("INSERT INTO zsebet_amount VALUES (NULL, '$username', 1000)"))
 				{
-					$_SESSION['verify'] = 0;
-					$_SESSION['otp'] = $otp;
+					$_SESSION['role'] = 'user';
 					$_SESSION['username'] = $username;
 					$_SESSION['email'] = $email;
+
+					$_SESSION['verify'] = 0;
+					$_SESSION['otp'] = $otp;
+					
 					echo 'success';
 
 					require_once "sendMail.php";

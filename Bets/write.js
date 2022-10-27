@@ -1,15 +1,16 @@
 // Wypisanie nicku i liczby coinsów z bazy danych
+let coins = 0;
 $.ajax({
     type: "GET",
     url: "profil.php",
 }).done(function(data){
-    var profilTab = $.parseJSON(data);
-
-    $('#coins').html(profilTab['coins']);
-    $('#profil').html(profilTab['nick']);
+    var profilCoins = $.parseJSON(data);
+    coins = parseInt(profilCoins);
+    
+    $('#coins').html(profilCoins);
 });
 
-// Wypisanie meczy z bazy danych
+// Wypisanie topki z bazy danych
 $.ajax({
     type: "GET",
     url: "players.php",

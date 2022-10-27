@@ -23,13 +23,39 @@
 		    if(!$result) throw new Exception($connect->error);
             $row = $result->fetch_assoc();
 
-            if($amount > $row['coins']){
-                echo 'coins';
-                return false;
-            }
-
             foreach($bets as $key => $value){
-                $connect->query("INSERT INTO zsebet_bet VALUES (NULL, '$nick', '".$bets[$key] -> yourBet."', '".$bets[$key] -> amount."', '".$bets[$key] -> id."')");
+                $result = $connect->query("SELECT * FROM zsebet_match WHERE id LIKE '".$bets[$key] -> id."'");
+                $match = $result->fetch_assoc();
+                
+                $multipleA = 1.5;
+                $multipleB = 1.5;
+                $amountBet = $bets[$key] -> amount;
+                $costA = $match['costTeamA'];
+                $costB = $match['costTeamB'];
+
+                if($bets[$key] -> yourBet == $match['TeamA']){
+                    $costA += $amountBet;
+                }
+                else{
+                    $costB += $amountBet;
+                }
+
+                $sum = $costA + $costB;
+
+                $multipleA = round(($sum / $costA / $multipleA));
+                $multipleB = round(($sum / $costB / $multipleB));
+            
+                if($multipleA < 1.1){
+                    $multipleA = 1.1;
+                }
+                
+                if($multipleB < 1.1){
+                    $multipleB = 1.1;
+                }
+                
+                $connect->query("UPDATE zsebet_match SET costTeamA='$costA', costTeamB='$costB', multipleTeamA='$multipleA', multipleTeamB='$multipleB' WHERE  id LIKE '".$bets[$key] -> id."'");
+
+                // $connect->query("INSERT INTO zsebet_bet VALUES (NULL, '$nick', '".$bets[$key] -> yourBet."', '".$bets[$key] -> amount."', '".$bets[$key] -> id."', '".$bets[$key] -> multiple."')");
             }
             
             $coins = $row['coins']-$amount;
@@ -43,6 +69,7 @@
             }
 
             $connect->close();
+            return true;
         }
         echo 'error';
                 

@@ -15,9 +15,7 @@ $(document).ready(function() {
                     password: password.trim(),
             },
             cache: false,
-            success: function(data) {
-                console.log(data);
-                
+            success: function(data) {       
                 // Niepoprawny login
                 if(/error/.test(data)){
                     document.getElementById('error').innerHTML = 'Podaj poprawny email lub hasło!';
