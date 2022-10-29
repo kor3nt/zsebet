@@ -18,11 +18,11 @@ $.ajax({
             '<div class="match">'+
                 '<div class="elementMatch">'+
                     '<div class="row">'+
-                       '<div class="title">'+
+                        '<div class="title">'+
                             '<h3>' + 
-                                '<span id="'+ matches[i]["id"] + '-' + matches[i]["TeamA"] + '">' + matches[i]["TeamA"] +'</span>'  
+                                '<span id="'+ matches[i]["id"] + '-' + matches[i]["TagTeamA"] + '">' + matches[i]["TeamA"] +'</span>'  
                                 + ' - ' + 
-                                '<span id="'+ matches[i]["id"] + '-' + matches[i]["TeamB"] + '">' + matches[i]["TeamB"] + '</span>'+
+                                '<span id="'+ matches[i]["id"] + '-' + matches[i]["TagTeamB"] + '">' + matches[i]["TeamB"] + '</span>'+
                             '</h3>'+
                             '<small>' + matches[i]["game"] + '</small>'+
                         '</div>'+
@@ -40,15 +40,15 @@ $.ajax({
             );
 
 
-            if(matches[i]["TeamA"] != matches[i]["winner"]){
-                $('#'+matches[i]["id"] + '-' + matches[i]["TeamA"]).addClass('winner');
-                $('#'+ matches[i]["id"] + '-' + matches[i]["TeamB"]).addClass('loser');
+            if(matches[i]["TeamA"] == matches[i]["winner"]){
+                $('#'+matches[i]["id"] + '-' + matches[i]["TagTeamA"]).addClass('winner');
+                $('#'+ matches[i]["id"] + '-' + matches[i]["TagTeamB"]).addClass('loser');
             }
 
             
             if(matches[i]["TeamB"] == matches[i]["winner"]){
-                $('#'+ matches[i]["id"] + '-' + matches[i]["TeamB"]).addClass('winner');
-                $('#'+ matches[i]["id"]+ '-' + matches[i]["TeamA"]).addClass('loser');
+                $('#'+ matches[i]["id"] + '-' + matches[i]["TagTeamB"]).addClass('winner');
+                $('#'+ matches[i]["id"]+ '-' + matches[i]["TagTeamA"]).addClass('loser');
             }
             
         }

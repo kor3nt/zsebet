@@ -45,7 +45,7 @@
 
     <!-- Panel z meczami zablokowanymi i aktywnymi -->
     <div class="Section">   
-       <div class="choose">
+        <div class="choose">
             <form>
                 <label for='active' class='custom-radio'>
                     <input type='radio' id='active' name='match' value='0'  checked>
@@ -57,9 +57,8 @@
                     <span class="radio-btn">Zablokowane</span>
                 </label>
             </form>
-       </div>
-       <div class="output">
-
+        </div>
+        <div class="output">
             <div class="match">
                 <div class="elementMatch">
                     <div class="row">
@@ -78,8 +77,7 @@
                     </div>
                 </div>
             </div>
-
-       </div>
+        </div>
     </div>
     
     <script src='matches.js'></script>

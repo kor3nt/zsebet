@@ -67,7 +67,6 @@ body{
     display: table;
     clear: both;
 }
-
 /* Radio */
 .custom-radio input{
     display: none;

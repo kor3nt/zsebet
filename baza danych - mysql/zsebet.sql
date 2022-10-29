@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 27 Paź 2022, 20:06
--- Wersja serwera: 10.4.21-MariaDB
--- Wersja PHP: 8.0.10
+-- Czas generowania: 29 Paź 2022, 10:48
+-- Wersja serwera: 10.4.17-MariaDB
+-- Wersja PHP: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -68,9 +68,11 @@ CREATE TABLE `zsebet_match` (
   `id` int(11) NOT NULL,
   `LabelMatch` text COLLATE utf8_polish_ci NOT NULL,
   `TeamA` text COLLATE utf8_polish_ci NOT NULL,
+  `TagTeamA` text COLLATE utf8_polish_ci NOT NULL,
   `multipleTeamA` float NOT NULL,
   `costTeamA` int(11) NOT NULL,
   `TeamB` text COLLATE utf8_polish_ci NOT NULL,
+  `TagTeamB` text COLLATE utf8_polish_ci NOT NULL,
   `multipleTeamB` float NOT NULL,
   `costTeamB` int(11) NOT NULL,
   `game` text COLLATE utf8_polish_ci NOT NULL,
@@ -83,9 +85,9 @@ CREATE TABLE `zsebet_match` (
 -- Zrzut danych tabeli `zsebet_match`
 --
 
-INSERT INTO `zsebet_match` (`id`, `LabelMatch`, `TeamA`, `multipleTeamA`, `costTeamA`, `TeamB`, `multipleTeamB`, `costTeamB`, `game`, `winner`, `date`, `block`) VALUES
-(1, 'FFC - XD', 'FFC', 1.5, 1, 'XD', 1.5, 1, 'Counter Strike Global Offensive', NULL, '2022-10-05 22:10:50', 0),
-(22, 'Fasola Funclub - Mieszanka', 'Fasola Funclub', 1.5, 1, 'Mieszanka', 1.5, 1, 'Counter Strike Global Offensive', NULL, '2022-10-05 20:10:50', 0);
+INSERT INTO `zsebet_match` (`id`, `LabelMatch`, `TeamA`, `TagTeamA`, `multipleTeamA`, `costTeamA`, `TeamB`, `TagTeamB`, `multipleTeamB`, `costTeamB`, `game`, `winner`, `date`, `block`) VALUES
+(1, 'FFC - XD', 'FFC', 'FFC', 1.5, 1, 'XD', 'XD', 1.5, 1, 'Counter Strike Global Offensive', NULL, '2022-10-05 22:10:50', 0),
+(22, 'Fasola Funclub - Mieszanka', 'Fasola Funclub', 'FFC', 1.5, 1, 'Mieszanka', 'XD', 1.5, 1, 'Counter Strike Global Offensive', NULL, '2022-10-05 20:10:50', 0);
 
 -- --------------------------------------------------------
 
