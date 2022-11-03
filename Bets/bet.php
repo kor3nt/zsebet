@@ -9,7 +9,7 @@
         $connect = new mysqli($host, $db_user, $db_password, $db_name);
         // Uzyskanie danych z pliku js
         $bets = array_filter(json_decode($_POST['bets']));
-        $amount = $_POST['amount'];
+        $amount = 0;
 
         if ($connect->connect_errno!=0)
         {
@@ -17,6 +17,7 @@
         }
         else
         {   
+            $error = [];
             $nick = $_SESSION['username'];
 
             $result = $connect->query("SELECT coins FROM zsebet_amount WHERE nick LIKE '$nick'");
@@ -26,42 +27,50 @@
             foreach($bets as $key => $value){
                 $result = $connect->query("SELECT * FROM zsebet_match WHERE id LIKE '".$bets[$key] -> id."'");
                 $match = $result->fetch_assoc();
+                if($match['block'] == 0 && $match['date'] >= date("Y-m-d H:i:s")){
+                    $multipleA = 1.5;
+                    $multipleB = 1.5;
+                    $amountBet = $bets[$key] -> amount;
+                    $costA = $match['costTeamA'];
+                    $costB = $match['costTeamB'];
+    
+                    if($bets[$key] -> yourBet == $match['TeamA']){
+                        $costA += $amountBet;
+                    }
+                    else{
+                        $costB += $amountBet;
+                    }
+    
+                    $sum = $costA + $costB;
+    
+                    $multipleA = round(($sum / $costA / $multipleA));
+                    $multipleB = round(($sum / $costB / $multipleB));
                 
-                $multipleA = 1.5;
-                $multipleB = 1.5;
-                $amountBet = $bets[$key] -> amount;
-                $costA = $match['costTeamA'];
-                $costB = $match['costTeamB'];
-
-                if($bets[$key] -> yourBet == $match['TeamA']){
-                    $costA += $amountBet;
+                    if($multipleA < 1.1){
+                        $multipleA = 1.1;
+                    }
+                    
+                    if($multipleB < 1.1){
+                        $multipleB = 1.1;
+                    }
+                    
+                    $connect->query("UPDATE zsebet_match SET costTeamA='$costA', costTeamB='$costB', multipleTeamA='$multipleA', multipleTeamB='$multipleB' WHERE  id LIKE '".$bets[$key] -> id."'");
+    
+                    $connect->query("INSERT INTO zsebet_bet VALUES (NULL, '$nick', '".$bets[$key] -> yourBet."', '".$bets[$key] -> amount."', '".$bets[$key] -> id."', '".$bets[$key] -> multiple."')");
+                    $amount +=  $bets[$key] -> amount;
                 }
                 else{
-                    $costB += $amountBet;
-                }
-
-                $sum = $costA + $costB;
-
-                $multipleA = round(($sum / $costA / $multipleA));
-                $multipleB = round(($sum / $costB / $multipleB));
-            
-                if($multipleA < 1.1){
-                    $multipleA = 1.1;
+                    $connect->query("UPDATE zsebet_match SET block=1 WHERE id LIKE '".$bets[$key] -> id."'");
+                    $error[] = $bets[$key] -> id;
                 }
                 
-                if($multipleB < 1.1){
-                    $multipleB = 1.1;
-                }
-                
-                $connect->query("UPDATE zsebet_match SET costTeamA='$costA', costTeamB='$costB', multipleTeamA='$multipleA', multipleTeamB='$multipleB' WHERE  id LIKE '".$bets[$key] -> id."'");
-
-                $connect->query("INSERT INTO zsebet_bet VALUES (NULL, '$nick', '".$bets[$key] -> yourBet."', '".$bets[$key] -> amount."', '".$bets[$key] -> id."', '".$bets[$key] -> multiple."')");
             }
             
             $coins = $row['coins']-$amount;
             if ($connect->query("UPDATE zsebet_amount SET coins='$coins' WHERE  nick LIKE '$nick'"))
             {
                 echo 'success';
+                echo json_encode($error);
             }
             else
             {

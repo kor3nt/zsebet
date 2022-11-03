@@ -60,6 +60,21 @@ body{
     color: #b98b00;
 }
 
+/* Menu admina */
+.menu{
+    background: #1f1f1f;
+    padding: 10px 0px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: #ffbf00;
+    margin: 20px 20px;
+}
+
+.menu a:hover{
+    text-decoration: underline;
+}
 
 /* ROW */
 .row:after {
@@ -67,6 +82,75 @@ body{
     display: table;
     clear: both;
 }
+
+/* Tytuły gier */
+.gameSection{
+    padding: 20px 1%;
+    width: 100%;
+}
+
+.addGameForm{
+    margin: 5px 1%;
+    border-radius: 5px;
+    background: #fff;
+    float: left;
+    width: 18%;
+    padding: 15px 10px;
+    height: 150px;
+}
+
+#gamesSection{
+    width: 78%;
+    margin: 0px 1%;
+    float: left;
+    height: 150px;
+    overflow-y: auto;
+}
+
+.ItemGame{
+    position: relative;
+    margin: 5px 0px;
+    border-radius: 5px;
+    background: #fff;
+    padding: 15px 10px;
+    width: 100%;
+}
+
+#addGame{
+    margin-top: 20px;
+    width: 100%;
+    background-color: #5df736;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+}
+
+#addGame:hover{
+    background-color: #a1f58c;
+    color: #fff;
+}
+
+.removeGame{
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    background-color: #EF233C;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+}
+
+.removeGame:hover{
+    background-color: #fd7585;
+    color: #fff;
+}
+
+#titleGame{
+    margin-top: 5px;
+    padding: 5px 2px 5px 2px;
+    width: 100%;
+}
+
 /* Radio */
 .custom-radio input{
     display: none;
@@ -74,7 +158,7 @@ body{
 
 .choose{
     padding: 10px 10px 10px 30px;
-    background: #1f1f1f;
+    background: #e8e9eb;
 }
 
 .radio-btn{
@@ -89,21 +173,21 @@ body{
 
 .custom-radio input + .radio-btn{
     padding: 9px 70px;
-    border: 1px solid #1f1f1f;
-    background: #1f1f1f;
+    border: 1px solid #e8e9eb;
+    background: #e8e9eb;
     transition: 0.5s;
     border-radius: 50px;
-    color: #fff;
+    color: #000;
 }
 
 .custom-radio input:hover + .radio-btn{
-    border: 1px solid #ffbf00;
-    background: #ffbf00;
+    border: 1px solid #fff;
+    background: #fff;
 }
 
 .custom-radio input:checked + .radio-btn{
-    border: 1px solid #ffbf00;
-    background: #ffbf00;
+    border: 1px solid #fff;
+    background: #fff;
 }
 
 .custom-radio input:checked + .radio-btn > i{
@@ -144,33 +228,33 @@ body{
     margin-left: 5px;
 }
 
-.buttons .btnEdit{
+.btnEdit{
     padding: 10px 20px;
     border: 1px solid #36b0f7;
     background: none;
 }
 
-.buttons .btnEdit:hover{
+.btnEdit:hover{
     background: #36b0f7;
 }
 
-.buttons .btnBlock{
+.btnBlock{
     padding: 10px 20px;
     border: 1px solid #f73636;
     background: none;
 }
 
-.buttons .btnBlock:hover{
+.btnBlock:hover{
     background: #f73636;
 }
 
-.buttons .btnUnlock{
+.btnUnlock{
     padding: 10px 20px;
     border: 1px solid #5df736;
     background: none;
 }
 
-.buttons .btnUnlock:hover{
+.btnUnlock:hover{
     background: #5df736;
 }
 
@@ -180,6 +264,85 @@ body{
 
 .loser{
     color: #f73636;
+}
+
+/* Brak meczy */
+.none{
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+}
+.none h1{
+    font-size: 40px;
+    color:#ffbf00;
+}
+.none p{
+    font-size: 20px;
+}
+
+/* Modal*/
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1;
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+}
+
+  /* Modal Treść */
+.modal-content {
+    border-radius: 5px;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 25%;
+}
+
+.modal-content h2{
+    color: #2B2D42;
+}
+
+.modal form{
+    padding-top: 20px;
+}
+
+.input{
+    padding-top: 10px;
+    width: 60%;
+    margin: 0px 20%;
+}
+
+.input input, .input select{
+    width: 100%;
+    padding: 5px 0px 5px 3px;
+    border-radius: 4px;
+    border: 1px solid #818181;
+}
+
+.input-btn{
+    padding-top: 20px;
+    text-align: center;
+}
+
+/* Zamknij guzik */
+#close {
+    color: #fa7484;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#close:hover, #close:focus {
+    color: #EF233C;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Media - Telefony - RWD */
@@ -225,3 +388,58 @@ body{
     }
 
 }
+
+@media only screen and (max-width: 1400px) {
+    .modal-content {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .addGameForm {
+        margin: 5px 1%;
+        width: 98%;
+    }
+
+    #gamesSection {
+        width: 98%;
+        margin: 0px 1%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .title{
+        width: 100%;
+        text-align: center;
+    }
+    
+    .date{
+        padding-top: 10px;
+        width: 100%;
+    }
+    
+    .buttons{
+        padding-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    .menu{
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .modal-content {
+        width: 100%;
+    }
+
+    .input{
+        width: 90%;
+        margin: 0px 5%;
+    }
+
+    .menu a {
+        margin: 20px 8px;
+    }
+}
+

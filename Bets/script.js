@@ -110,11 +110,10 @@ function betMatches(){
                 url: "bet.php",
                 data: {
                     bets: BetPhp,
-                    amount: amount
                 },
                 cache: false,
                 success: function(data) {
-                    console.log(data);
+                    console.log(data)
                     // Zwrócenie poprawnego wyniku
                     if(/success/.test(data)){
                         window.location.href = "../Bets";
@@ -132,7 +131,7 @@ function betMatches(){
 
 // Sprawdzanie czy wartość jest wprowadzona i dodanie klasy
 function valuesInputs(amount, id){
-    if(amount < 0){
+    if(amount <= 0){
         document.getElementById(id).classList.add('errorsInput');
         return false;
     }

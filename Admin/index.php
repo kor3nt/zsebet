@@ -42,44 +42,118 @@
         </div>
     </div>
 
+    <!-- Dodawanie meczy, info o graczach, dodawanie tytułów gier -->
+    <div class="menu">
+        <a href="../Bets">< Powrót</a>
+        <a href="#">Dodaj mecz</a>
+        <a href="#">Gracze</a>
+        <a href="#">Kody</a>
+    </div>
+
+    <!-- Tytuły gier -->
+    <div class="gameSection">
+            <div class="row">
+                <div class="addGameForm">
+                    <form>
+                        <label for='titleGame'>Tytuł gry: </label><br>
+                        <input type="text" id='titleGame' name='titleGame'><br>
+
+                        <button type="button" id="addGame">Dodaj</button>
+                    </form>
+                </div>
+
+                <div id="gamesSection">
+                    
+                </div>
+            </div>
+    </div>
 
     <!-- Panel z meczami zablokowanymi i aktywnymi -->
     <div class="Section">   
         <div class="choose">
-            <form>
+            <form id="filterMatch">
                 <label for='active' class='custom-radio'>
-                    <input type='radio' id='active' name='match' value='0'  checked>
+                    <input type='radio' id='active' name='match' value='0' onclick="matchesWrite(0);" checked>
                     <span class="radio-btn">Aktywne</span>
                 </label>
 
                 <label for='block' class='custom-radio'>
-                    <input type='radio' id='block' name='match' value='1'>
+                    <input type='radio' id='block' name='match' value='1' onclick="matchesWrite(1);">
                     <span class="radio-btn">Zablokowane</span>
                 </label>
             </form>
         </div>
         <div class="output">
-            <div class="match">
-                <div class="elementMatch">
-                    <div class="row">
-                        <div class="title">
-                            <h3><span>Fasola Funclub</span> - <span>Mieszanka</span></h3>
-                            <small>Counter-Strike: Global Offensive</small>
-                        </div>
-                        <div class="date">
-                            <p>22:00</p>
-                            <p>27.10.2022</p>
-                        </div>
-                        <div class="buttons">
-                            <button class='btnEdit' type='button'>Edytuj</button>
-                            <button class='btnBlock' type='button'>Zablokuj</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="none">
+                <h1><i class="fa fa-exclamation-circle" aria-hidden="true"></i></h1>
+                <p>Brak meczy!</p>
+            </div>
+
+            <div class="outputs">
+
             </div>
         </div>
     </div>
     
+
+    <!-- Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span id="close">&times;</span>
+            
+            <h2 id="title"></h2>
+            
+            <form>
+                <div class="input">
+                    <label for='Label'>Tytuł meczu: </label><br>
+                    <input type='text' id='Label' name="Label" placeholder='Team A - Team B'>
+                </div>
+
+                <div class="input">
+                    <label for='TeamA'>Guzik 1:</label><br>
+                    <input type='text' id='TeamA' name="TeamA" placeholder='Wprowadź drużynę 1'>
+                </div>
+
+                <div class="input">
+                    <label for='TagA'>Tag 1:</label><br>
+                    <input type='text' id='TagA' name="TagA" placeholder='Wprowadź tag drużyny 1'>
+                </div>
+
+                <div class="input">
+                    <label for='TeamB'>Guzik 2:</label><br>
+                    <input type='text' id='TeamB' name="TeamB" placeholder='Wprowadź drużynę 2'>
+                </div>
+
+                <div class="input">
+                    <label for='TagB'>Tag 2:</label><br>
+                    <input type='text' id='TagB' name="TagB" placeholder='Wprowadź tag drużyny 2'>
+                </div>
+
+                <div class="input">
+                    <label for='game'>Gra: </label><br>
+                    <select id='game'>
+                        
+                    </select>
+                </div>
+
+                <div class="input">
+                    <label for='date'>Data:</label><br>
+                    <input type="datetime-local" id='date' name="date">
+                </div>
+
+                <div class="input" id='winnerInput'>
+
+                </div>
+
+                <div class="input-btn" id="SaveMatch">
+                    
+                </div>
+            </form>
+        </div>
+    </div>
     <script src='matches.js'></script>
+    <script src='buttons.js'></script>
+    <script src='modals.js'></script>
+    <script src='game.js'></script>
 </body>
 </html>
