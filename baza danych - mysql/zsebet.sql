@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 29 Paź 2022, 10:48
--- Wersja serwera: 10.4.17-MariaDB
--- Wersja PHP: 7.3.27
+-- Czas generowania: 03 Lis 2022, 22:50
+-- Wersja serwera: 10.4.21-MariaDB
+-- Wersja PHP: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,7 +41,7 @@ INSERT INTO `zsebet_amount` (`id`, `nick`, `coins`) VALUES
 (2, 'kor3nt1', 10001),
 (3, 'kor3nt2', 123123),
 (4, 'kor3nt12', 1000123),
-(5, 'kor3nt', 0);
+(5, 'kor3nt', 8800);
 
 -- --------------------------------------------------------
 
@@ -57,6 +57,24 @@ CREATE TABLE `zsebet_bet` (
   `id_game` int(11) NOT NULL,
   `multiple` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `zsebet_game`
+--
+
+CREATE TABLE `zsebet_game` (
+  `title` text COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `zsebet_game`
+--
+
+INSERT INTO `zsebet_game` (`title`) VALUES
+('Counter-Strike: Global Offensive'),
+('League of Legends');
 
 -- --------------------------------------------------------
 
@@ -86,8 +104,8 @@ CREATE TABLE `zsebet_match` (
 --
 
 INSERT INTO `zsebet_match` (`id`, `LabelMatch`, `TeamA`, `TagTeamA`, `multipleTeamA`, `costTeamA`, `TeamB`, `TagTeamB`, `multipleTeamB`, `costTeamB`, `game`, `winner`, `date`, `block`) VALUES
-(1, 'FFC - XD', 'FFC', 'FFC', 1.5, 1, 'XD', 'XD', 1.5, 1, 'Counter Strike Global Offensive', NULL, '2022-10-05 22:10:50', 0),
-(22, 'Fasola Funclub - Mieszanka', 'Fasola Funclub', 'FFC', 1.5, 1, 'Mieszanka', 'XD', 1.5, 1, 'Counter Strike Global Offensive', NULL, '2022-10-05 20:10:50', 0);
+(1, 'FFC - XD', 'FFC', 'FFC', 6, 1201, 'XD', 'XD', 1.1, 10001, 'Counter-Strike: Global Offensive', 'null', '2022-10-05 22:10:50', 0),
+(22, 'Fasola Funclub - Mieszanka', 'Fasola Funclub', 'FFC', 1.1, 15001, 'Mieszanka', 'XD', 10001, 1, 'League of Legends', 'null', '2022-10-05 20:10:50', 0);
 
 -- --------------------------------------------------------
 
@@ -132,6 +150,12 @@ ALTER TABLE `zsebet_bet`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeksy dla tabeli `zsebet_game`
+--
+ALTER TABLE `zsebet_game`
+  ADD PRIMARY KEY (`title`(45));
+
+--
 -- Indeksy dla tabeli `zsebet_match`
 --
 ALTER TABLE `zsebet_match`
@@ -157,7 +181,7 @@ ALTER TABLE `zsebet_amount`
 -- AUTO_INCREMENT dla tabeli `zsebet_bet`
 --
 ALTER TABLE `zsebet_bet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `zsebet_match`
