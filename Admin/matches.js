@@ -31,7 +31,7 @@ function matchesWrite(statusRadio){
                                     + ' - ' + 
                                     '<span id="'+ matches[i]["id"] + '-' + matches[i]["TagTeamB"] + '">' + matches[i]["TeamB"] + '</span>'+
                                 '</h3>'+
-                                '<small>' + matches[i]["game"] + '</small>'+
+                                '<small>' + matches[i]["game"] + ' | ' +  matches[i]["LabelMatch"] + '</small>'+
                             '</div>'+
                             '<div class="date">'+
                                 '<p>' + data + '</p>'+
@@ -71,7 +71,6 @@ function matchesWrite(statusRadio){
 matchesWrite(0);
 
 function saveMatch(idGame){
-    // console.log($('#winner').val())
     $.ajax({
         type: "POST",
         url: "updateMatch.php",

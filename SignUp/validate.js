@@ -80,8 +80,8 @@ function checkName(value, error, errorValue){
 
 // Walidacja nicku
 function checkUsername(username){
-    if(!username.trim() || !/^[a-zA-Z0-9ąćęłńóżźśĄĆĘŁŃÓŻŹĆŚ._%+-]{3,}$/.test(username.trim())){
-        document.getElementById('errors-username').innerHTML = "Podaj nick!";
+    if(!username.trim() || !/^[a-zA-Z0-9ąćęłńóżźśĄĆĘŁŃÓŻŹĆŚ._%+-]{3,10}$/.test(username.trim())){
+        document.getElementById('errors-username').innerHTML = "Podaj nick! (od 3 do 10 znaków)";
         return false;
     } 
     else{

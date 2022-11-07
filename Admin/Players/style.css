@@ -1,0 +1,219 @@
+html {
+    scroll-behavior: smooth;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+body{
+    background-color: #e8e9eb;
+}
+
+/* Nawigacja */
+#Nav{
+    background-color: #1f1f1f;
+    width: 100%;
+}
+
+#NavbarContainer{
+    padding: 20px 50px;
+}
+
+#NavLogo{
+    cursor: pointer;
+    width: 20%;
+    float: left;
+    color: white;
+}
+
+.yellow-color{
+    color: #ffbf00;
+}
+
+#NavInfo{
+    width: 80%;
+    float: left;
+    text-align: right;
+}
+
+#NavMenu{
+    padding: 10px 0px;
+    list-style: none;
+    display: inline-flex;
+}
+
+.NavLinks{
+    padding: 0px 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.NavLinks:hover{
+    color: #777777
+}
+
+.NavLinks:hover .yellow-color-nav{
+    color: #b98b00;
+}
+
+/* Menu admina */
+.menu{
+    background: #1f1f1f;
+    padding: 10px 0px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: #ffbf00;
+    margin: 20px 20px;
+}
+
+.menu a:hover{
+    text-decoration: underline;
+}
+
+/* ROW */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* main */
+.main{
+    width: 100%;
+    padding: 10px 40px;
+}
+
+/* Filter */
+.filter{
+    width: 100%;
+    padding: 10px 0px;
+}
+
+.filter input{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(82, 82, 82);
+    outline: none;
+}
+
+#searchBtn{
+    padding: 5px 15px;
+    border-radius: 5px;
+    background: #ffbf00;
+    border: 1px solid #ffbf00;
+}
+
+#searchBtn:hover{
+    background: #b98b00;
+    border: 1px solid #b98b00;
+}
+
+/* tablica z graczmi */
+.players{
+    width: 100%;
+}
+
+.players table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.players th{
+    background-color: #1f1f1f;
+    color: #fff;
+    padding: 10px;
+}
+
+.players td{
+    padding: 10px;
+    border-bottom: 1px solid #1f1f1f;
+}
+
+.players tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.players input, .players select {
+    padding: 5px 5px;
+}
+
+.saveBtn{
+    padding: 5px 15px;
+    border: 1px solid #5df736;
+    background: #5df736;
+    border-radius: 5px; 
+}
+
+.saveBtn:hover{
+    background: #b2ff9f;
+    border: 1px solid #b2ff9f;
+}
+
+/* Brak */
+.none{
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+}
+.none h1{
+    font-size: 40px;
+    color:#ffbf00;
+}
+.none p{
+    font-size: 20px;
+}
+
+/* Media - Telefony - RWD */
+
+@media screen and (max-width: 750px){
+    #NavLogo{
+        width: 100%;
+    }
+    
+    #NavInfo{ 
+        width: 100%;
+        text-align: center;
+    }
+    .NavLinks{
+        padding: 0px;
+        font-size: 16px;
+    }
+
+    .NavItem{
+        padding: 20px;
+    }
+
+    #NavbarContainer{
+        padding: 10px 5px;
+    }
+
+    #NavLogo{
+        text-align: center;
+    }
+
+    #NavMenu{
+        padding: 0px;
+    }
+
+}
+
+
+@media only screen and (max-width: 700px) {
+    .menu{
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .menu a {
+        margin: 20px 8px;
+    }
+}
+

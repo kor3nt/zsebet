@@ -45,8 +45,8 @@
     <!-- Dodawanie meczy, info o graczach, dodawanie tytułów gier -->
     <div class="menu">
         <a href="../Bets">< Powrót</a>
-        <a href="#">Dodaj mecz</a>
-        <a href="#">Gracze</a>
+        <a href="#" id="addBtn">Dodaj mecz</a>
+        <a href="Players">Gracze</a>
         <a href="#">Kody</a>
     </div>
 
@@ -105,7 +105,7 @@
             
             <form>
                 <div class="input">
-                    <label for='Label'>Tytuł meczu: </label><br>
+                    <label for='Label'>Tytuł: </label><br>
                     <input type='text' id='Label' name="Label" placeholder='Team A - Team B'>
                 </div>
 
@@ -151,9 +151,61 @@
             </form>
         </div>
     </div>
+
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <span id="AddClose">&times;</span>
+            
+            <h2 id="AddTitle">Dodaj mecz</h2>
+            
+            <form id='MatchAdded'>
+                <div class="input">
+                    <label for='AddLabel'>Tytuł: </label><br>
+                    <input type='text' id='AddLabel' name="AddLabel" placeholder='Team A - Team B'>
+                </div>
+
+                <div class="input">
+                    <label for='AddTeamA'>Guzik 1:</label><br>
+                    <input type='text' id='AddTeamA' name="AddTeamA" placeholder='Wprowadź drużynę 1'>
+                </div>
+
+                <div class="input">
+                    <label for='AddTagA'>Tag 1:</label><br>
+                    <input type='text' id='AddTagA' name="AddTagA" placeholder='Wprowadź tag drużyny 1'>
+                </div>
+
+                <div class="input">
+                    <label for='AddTeamB'>Guzik 2:</label><br>
+                    <input type='text' id='AddTeamB' name="AddTeamB" placeholder='Wprowadź drużynę 2'>
+                </div>
+
+                <div class="input">
+                    <label for='AddTagB'>Tag 2:</label><br>
+                    <input type='text' id='AddTagB' name="AddTagB" placeholder='Wprowadź tag drużyny 2'>
+                </div>
+
+                <div class="input">
+                    <label for='chooseGame'>Gra: </label><br>
+                    <select id='chooseGame'>
+                        <option value="" selected hidden>Wybierz grę</option>
+                    </select>
+                </div>
+
+                <div class="input">
+                    <label for='AddDate'>Data:</label><br>
+                    <input type="datetime-local" id='AddDate' name="AddDate">
+                </div>
+
+                <div class="input-btn">
+                    <button type="button" class="btnUnlock" id="btnAddModal">Stwórz</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <script src='matches.js'></script>
     <script src='buttons.js'></script>
     <script src='modals.js'></script>
     <script src='game.js'></script>
+    <script src='createMatch.js'></script>
 </body>
 </html>

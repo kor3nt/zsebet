@@ -1,4 +1,4 @@
-// Wyświetlanie lub zamykanie Modalu
+// Wyświetlanie lub zamykanie Modala
 var modal = document.getElementById("editModal");
 var span = document.getElementById("close");
 

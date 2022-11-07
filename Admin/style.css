@@ -332,14 +332,14 @@ body{
 }
 
 /* Zamknij guzik */
-#close {
+#close, #AddClose {
     color: #fa7484;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-#close:hover, #close:focus {
+#close:hover, #close:focus, #AddClose:hover, #AddClose:focus {
     color: #EF233C;
     text-decoration: none;
     cursor: pointer;
