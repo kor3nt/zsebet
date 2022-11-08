@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 03 Lis 2022, 22:50
+-- Czas generowania: 08 Lis 2022, 22:57
 -- Wersja serwera: 10.4.21-MariaDB
 -- Wersja PHP: 8.0.10
 
@@ -38,10 +38,10 @@ CREATE TABLE `zsebet_amount` (
 --
 
 INSERT INTO `zsebet_amount` (`id`, `nick`, `coins`) VALUES
+(1, 'kor3nt', 4740),
 (2, 'kor3nt1', 10001),
 (3, 'kor3nt2', 123123),
-(4, 'kor3nt12', 1000123),
-(5, 'kor3nt', 8800);
+(4, 'kor3nt12', 1000123);
 
 -- --------------------------------------------------------
 
@@ -61,6 +61,18 @@ CREATE TABLE `zsebet_bet` (
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `zsebet_codes`
+--
+
+CREATE TABLE `zsebet_codes` (
+  `code` text COLLATE utf8_polish_ci NOT NULL,
+  `value` int(11) NOT NULL,
+  `type` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `zsebet_game`
 --
 
@@ -74,6 +86,7 @@ CREATE TABLE `zsebet_game` (
 
 INSERT INTO `zsebet_game` (`title`) VALUES
 ('Counter-Strike: Global Offensive'),
+('Dirt 4'),
 ('League of Legends');
 
 -- --------------------------------------------------------
@@ -104,8 +117,9 @@ CREATE TABLE `zsebet_match` (
 --
 
 INSERT INTO `zsebet_match` (`id`, `LabelMatch`, `TeamA`, `TagTeamA`, `multipleTeamA`, `costTeamA`, `TeamB`, `TagTeamB`, `multipleTeamB`, `costTeamB`, `game`, `winner`, `date`, `block`) VALUES
-(1, 'FFC - XD', 'FFC', 'FFC', 6, 1201, 'XD', 'XD', 1.1, 10001, 'Counter-Strike: Global Offensive', 'null', '2022-10-05 22:10:50', 0),
-(22, 'Fasola Funclub - Mieszanka', 'Fasola Funclub', 'FFC', 1.1, 15001, 'Mieszanka', 'XD', 10001, 1, 'League of Legends', 'null', '2022-10-05 20:10:50', 0);
+(1, 'FFC - XD', 'FFC', 'FFC', 6, 1201, 'XD', 'XD', 1.1, 10001, 'Counter-Strike: Global Offensive', NULL, '2022-10-05 22:10:50', 0),
+(22, 'Fasola Funclub - Mieszanka', 'Fasola Funclub', 'FFC', 1.1, 15001, 'Mieszanka', 'XD', 10001, 1, 'League of Legends', NULL, '2022-10-05 20:10:50', 0),
+(23, 'Wyścig Tomek', 'Przegra', 'lostTomek', 2, 1, 'Wygra', 'winTomek', 2, 1, 'Dirt 4', NULL, '2022-11-08 23:09:00', 0);
 
 -- --------------------------------------------------------
 
@@ -120,7 +134,7 @@ CREATE TABLE `zsebet_users` (
   `name` text COLLATE utf8_polish_ci NOT NULL,
   `surname` text COLLATE utf8_polish_ci NOT NULL,
   `email` text COLLATE utf8_polish_ci NOT NULL,
-  `verify` int(11) NOT NULL COMMENT '0 - niezweryfikowany\r\n1 - zweryfikowany\r\n2 - zablokowany',
+  `verify` int(11) NOT NULL COMMENT '0 - niezweryfikowany\r\n1 - zweryfikowany',
   `otp` text COLLATE utf8_polish_ci NOT NULL,
   `role` text COLLATE utf8_polish_ci NOT NULL,
   `token` text COLLATE utf8_polish_ci NOT NULL
@@ -131,7 +145,19 @@ CREATE TABLE `zsebet_users` (
 --
 
 INSERT INTO `zsebet_users` (`id`, `nick`, `password`, `name`, `surname`, `email`, `verify`, `otp`, `role`, `token`) VALUES
-(2, 'kor3nt', '$2y$10$oXJglUapst3mFN47LeDSVeX5OEJDKblAI8hVSfyJF6dQWjVahGoM6', 'Klaudiusz', 'Jędrzejczyk', 'klaudiusz.jedrzejczyk@zse.krakow.pl', 1, '170507', 'admin', '9e38493594870ac5b32a3fddc7ae5f07');
+(1, 'kor3nt', '$2y$10$oXJglUapst3mFN47LeDSVeX5OEJDKblAI8hVSfyJF6dQWjVahGoM6', 'Klaudiusz', 'Jędrzejczyk', 'klaudiusz.jedrzejczyk@zse.krakow.pl', 1, '170507', 'admin', '9e38493594870ac5b32a3fddc7ae5f07');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `zsebet_uses`
+--
+
+CREATE TABLE `zsebet_uses` (
+  `nick` text COLLATE utf8_polish_ci NOT NULL,
+  `code` text COLLATE utf8_polish_ci NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Indeksy dla zrzutów tabel
@@ -148,6 +174,12 @@ ALTER TABLE `zsebet_amount`
 --
 ALTER TABLE `zsebet_bet`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `zsebet_codes`
+--
+ALTER TABLE `zsebet_codes`
+  ADD PRIMARY KEY (`code`(10));
 
 --
 -- Indeksy dla tabeli `zsebet_game`
@@ -187,7 +219,7 @@ ALTER TABLE `zsebet_bet`
 -- AUTO_INCREMENT dla tabeli `zsebet_match`
 --
 ALTER TABLE `zsebet_match`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT dla tabeli `zsebet_users`
