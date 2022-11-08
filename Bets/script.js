@@ -2,7 +2,8 @@
 let bets = new Array();
 
 function addBet(element) {
-    let game = (element.name).slice(0, (element.name).search(':')); 
+    let label = (element.name).slice(0, (element.name).search(';')); 
+    let game = (element.name).slice((element.name).search(';')+1, (element.name).search(':')); 
     let teamA = (element.name).slice((element.name).search(':')+1, (element.name).search('-')); 
     let teamB = (element.name).slice((element.name).search('-')+1, (element.name).lastIndexOf(':')); 
     
@@ -35,7 +36,7 @@ function addBet(element) {
     '"><div class="row"><div class="CloseElement"><small class="close" onclick="deleteBet(\''+
      element.name + '\',\'' + element.id +'\',\''+ element.value 
      +'\');"><i class="fa fa-trash-o" aria-hidden="true"></i></small></div><div class="BetsInfo"><small class="team">' 
-     + teamA +' - ' + teamB +'</small><p class="winner">Wynik meczu: <span class="text-bold text-blue">'
+     + label +'</small><p class="winner">Wynik meczu: <span class="text-bold text-blue">'
      + element.id + '</span></p><label>Kurs: <span class="text-bold text-yellow">'
      + multiple +'</span></label><input class="BetInput" onchange="updateValue(this);" min="10" type="number" id="'
      +element.value+'" placeholder="Wprowadź stawkę"></div></div></div>');

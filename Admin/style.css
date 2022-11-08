@@ -331,15 +331,84 @@ body{
     text-align: center;
 }
 
+/* kody */
+.modal-code {
+    border-radius: 5px;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+.input-code{
+    padding-top: 10px;
+    width: 90%;
+    margin: 0px 5%;
+}
+
+.input-code input[type=text], .input-code input[type=number]{
+    width: 100%;
+    padding: 5px 0px 5px 3px;
+    border-radius: 4px;
+    border: 1px solid #818181;
+}
+
+.scrollCode{
+    max-height: 200px;
+    overflow: auto;
+    width: 100%;
+    padding: 10px 0;
+    margin: 15px 0px;
+}
+
+.scrollCode table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.scrollCode th{
+    border-bottom: 1px solid black;
+    background-color: #ffbf00;
+}
+
+.scrollCode td, .scrollCode th{
+    text-align: center;
+    padding: 5px;
+}
+
+.scrollCode td{
+    border-top: 1px solid black;
+}
+
+.scrollCode tr:nth-child(even) {
+    background-color: #e8e9eb;
+}
+
+
+.scrollCode .deleteBtn{
+    padding: 5px 10px;
+    border: 1px solid #f73636;
+    background: none;
+}
+
+.scrollCode .deleteBtn:hover{
+    background: #f73636;
+}
+
+.error{
+    color: #f73636;
+}
+
 /* Zamknij guzik */
-#close, #AddClose {
+#close, #AddClose, #codeClose {
     color: #fa7484;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-#close:hover, #close:focus, #AddClose:hover, #AddClose:focus {
+#close:hover, #close:focus, #AddClose:hover, #AddClose:focus,  #codeClose:hover, #codeClose:focus {
     color: #EF233C;
     text-decoration: none;
     cursor: pointer;
@@ -393,6 +462,10 @@ body{
     .modal-content {
         width: 75%;
     }
+
+    .modal-code {
+        width: 80%;
+    }
 }
 
 @media only screen and (max-width: 800px) {
@@ -425,6 +498,9 @@ body{
     }
     .menu{
         text-align: center;
+    }
+    .modal-code {
+        width: 100%;
     }
 }
 

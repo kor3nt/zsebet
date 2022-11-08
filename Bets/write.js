@@ -52,7 +52,7 @@ $.ajax({
                         '<div class="right">' +
                             '<form>' +
                                 '<label class="custom-radio">' +
-                                    '<input type="radio" name="'+ matches[i]['game'] + ':' +  matches[i]['TeamA'] + '-' + matches[i]['TeamB'] + ':' + matches[i]['multipleTeamA'] + '-' + matches[i]['multipleTeamB'] +'" value="' + matches[i]['id'] + '" id="' +  matches[i]['TeamA'] + '" onclick="addBet(this);">' +
+                                    '<input type="radio" name="'+ matches[i]['LabelMatch'] + ';' + matches[i]['game'] + ':' +  matches[i]['TeamA'] + '-' + matches[i]['TeamB'] + ':' + matches[i]['multipleTeamA'] + '-' + matches[i]['multipleTeamB'] +'" value="' + matches[i]['id'] + '" id="' +  matches[i]['TeamA'] + '" onclick="addBet(this);">' +
                                     '<span class="radio-btn">' +
                                         matches[i]['TeamA'] + '<br>' +
                                         '<span>' + matches[i]['multipleTeamA'] + '</span>' +
@@ -60,7 +60,7 @@ $.ajax({
                                 '</label>' +
 
                                 '<label class="custom-radio">' +
-                                    '<input type="radio" name="'+ matches[i]['game'] + ':' +  matches[i]['TeamA'] + '-' + matches[i]['TeamB'] + ':' + matches[i]['multipleTeamA'] + '-' + matches[i]['multipleTeamB'] +'" value="' + matches[i]['id'] + '" id="' +  matches[i]['TeamB'] + '" onclick="addBet(this);">' +
+                                    '<input type="radio" name="'+ matches[i]['LabelMatch'] + ';' + matches[i]['game'] + ':' +  matches[i]['TeamA'] + '-' + matches[i]['TeamB'] + ':' + matches[i]['multipleTeamA'] + '-' + matches[i]['multipleTeamB'] +'" value="' + matches[i]['id'] + '" id="' +  matches[i]['TeamB'] + '" onclick="addBet(this);">' +
                                     '<span class="radio-btn">' +
                                         matches[i]['TeamB'] + '<br>' +
                                         '<span>' + matches[i]['multipleTeamB'] + '</span>'+

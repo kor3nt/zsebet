@@ -40,7 +40,7 @@
                 
                 <div id="NavInfo">
                     <ul id="NavMenu">
-                        <li class="NavItem"><a class="NavLinks" href="#"><span id='Bg-coins'><span id='coins'></span><span class="yellow-coins">+</span></span></a></li>
+                        <li class="NavItem"><a class="NavLinks" href="#" id="CodesBtnOpen"><span id='Bg-coins'><span id='coins'></span><span class="yellow-coins">+</span></span></a></li>
                         <li class="NavItem"><a class="NavLinks" href="#"><i class="fa fa-ticket yellow-color-nav" aria-hidden="true"></i><span id='tickets'>&nbsp; Moje kupony</span></a></li>
                         <li class="NavItem"><a class="NavLinks" href="#"><i class="fa fa-user" id='userNav' aria-hidden="true"></i>&nbsp;<span id='profil'><?php echo $_SESSION['username']?></span></a></li>
                     </ul>
@@ -90,7 +90,7 @@
                         <div class="InfoBets">
                             <small>Łączna stawka: <span id='totalBet' class="text-bold">0</span></small>
                             <p>Potencjalna wygrana: <span id='winning' class="text-bold text-blue">0</span></p>
-                            <small id='error'></small>
+                            <small class="error" id='error'></small>
                             <button class="BetsBtn" id='betMenuBtn'>Obstaw</button>
                         </div>
                     </div>
@@ -98,9 +98,37 @@
             </div>
         </div>  
     </div>
-    
+
+    <!-- Modal - Kod -->
+    <div id="ModalCode" class="modal" >
+        <div class="modal-content">
+            <span class="closeModal" id="closeModal">&times;</span>
+            <div class="main-modal">
+                <div class="title-modal">
+                    <h1 id='title-code'>Doładuj portfel</h1>
+                </div>
+
+                <form>
+                    <div class="input">
+                        <label for="code">Wprowadź kod:</label><br>
+                        <input type="text" name="code" id="code"><br>
+                        <small class="error" id="errorCode"></small>
+                    </div>
+                    
+                    <div class="button-content">
+                        <button class='btnModalCode' id="btnModalCode" type='button' onclick="">Odbierz</button>
+                    </div>
+                </form>
+
+                
+            </div>
+            
+        </div>
+    </div>
+
     <script src="write.js"></script>
     <script src="script.js"></script>
     <script src="shopButton.js"></script>
+    <script src="ModalCode.js"></script>
 </body>
 </html>

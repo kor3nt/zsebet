@@ -1,6 +1,5 @@
 <?php 
-    // Pobieranie informacji o tytulach gier
-
+    // Pobieranie informacji o kodach
     session_start();
     require_once "../connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
@@ -12,14 +11,19 @@
             throw new Exception(mysqli_connect_errno());
         }
         else{
-            if ($result = @$connect->query("SELECT * FROM zsebet_game"))
+            if ($result = @$connect->query("SELECT * FROM zsebet_codes"))
             {
-                $numberGames = $result->num_rows;
-                if($numberGames>0){
+
+                $numberCodes = $result->num_rows;
+                if($numberCodes>0){
                     while($row = $result->fetch_assoc()){
                         $table[] = $row;
                     }
+                    
                     echo json_encode($table);
+                }
+                else{
+                    echo 'none';
                 }
             }
             else{

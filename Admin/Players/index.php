@@ -9,6 +9,11 @@
         header('Location: ../../SignIn');
         exit();
     }
+
+    if($_SESSION['role'] != "admin"){
+        header('Location: ../');
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>

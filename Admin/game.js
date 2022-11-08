@@ -23,6 +23,11 @@ btnAddGame.addEventListener("click", ()=> {
                     $('#titleGame').val('');
                 }
 
+                // Zwrócenie, że gra istnieje 
+                if(/exist/.test(data)){
+                    alert('Ta gra już jest dodana!')
+                }
+
                 // Serwer wyłączony / awaria
                 if(/servers/.test(data)){
                     alert('Błąd serwera! Przepraszamy za niedogodności i prosimy o skontaktowanie się z administracją!')
@@ -60,7 +65,7 @@ function deleteGames(idGame){
         }
     }).done(function(data){
          // Zwrócenie poprawnego wyniku
-         if(/success/.test(data)){
+        if(/success/.test(data)){
             showGame();
         }
 

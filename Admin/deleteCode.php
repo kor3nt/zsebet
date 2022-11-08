@@ -1,31 +1,36 @@
-<?php 
-    // Pobieranie informacji o tytulach gier
-
+<?php
     session_start();
+
     require_once "../connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
-    try {
+    
+    try 
+    {
         $connect = new mysqli($host, $db_user, $db_password, $db_name);
+        
+        // Uzyskanie danych z pliku js
+        $id = $_POST['id'];
 
         if ($connect->connect_errno!=0)
         {
             throw new Exception(mysqli_connect_errno());
         }
-        else{
-            if ($result = @$connect->query("SELECT * FROM zsebet_game"))
+        else
+        {   
+            if ($connect->query("DELETE FROM zsebet_codes WHERE code LIKE '$id';"))
             {
-                $numberGames = $result->num_rows;
-                if($numberGames>0){
-                    while($row = $result->fetch_assoc()){
-                        $table[] = $row;
-                    }
-                    echo json_encode($table);
-                }
+                echo 'success';
             }
-            else{
+            else
+            {
                 throw new Exception($connect->error);
             }
+
+            $connect->close();
+            return true;
         }
+        echo 'error';
+                
     }
     catch(Exception $e)
     {

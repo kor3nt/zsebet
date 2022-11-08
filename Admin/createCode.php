@@ -9,7 +9,9 @@
         $connect = new mysqli($host, $db_user, $db_password, $db_name);
         
         // Uzyskanie danych z pliku js
-        $title = $_POST['titleGame'];
+        $code = $_POST['code'];
+        $value = $_POST['value'];
+        $type = $_POST['type'];
 
         if ($connect->connect_errno!=0)
         {
@@ -17,17 +19,17 @@
         }
         else
         {   
-            if ($result = $connect->query("SELECT * FROM zsebet_game WHERE title LIKE '$title'"))
+            if ($result = $connect->query("SELECT * FROM zsebet_codes WHERE code LIKE '$code'"))
             {
-                $numberGames = $result->num_rows;
-                if($numberGames>0){
+                $numberCodes = $result->num_rows;
+                if($numberCodes>0){
                     echo 'exist';
                     return false;
                 }
                 
             }
 
-            if ($connect->query("INSERT INTO zsebet_game VALUES ('$title')"))
+            if ($connect->query("INSERT INTO zsebet_codes VALUES ('$code', '$value', '$type')"))
             {
                 echo 'success';
             }
