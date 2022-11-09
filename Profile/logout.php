@@ -4,6 +4,6 @@
 	
 	session_unset();
 	
-	header('Location: index.html');
+	header('Location: ../');
 
 ?>

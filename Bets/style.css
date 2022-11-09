@@ -2,70 +2,69 @@ html {
     scroll-behavior: smooth;
 }
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Encode Sans Expanded', sans-serif;
+    font-family: "Encode Sans Expanded", sans-serif;
 }
 
-body{
+body {
     background-color: #e8e9eb;
 }
 
 /* Nawigacja */
-#Nav{
+#Nav {
     background-color: #1f1f1f;
     width: 100%;
 }
 
-#NavbarContainer{
+#NavbarContainer {
     padding: 20px 50px;
 }
 
-#NavLogo{
+#NavLogo {
     cursor: pointer;
     width: 20%;
     float: left;
     color: white;
 }
 
-.yellow-color{
+.yellow-color {
     color: #ffbf00;
 }
 
-#NavInfo{
-    
+#NavInfo {
     width: 80%;
     float: left;
     text-align: right;
 }
 
-#NavMenu{
+#NavMenu {
     padding: 10px 0px;
     list-style: none;
     display: inline-flex;
 }
 
-.NavLinks{
+.NavLinks {
     padding: 0px 20px;
     text-decoration: none;
     color: white;
 }
 
-.NavLinks:hover{
-    color: #777777
+.NavLinks:hover {
+    color: #777777;
 }
 
-.yellow-color-nav{
+.yellow-color-nav {
     color: #ffbf00;
 }
 
-.NavLinks:hover .yellow-color-nav{
+.NavLinks:hover .yellow-color-nav {
     color: #b98b00;
 }
 
-.yellow-coins{
+.yellow-coins {
     text-align: center;
     background-color: #ffbf00;
     padding: 3px 6px;
@@ -75,30 +74,29 @@ body{
     z-index: 2;
 }
 
-.NavLinks:hover .yellow-coins{
-    background-color: #b98b00;    
+.NavLinks:hover .yellow-coins {
+    background-color: #b98b00;
 }
 
-#Bg-coins{
+#Bg-coins {
     padding: 5px 0px 5px 10px;
     background-color: black;
     border-radius: 15px;
 }
 
-#userNav{
+#userNav {
     display: none;
 }
 
-
 /* Guzik Menu na telefonie */
-.shopButton{
+.shopButton {
     display: none;
     position: fixed;
     right: 20px;
     bottom: 30px;
 }
 
-.shopButton a{
+.shopButton a {
     color: white;
     text-decoration: none;
     background: #0099ff;
@@ -106,11 +104,11 @@ body{
     border-radius: 50px;
 }
 
-.shopButton a:hover{
+.shopButton a:hover {
     background: #6dc5ff;
 }
 
-#Icon{
+#Icon {
     display: none;
     position: absolute;
     top: 1.2rem;
@@ -121,32 +119,31 @@ body{
     color: red;
 }
 
-#Icon:hover{
+#Icon:hover {
     color: rgb(255, 160, 160);
 }
 
-
 /* Główna sekcja */
-.Section{
+.Section {
     padding-top: 20px;
 }
 
-.Container{
+.Container {
     width: 100%;
 }
 
-.Wrapper{
+.Wrapper {
     margin-left: 1%;
     margin-right: 1%;
     width: 98%;
 }
 
-.left-panel{
+.left-panel {
     width: 80%;
     float: left;
 }
 
-.History{
+.History {
     width: 30%;
     float: left;
     margin-bottom: 15px;
@@ -158,14 +155,14 @@ body{
     border-radius: 5px;
 }
 
-.Main{
+.Main {
     width: 70%;
     float: left;
     margin-bottom: 15px;
     padding: 0 15px;
 }
 
-#betMenu{
+#betMenu {
     width: 20%;
     float: left;
     margin-bottom: 15px;
@@ -182,23 +179,23 @@ body{
     transition: 0.3s ease-in-out;
 }
 
-.text-yellow{
+.text-yellow {
     color: #ffbf00;
 }
 
-.text-blue{
+.text-blue {
     color: #0099ff;
 }
 
 /* Topka graczy */
-.HistoryElements{
+.HistoryElements {
     padding: 0 15px;
 
     overflow-y: auto;
     max-height: 400px;
 }
 
-.player{
+.player {
     margin-bottom: 20px;
     width: 100%;
     padding-left: 10%;
@@ -211,33 +208,32 @@ body{
     border: 1px solid #c4c4c4;
 
     border-radius: 5px;
-    
 }
 
-.left-player{
+.left-player {
     width: 10%;
     float: left;
     text-align: left;
 }
 
-.center-player{
+.center-player {
     width: 70%;
     float: left;
     text-align: center;
 }
 
-.right-player{
+.right-player {
     width: 20%;
     float: left;
     text-align: right;
 }
 
-.event h3{
+.event h3 {
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
-.History h4{
+.History h4 {
     padding-top: 20px;
     padding-bottom: 15px;
     text-align: center;
@@ -248,21 +244,20 @@ body{
     margin-bottom: 15px;
 }
 
-.gold{
+.gold {
     color: #ffbf00;
 }
 
-.silver{
+.silver {
     color: #777777;
 }
 
-.bronze{
+.bronze {
     color: #853719;
 }
 
-
 /* Mecze do obstawiania */
-.MainMatch{
+.MainMatch {
     width: 100%;
     background-color: #fff;
     padding: 20px 0px;
@@ -277,28 +272,28 @@ body{
     clear: both;
 }
 
-.left{
+.left {
     padding-left: 10px;
     width: 30%;
     float: left;
 }
 
-.center{
+.center {
     width: 20%;
     float: left;
     text-align: center;
 }
 
-.right{
+.right {
     width: 50%;
     float: left;
 }
 
-.custom-radio input{
+.custom-radio input {
     display: none;
 }
 
-.radio-btn{
+.radio-btn {
     float: left;
     width: 46%;
     margin-left: 2%;
@@ -307,15 +302,15 @@ body{
     cursor: pointer;
 }
 
-.radio-btn span{
-    font-size: smaller;;
+.radio-btn span {
+    font-size: smaller;
 }
 
-.grey{
-    color:#8f8f8f;
+.grey {
+    color: #8f8f8f;
 }
 
-.custom-radio input + .radio-btn{
+.custom-radio input+.radio-btn {
     padding: 5px 0px;
     border-radius: 10px;
     border: 1px solid #ffbf00;
@@ -323,30 +318,30 @@ body{
     transition: 0.5s;
 }
 
-.custom-radio input:hover + .radio-btn{
+.custom-radio input:hover+.radio-btn {
     border: 1px solid #fcd665;
     background: #fcd665;
 }
 
-.custom-radio input:checked + .radio-btn{
+.custom-radio input:checked+.radio-btn {
     border: 1px solid #1f1f1f;
     background: #1f1f1f;
     color: #ffbf00;
 }
 
-.custom-radio input:checked + .radio-btn > i{
+.custom-radio input:checked+.radio-btn>i {
     opacity: 1;
     transform: translateX(-50%) scale(1);
 }
 
 /* Menu z podsumowaniem */
-.MatchElements{
+.MatchElements {
     padding: 0 15px;
     overflow-y: auto;
     max-height: 400px;
 }
 
-#betMenu h4{
+#betMenu h4 {
     padding-top: 20px;
     padding-bottom: 15px;
     text-align: center;
@@ -357,7 +352,7 @@ body{
     margin-bottom: 15px;
 }
 
-.Match{
+.Match {
     margin-bottom: 15px;
     padding: 10px 5px 10px 5px;
     width: 100%;
@@ -367,54 +362,54 @@ body{
     border-radius: 5px;
 }
 
-.winner{
+.winner {
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
-.text-bold{
+.text-bold {
     font-weight: bold;
 }
 
-#betMenuInfo{
+#betMenuInfo {
     width: 95%;
     float: left;
 }
 
-.CloseElement{
+.CloseElement {
     text-align: center;
     width: 5%;
     float: right;
 }
 
-.close{
+.close {
     color: black;
     cursor: pointer;
     font-size: medium;
 }
 
-.close:hover{
+.close:hover {
     color: rgb(255, 0, 0);
     font-size: large;
 }
 
-.BetInput{
+.BetInput {
     margin-left: 30px;
     padding: 5px 0px 5px 5px;
 }
 
-.InfoBets{
+.InfoBets {
     -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
-    
+
     padding: 10px;
     position: absolute;
     bottom: 0px;
     width: 100%;
 }
 
-#betMenuBtn{
+#betMenuBtn {
     padding: 10px 0;
     margin-top: 20px;
     width: 100%;
@@ -423,49 +418,52 @@ body{
     background: #ffbf00;
 }
 
-#betMenuBtn:hover{
+#betMenuBtn:hover {
     border: 1px solid #fcd665;
     background: #fcd665;
 }
 
-.error{
-    color:rgb(255, 0, 0);
+.error {
+    color: rgb(255, 0, 0);
 }
 
-.errorsInput{
+.errorsInput {
     border: 2px solid red !important;
 }
 
 /* Brak meczy */
-.none{
+.none {
     margin-top: 20px;
     text-align: center;
     display: none;
 }
-.none h1{
+
+.none h1 {
     font-size: 40px;
-    color:#ffbf00;
+    color: #ffbf00;
 }
-.none p{
+
+.none p {
     font-size: 20px;
 }
 
 /* Modal*/
 .modal {
-    display: none; 
-    position: fixed; 
+    display: none;
+    position: fixed;
     z-index: 1;
-    padding-top: 100px; 
+    padding-top: 100px;
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 4;
 }
 
-  /* Modal Treść */
+/* Modal Treść */
 .modal-content {
     border-radius: 5px;
     background-color: #fefefe;
@@ -475,190 +473,329 @@ body{
     width: 25%;
 }
 
-.modal-content h2{
-    color: #2B2D42;
+.modal-content h2 {
+    color: #2b2d42;
 }
 
-form{
+form {
     padding-top: 20px;
 }
 
-.input{
+.input {
     padding-top: 10px;
     width: 60%;
     margin: 0px 20%;
 }
 
-.input input{
+.input input {
     width: 100%;
     padding: 5px 0px 5px 3px;
     border-radius: 4px;
     border: 1px solid #818181;
 }
 
-.button-content{
+.button-content {
     margin: 10px 0px;
     text-align: center;
 }
 
-.button-content button{
+.button-content button {
     padding: 10px 20px;
     border: 1px solid #5df736;
     background: none;
 }
 
-.button-content button:hover{
+.button-content button:hover {
     background: #5df736;
 }
 
 /* Zamknij guzik */
-.closeModal{
+.closeModal {
     color: #fa7484;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.closeModal:hover, .closeModal:focus {
-    color: #EF233C;
+.closeModal:hover,
+.closeModal:focus {
+    color: #ef233c;
     text-decoration: none;
     cursor: pointer;
 }
 
+/* Modal kupon */
+.modal-ticket {
+    border-radius: 5px;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+.ticketElement{
+    width: 100%;
+    margin: 15px 0px;
+}
+
+.ticketElement table{
+    border-radius: 10px;
+    width: 100%;
+    padding: 4px;
+    box-shadow: 0px 0px 2px #000;
+}
+
+.ticketElement table td{
+    padding: 5px 0px;
+}
+
+.ticketElement td:nth-child(even) {
+    text-align: left;
+}
+
+.ticketElement td:nth-child(even) {
+    text-align: right;
+}
+
+.loseTicket{
+    padding: 2px 5px;
+    background: #ef233c;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.loseSpan{
+    color: #ef233c;
+    font-weight: bold;
+}
+
+.winTicket{
+    padding: 2px 5px;
+    background: #46bb29;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.winSpan{
+    color: #46bb29;
+    font-weight: bold;
+}
+
+.waitTicket{
+    padding: 2px 5px;
+    background: #727272;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.ticketMultiple{
+    padding: 5px;
+    color: #ffbf00;
+    border: 2px solid #ffbf00;
+    border-radius: 5px;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+/* Radio - Kupony */
+.filterTicket{
+    padding: 20px 0px;
+    text-align: center;
+}
+
+.custom-radio-filter input{
+    display: none;
+}
+
+.choose{
+    padding: 10px 10px 10px 30px;
+    background: #e8e9eb;
+}
+
+.radio-btn-filter{
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+}
+
+.radio-btn-filter span{
+    font-size: smaller;;
+}
+
+.custom-radio-filter input + .radio-btn-filter{
+    padding: 9px 70px;
+    border: 1px solid #e8e9eb;
+    background: #e8e9eb;
+    transition: 0.5s;
+    border-radius: 50px;
+    color: #000;
+}
+
+.custom-radio-filter input:hover + .radio-btn-filter{
+    border: 1px solid #fff;
+    background: #fff;
+}
+
+.custom-radio-filter input:checked + .radio-btn-filter{
+    border: 1px solid #fff;
+    background: #fff;
+}
+
+.custom-radio-filter input:checked + .radio-btn-filter > i{
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
 /* Media - Telefony - RWD */
-@media screen and (max-width: 1500px){
-    .History{
+@media screen and (max-width: 1500px) {
+    .History {
         width: 100%;
         float: left;
         margin-bottom: 15px;
         position: relative;
         top: 0px;
-
     }
-    
-    .Main{
+
+    .Main {
         width: 100%;
         float: left;
         padding: 0px 0px;
     }
 
-    .left-panel{
+    .left-panel {
         padding: 0px 20px;
         width: 60%;
         float: left;
     }
-    
-    #betMenu{
+
+    #betMenu {
         width: 40%;
         float: left;
     }
 
-    .left{
-        
+    .left {
         width: 60%;
         float: left;
     }
-    
-    .center{
+
+    .center {
         width: 40%;
         float: left;
         text-align: center;
     }
-    
-    .right{
+
+    .right {
         padding-top: 20px;
         width: 100%;
         float: left;
     }
 
-    .HistoryElements{
+    .HistoryElements {
         max-height: 300px;
     }
 }
 
-@media screen and (max-width: 750px){
-    #userNav{
+@media only screen and (max-width: 1400px) {
+    .modal-content {
+        width: 75%;
+    }
+
+    .modal-ticket {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #userNav {
         display: block;
     }
 
-    #profil{
+    #profil {
         display: none;
     }
 
-    #tickets{
+    #tickets {
         display: none;
     }
 
-    #NavLogo{
+    #NavLogo {
         width: 100%;
     }
-    
-    #NavInfo{ 
+
+    #NavInfo {
         width: 100%;
         text-align: center;
     }
-    .NavLinks{
+
+    .NavLinks {
         padding: 0px;
         font-size: 16px;
     }
 
-    .NavItem{
+    .NavItem {
         padding: 20px;
     }
 
-    #NavbarContainer{
+    #NavbarContainer {
         padding: 10px 5px;
     }
 
-    #NavLogo{
+    #NavLogo {
         text-align: center;
     }
 
-    #NavMenu{
+    #NavMenu {
         padding: 0px;
     }
 
-    .History{
+    .History {
         width: 100%;
     }
-    
-    .Main{
+
+    .Main {
         width: 100%;
     }
-    .left-panel{
+
+    .left-panel {
         width: 100%;
     }
-    
-    #betMenu{
+
+    #betMenu {
         width: 40%;
     }
 
-    .left{
+    .left {
         width: 100%;
     }
-    
-    .center{
+
+    .center {
         padding-top: 5px;
         width: 100%;
     }
-    
-    .right{
+
+    .right {
         width: 100%;
     }
-    .HistoryElements{
+
+    .HistoryElements {
         max-height: 200px;
     }
 
-    .shopButton{
+    .shopButton {
         display: block;
         z-index: 3;
     }
 
-    #Icon{
+    #Icon {
         display: block;
     }
 
-    #betMenu{
+    #betMenu {
         width: 100%;
         opacity: 0%;
         left: -100%;
@@ -670,26 +807,38 @@ form{
         z-index: 4;
     }
 
-    .MatchElements{
+    .MatchElements {
         max-height: 80%;
     }
 
-    #betMenu input{
+    #betMenu input {
         margin-top: 15px;
+    }
+
+    .modal-content {
+        width: 100%;
+    }
+
+    .modal-ticket {
+        width: 100%;
+    }
+
+    .custom-radio-filter input + .radio-btn-filter {
+        padding: 9px 10px;
     }
 }
 
-@media screen and (max-width: 285px){
-    .radio-btn{
+@media screen and (max-width: 285px) {
+    .radio-btn {
         width: 92%;
         margin-left: 4%;
         margin-right: 4%;
-        margin-top: 10px
+        margin-top: 10px;
     }
 }
 
 /* Ekran ładowania */
-.loading{
+.loading {
     text-align: center;
     background: rgba(0, 0, 0, 0.8);
     width: 100%;
@@ -707,33 +856,39 @@ form{
     width: 80px;
     height: 80px;
     top: 50%;
-  }
-  .lds-ring div {
+}
+
+.lds-ring div {
     box-sizing: border-box;
     display: block;
     position: absolute;
     width: 64px;
     height: 64px;
     margin: 8px;
-    border: 8px solid #ffbf00 ;
+    border: 8px solid #ffbf00;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #ffbf00  transparent transparent transparent;
-  }
-  .lds-ring div:nth-child(1) {
+    border-color: #ffbf00 transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
     animation-delay: -0.45s;
-  }
-  .lds-ring div:nth-child(2) {
+}
+
+.lds-ring div:nth-child(2) {
     animation-delay: -0.3s;
-  }
-  .lds-ring div:nth-child(3) {
+}
+
+.lds-ring div:nth-child(3) {
     animation-delay: -0.15s;
-  }
-  @keyframes lds-ring {
+}
+
+@keyframes lds-ring {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}

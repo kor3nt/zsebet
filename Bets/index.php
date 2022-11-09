@@ -41,8 +41,8 @@
                 <div id="NavInfo">
                     <ul id="NavMenu">
                         <li class="NavItem"><a class="NavLinks" href="#" id="CodesBtnOpen"><span id='Bg-coins'><span id='coins'></span><span class="yellow-coins">+</span></span></a></li>
-                        <li class="NavItem"><a class="NavLinks" href="#"><i class="fa fa-ticket yellow-color-nav" aria-hidden="true"></i><span id='tickets'>&nbsp; Moje kupony</span></a></li>
-                        <li class="NavItem"><a class="NavLinks" href="#"><i class="fa fa-user" id='userNav' aria-hidden="true"></i>&nbsp;<span id='profil'><?php echo $_SESSION['username']?></span></a></li>
+                        <li class="NavItem"><a class="NavLinks" href="#" id="TicketBtnOpen"><i class="fa fa-ticket yellow-color-nav" aria-hidden="true"></i><span id='tickets'>&nbsp; Moje kupony</span></a></li>
+                        <li class="NavItem"><a class="NavLinks" href="../Profile"><i class="fa fa-user" id='userNav' aria-hidden="true"></i>&nbsp;<span id='profil'><?php echo $_SESSION['username']?></span></a></li>
                     </ul>
                 </div>
             </div>
@@ -119,10 +119,38 @@
                         <button class='btnModalCode' id="btnModalCode" type='button' onclick="">Odbierz</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
 
+     <!-- Modal - Kupony -->
+     <div id="ModalTicket" class="modal" >
+        <div class="modal-ticket">
+            <span class="closeModal" id="ticketModal">&times;</span>
+            <div class="main-modal">
+                <div class="title-modal">
+                    <h1 id='title-ticket'>Kupony</h1>
+                </div>
+
+                <div class="filterTicket">
+                    <form id="filterMatch">
+                        <label for='active' class='custom-radio-filter'>
+                            <input type='radio' id='active' name='match' value='0' onclick="writeTicket(0);" checked>
+                            <span class="radio-btn-filter">Otwarte</span>
+                        </label>
+
+                        <label for='block' class='custom-radio-filter'>
+                            <input type='radio' id='block' name='match' value='1' onclick="writeTicket(1);">
+                            <span class="radio-btn-filter">Zakończone</span>
+                        </label>
+                    </form>
+                </div>
+
+                <div class="ticketScroll" id="ticketsOutput">
+                    
+                </div>
                 
             </div>
-            
         </div>
     </div>
 
@@ -130,5 +158,6 @@
     <script src="script.js"></script>
     <script src="shopButton.js"></script>
     <script src="ModalCode.js"></script>
+    <script src="showTicket.js"></script>
 </body>
 </html>

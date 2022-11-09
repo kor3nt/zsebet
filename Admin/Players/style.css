@@ -209,11 +209,30 @@ body{
     .menu{
         text-align: center;
     }
+    .main {
+        padding: 10px 20px;
+    }
 }
 
 @media only screen and (max-width: 500px) {
     .menu a {
         margin: 20px 8px;
     }
+    .players{
+    
+        width: 375px;
+        overflow: auto;
+    }
+    .main {
+        padding: 10px 5px;
+    }
 }
 
+
+@media only screen and (max-width: 380px) {
+    .players{
+    
+        width: 310px;
+        overflow: auto;
+    }
+}
