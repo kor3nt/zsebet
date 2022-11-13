@@ -29,14 +29,11 @@ function writeTicket(id){
     }).done(function(data){
         $('#ticketsOutput').html('');
 
-        console.log(data)
-
         if(/none/.test(data)){
             $('#ticketsOutput').html('<div class="none" style="display:block;">'+
                 '<h1><i class="fa fa-exclamation-circle" aria-hidden="true"></i></h1>'+
                 '<p>Zapraszamy do obstawiania!</p>'+
             '</div>');
-            console.log('work')
         }
         else{
             let tickets = $.parseJSON(data);

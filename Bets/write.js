@@ -25,6 +25,7 @@ $.ajax({
 });
 
 // Wypisanie meczy z bazy danych
+var matches = [];
 $.ajax({
     type: "GET",
     url: "match.php",
@@ -33,7 +34,7 @@ $.ajax({
         $('.none').show();
     }
     else{
-        var matches= $.parseJSON(data);
+        matches= $.parseJSON(data);
         for(var i = 0; i<matches.length; i++){
             let data = matches[i]['date'].slice(0, matches[i]['date'].search(" "));
             let godzina = matches[i]['date'].slice(matches[i]['date'].search(" ")+1, matches[i]['date'].lastIndexOf(':'));
@@ -52,7 +53,7 @@ $.ajax({
                         '<div class="right">' +
                             '<form>' +
                                 '<label class="custom-radio">' +
-                                    '<input type="radio" name="'+ matches[i]['LabelMatch'] + ';' + matches[i]['game'] + ':' +  matches[i]['TeamA'] + '-' + matches[i]['TeamB'] + ':' + matches[i]['multipleTeamA'] + '-' + matches[i]['multipleTeamB'] +'" value="' + matches[i]['id'] + '" id="' +  matches[i]['TeamA'] + '" onclick="addBet(this);">' +
+                                    '<input type="radio" name="'+ matches[i]['id'] +'" value="' +  matches[i]['TeamA'] + '" id="' +  matches[i]['TeamA'] + '" onclick="addBet(this);">' +
                                     '<span class="radio-btn">' +
                                         matches[i]['TeamA'] + '<br>' +
                                         '<span>' + matches[i]['multipleTeamA'] + '</span>' +
@@ -60,7 +61,7 @@ $.ajax({
                                 '</label>' +
 
                                 '<label class="custom-radio">' +
-                                    '<input type="radio" name="'+ matches[i]['LabelMatch'] + ';' + matches[i]['game'] + ':' +  matches[i]['TeamA'] + '-' + matches[i]['TeamB'] + ':' + matches[i]['multipleTeamA'] + '-' + matches[i]['multipleTeamB'] +'" value="' + matches[i]['id'] + '" id="' +  matches[i]['TeamB'] + '" onclick="addBet(this);">' +
+                                    '<input type="radio" name="' + matches[i]['id'] + '" value="' + matches[i]['TeamB'] + '" id="' +  matches[i]['TeamB'] + '" onclick="addBet(this);">' +
                                     '<span class="radio-btn">' +
                                         matches[i]['TeamB'] + '<br>' +
                                         '<span>' + matches[i]['multipleTeamB'] + '</span>'+

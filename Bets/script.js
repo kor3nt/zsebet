@@ -2,25 +2,26 @@
 let bets = new Array();
 
 function addBet(element) {
-    let label = (element.name).slice(0, (element.name).search(';')); 
-    let game = (element.name).slice((element.name).search(';')+1, (element.name).search(':')); 
-    let teamA = (element.name).slice((element.name).search(':')+1, (element.name).search('-')); 
-    let teamB = (element.name).slice((element.name).search('-')+1, (element.name).lastIndexOf(':')); 
-    
-    let multipleTeamA = (element.name).slice((element.name).lastIndexOf(':')+1, (element.name).lastIndexOf('-')); 
-    let multipleTeamB = (element.name).slice((element.name).lastIndexOf('-')+1); 
     let multiple = 0;
+    let label, game;
+    for(var i = 0; i<matches.length; i++){
+        if(matches[i]['id'] == element.name){
+            label = matches[i]['LabelMatch'];
 
-    if(teamA == element.id){
-        multiple = multipleTeamA;
-    }
-    else{
-        multiple = multipleTeamB;
+            if(matches[i]['TeamA'] == element.id){
+                multiple = matches[i]['multipleTeamA'];
+            }
+            else{
+                multiple = matches[i]['multipleTeamB'];
+            }
+            game = matches[i]['game'];
+            break;
+        }
     }
 
-    bets[element.value] = {
-        'id': element.value,
-        'yourBet': element.id,
+    bets[element.name] = {
+        'id': element.name,
+        'yourBet': element.value,
         'game': game,
         'multiple': multiple,
         'amount': 0,
@@ -33,25 +34,21 @@ function addBet(element) {
     }
 
     $('.MatchElements').append('<div class="Match" id="' + element.name + 
-    '"><div class="row"><div class="CloseElement"><small class="close" onclick="deleteBet(\''+
-     element.name + '\',\'' + element.id +'\',\''+ element.value 
+    '"><div class="row"><div class="CloseElement"><small class="close" onclick="deleteBet(\'' + element.id +'\',\''+ element.name 
      +'\');"><i class="fa fa-trash-o" aria-hidden="true"></i></small></div><div class="BetsInfo"><small class="team">' 
      + label +'</small><p class="winner">Wynik meczu: <span class="text-bold text-blue">'
      + element.id + '</span></p><label>Kurs: <span class="text-bold text-yellow">'
      + multiple +'</span></label><input class="BetInput" onchange="updateValue(this);" min="10" type="number" id="'
-     +element.value+'" placeholder="Wprowadź stawkę"></div></div></div>');
-    
+     +element.name+'" placeholder="Wprowadź stawkę"></div></div></div>');
 }
 
 // Kasowanie wybranego meczu z obszaru obstawiania
-function deleteBet(element, id, index){
+function deleteBet(id, index){
     delete bets[index];
 
-    document.getElementById(element).remove(); 
+    document.getElementById(index).remove(); 
     document.getElementById(id).checked = false;
     updateAmountBet();
-
-    
 }
 
 // Ustawianie kwoty
@@ -115,14 +112,25 @@ function betMatches(){
                 cache: false,
                 success: function(data) {
                     console.log(data)
-                    // Zwrócenie poprawnego wyniku
-                    if(/success/.test(data)){
-                        window.location.href = "../Bets";
-                    }
-
                     // Serwer wyłączony / awaria
                     if(/servers/.test(data)){
                         alert('Błąd serwera! Przepraszamy za niedogodności i prosimy o skontaktowanie się z administracją!')
+                    }
+                    else{
+                        // window.location.href = "../Bets";
+                        var errorsBets = $.parseJSON(data);
+                        console.log(errorsBets)
+                        // for(var i in bets){
+                        //     for(var j in errorsBets){
+                        //         if(bets[i]['id'] == errorsBets[j]){
+                        //             console.log("Obstawione: " +bets[i]['yourBet'])
+                        //         }
+                        //         else{
+                        //            console.log("Error: " + bets[i]['yourBet'])
+                        //         }
+                        //     }
+                        // }
+                        
                     }
                 }
             });

@@ -69,7 +69,7 @@
             $coins = $row['coins']-$amount;
             if ($connect->query("UPDATE zsebet_amount SET coins='$coins' WHERE  nick LIKE '$nick'"))
             {
-                echo 'success';
+                $error[] = 'success';
                 echo json_encode($error);
             }
             else
@@ -80,7 +80,7 @@
             $connect->close();
             return true;
         }
-        echo 'error';
+        echo 'servers';
                 
     }
     catch(Exception $e)

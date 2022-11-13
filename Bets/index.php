@@ -149,9 +149,16 @@
                 <div class="ticketScroll" id="ticketsOutput">
                     
                 </div>
-                
             </div>
         </div>
+    </div>
+
+
+    <!-- Obstawiony kupon -->
+    <div class="newTicket">
+        <p id="newTicketBets">Obstawione: </p>
+        <p id="newTicketErrors">Errors: </p>
+        
     </div>
 
     <script src="write.js"></script>
