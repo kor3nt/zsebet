@@ -111,26 +111,36 @@ function betMatches(){
                 },
                 cache: false,
                 success: function(data) {
-                    console.log(data)
                     // Serwer wyłączony / awaria
                     if(/servers/.test(data)){
                         alert('Błąd serwera! Przepraszamy za niedogodności i prosimy o skontaktowanie się z administracją!')
                     }
                     else{
-                        // window.location.href = "../Bets";
+                        $('.loading').hide();
+                        betsModal.style.display = "block";
+
                         var errorsBets = $.parseJSON(data);
-                        console.log(errorsBets)
-                        // for(var i in bets){
-                        //     for(var j in errorsBets){
-                        //         if(bets[i]['id'] == errorsBets[j]){
-                        //             console.log("Obstawione: " +bets[i]['yourBet'])
-                        //         }
-                        //         else{
-                        //            console.log("Error: " + bets[i]['yourBet'])
-                        //         }
-                        //     }
-                        // }
-                        
+
+                        $('#winPriceBets').html(errorsBets['info']['winPrice'].toFixed(0) + ' ZSE Coinsów');
+                        $('#amountPriceBets').html(errorsBets['info']['amount'] + ' ZSE Coinsów');
+                        $('#multiplePriceBets').html(errorsBets['info']['multiple']);
+
+
+                        if(errorsBets['error'].length > 0){
+                            $('#blockBets').append('<tr>'+
+                                '<td colspan="2"><h3>Błędy z meczami:</h3></td>'+
+                            '</tr>')
+                            
+
+                            // Bład typu mecz zablokowany
+                            for(var i in errorsBets['error']){
+                                $('#blockBets').append('<tr>'+
+                                    '<td class="errorBets"><i class="fa fa-times" aria-hidden="true"></i> ' + errorsBets['error'][i] + '</td>'+
+                                    '<td class="errorBets">Mecz został już zablokowany </td>'+
+                                '</tr>');
+                            }
+                        }
+
                     }
                 }
             });

@@ -17,8 +17,8 @@ function sendMail($email, $link){
         // $mail ->Host = "ssl0.ovh.net";
         $mail ->Host = "smtp.gmail.com";
         $mail -> SMTPAuth = true;
-        $mail -> Username = "zsecup@zse.krakow.pl";
-        $mail -> Password = 'zse123zse';
+        $mail -> Username = "email@email.com";
+        $mail -> Password = 'haslo';
         $mail -> Port = 465;
         $mail -> SMTPSecure = "ssl";
 

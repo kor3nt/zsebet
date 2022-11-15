@@ -9,7 +9,6 @@
         $connect = new mysqli($host, $db_user, $db_password, $db_name);
         // Uzyskanie danych z pliku js
         $bets = array_filter(json_decode($_POST['bets']));
-        $amount = 0;
 
         if ($connect->connect_errno!=0)
         {
@@ -19,6 +18,9 @@
         {   
             $error = [];
             $nick = $_SESSION['username'];
+
+            $amount = 0;
+            $multipleEnd = 0;
 
             $result = $connect->query("SELECT coins FROM zsebet_amount WHERE nick LIKE '$nick'");
 		    if(!$result) throw new Exception($connect->error);
@@ -31,6 +33,9 @@
                     $multipleA = 1.5;
                     $multipleB = 1.5;
                     $amountBet = $bets[$key] -> amount;
+
+                    $multipleEnd += $bets[$key] -> multiple;
+
                     $costA = $match['costTeamA'];
                     $costB = $match['costTeamB'];
     
@@ -61,7 +66,7 @@
                 }
                 else{
                     $connect->query("UPDATE zsebet_match SET block=1 WHERE id LIKE '".$bets[$key] -> id."'");
-                    $error[] = $bets[$key] -> id;
+                    $error['error'][] = $match['LabelMatch'];
                 }
                 
             }
@@ -69,7 +74,10 @@
             $coins = $row['coins']-$amount;
             if ($connect->query("UPDATE zsebet_amount SET coins='$coins' WHERE  nick LIKE '$nick'"))
             {
-                $error[] = 'success';
+                $error['info']['amount'] = $amount;
+                $error['info']['multiple'] = $multipleEnd;
+                $error['info']['winPrice'] = $amount*$multipleEnd;
+
                 echo json_encode($error);
             }
             else

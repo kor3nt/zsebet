@@ -155,10 +155,40 @@
 
 
     <!-- Obstawiony kupon -->
-    <div class="newTicket">
-        <p id="newTicketBets">Obstawione: </p>
-        <p id="newTicketErrors">Errors: </p>
-        
+    <div id="ModalBets" class="modal" >
+        <div class="modal-ticket">
+            <div class="main-modal">   
+            
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <div class="wrapper">
+                                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <h3>Twój zakład został przyjęty!</h3>
+                            <p>Potencjalna wygrana</p>
+                            <h2 id="winPriceBets"></h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="centerBetsTr">Stawka <br> <span class="bold" id="amountPriceBets"></span></td>
+                        <td class="centerBetsTr">Kurs <br> <span class="betsMultiple" id="multiplePriceBets"></span></td>
+                    </tr>
+                </table>
+
+                <table id="blockBets">
+
+                </table>
+                
+                <div class="centerBtn">
+                    <button type="button" id="btnBetsModal">Ok</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="write.js"></script>
@@ -166,5 +196,6 @@
     <script src="shopButton.js"></script>
     <script src="ModalCode.js"></script>
     <script src="showTicket.js"></script>
+    <script src="BetsWindow.js"></script>
 </body>
 </html>
