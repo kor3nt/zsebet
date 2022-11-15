@@ -40,7 +40,7 @@
                 
                 <div id="NavInfo">
                     <ul id="NavMenu">
-                        <li class="NavItem"><a class="NavLinks" href="../../Profile"><i class="fa fa-user" id='userNav' aria-hidden="true"></i>&nbsp;<span id='profil'><?php echo $_SESSION['username']?></span></a></li>
+                        <li class="NavItem"><a class="NavLinks" href="../Profile"><i class="fa fa-user" id='userNav' aria-hidden="true"></i>&nbsp;<span id='profil'><?php echo $_SESSION['username']?></span></a></li>
                     </ul>
                 </div>
             </div>

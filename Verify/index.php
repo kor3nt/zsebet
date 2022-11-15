@@ -48,12 +48,12 @@
                 <h1><span class="span-color">Został ostatni krok!</span> Podaj kod weryfikacyjny i utwórz konto.</h1>
 
                 <div class="otp-field">
-                    <input type="text" maxlength="1" id="first">
-                    <input type="text" maxlength="1" id="second">
-                    <input class="space" type="text" maxlength="1" id="third">
-                    <input type="text" maxlength="1" id="fourth">
-                    <input type="text" maxlength="1" id="fifth">
-                    <input type="text" maxlength="1" id="sixth">
+                <input type="text" maxlength="1" id="first" onpaste="paste()">
+                    <input type="text" maxlength="1" id="second" onpaste="paste()">
+                    <input class="space" type="text" maxlength="1" id="third" onpaste="paste()">
+                    <input type="text" maxlength="1" id="fourth" onpaste="paste()">
+                    <input type="text" maxlength="1" id="fifth" onpaste="paste()">
+                    <input type="text" maxlength="1" id="sixth" onpaste="paste()">
                 </div>
                 <small id='error'></small>
                 <button class='form-input-btn' type="submit" id='submit'>Zweryfikuj</button>

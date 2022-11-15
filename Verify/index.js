@@ -1,4 +1,4 @@
-$(".otp-field input").keyup(function (event) {
+$(".otp-field input").keydown(function (event) {
     if (this.value.length === this.maxLength) {
       $(this).next('.otp-field input').focus();
     }
@@ -16,6 +16,26 @@ $(".otp-field input").keyup(function (event) {
     }
 });
 
+function paste(){
+    document.addEventListener('paste', async (e) => {
+        e.preventDefault();
+        var text = await navigator.clipboard.readText();
+
+        document.getElementById("first").value = text[0];
+        document.getElementById("second").value = text[1];
+        document.getElementById("third").value = text[2];
+        document.getElementById("fourth").value = text[3];
+        document.getElementById("fifth").value = text[4];
+        document.getElementById("sixth").value = text[5];
+        $("#first").removeClass("red");        
+        $("#second").removeClass("red");      
+        $("#third").removeClass("red");      
+        $("#fourth").removeClass("red");      
+        $("#fifth").removeClass("red");    
+        $("#sixth").removeClass("red");
+
+    });
+}
 
 $(document).ready(function() {
     $("#submit").click(function( event ){
