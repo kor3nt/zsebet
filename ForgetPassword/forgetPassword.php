@@ -25,7 +25,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZSEBET</title>
     <link rel="stylesheet" href="style.css">
-
+    <link rel="shortcut icon" href="../Img/coin.png" type="image/x-icon">
+    
     <!-- Ikony -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 

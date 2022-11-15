@@ -9,22 +9,22 @@ require "../PHPMailer/SMTP.php";
 require "../PHPMailer/Exception.php";
 
 function sendMail($email, $otp){
-        $mail = new PHPMailer();
+  $mail = new PHPMailer();
 
-		//smtp settings 
-		$mail->CharSet = "UTF-8";
-        $mail -> isSMTP();
-        // $mail ->Host = "ssl0.ovh.net";
-        $mail ->Host = "smtp.gmail.com";
-        $mail -> SMTPAuth = true;
-        $mail -> Username = "email@email.com";
-        $mail -> Password = 'haslo';
-        $mail -> Port = 465;
-        $mail -> SMTPSecure = "ssl";
+	//smtp settings 
+	$mail->CharSet = "UTF-8";
+  $mail -> isSMTP();
+  $mail ->Host = "ssl0.ovh.net";
+  $mail -> SMTPAuth = true;
+  $mail -> Username = "email@email.com";
+  $mail -> Password = 'haslo';
+  $mail -> Port = 465;
+  $mail -> SMTPSecure = "ssl";
 
-		//email settings
-		$mail -> isHTML(true);
-		$mail -> setFrom("zsecup@zse.krakow.pl");
+
+    //email settings
+    $mail -> isHTML(true);
+    $mail -> setFrom("zsecup@zse.krakow.pl");
 		$mail -> addAddress($email);
 		$mail -> Subject = "Kod weryfikujący";
 		$mail -> Body = '<table style="width:100%;margin:auto;text-align:center">
@@ -52,11 +52,11 @@ function sendMail($email, $otp){
       </table>';
 
 		if($mail -> Send()){
-            $mail -> smtpClose();
+      $mail -> smtpClose();
 			return true;
 		}
 		else{
-            $mail -> smtpClose();
+      $mail -> smtpClose();
 			return false;
 		}	
 }

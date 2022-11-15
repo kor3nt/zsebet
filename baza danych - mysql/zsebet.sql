@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 09 Lis 2022, 23:02
+-- Czas generowania: 15 Lis 2022, 22:33
 -- Wersja serwera: 10.4.21-MariaDB
 -- Wersja PHP: 8.0.10
 
@@ -33,16 +33,6 @@ CREATE TABLE `zsebet_amount` (
   `coins` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
---
--- Zrzut danych tabeli `zsebet_amount`
---
-
-INSERT INTO `zsebet_amount` (`id`, `nick`, `coins`) VALUES
-(1, 'kor3nt', 104650),
-(2, 'kor3nt1', 10001),
-(3, 'kor3nt2', 123123),
-(4, 'kor3nt12', 1000123);
-
 -- --------------------------------------------------------
 
 --
@@ -57,15 +47,6 @@ CREATE TABLE `zsebet_bet` (
   `id_game` int(11) NOT NULL,
   `multiple` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
---
--- Zrzut danych tabeli `zsebet_bet`
---
-
-INSERT INTO `zsebet_bet` (`id`, `nick`, `team`, `amount`, `id_game`, `multiple`) VALUES
-(1, 'kor3nt', 'FFC', 100, 1, 1.1),
-(2, 'kor3nt', 'Mieszanka', 10, 22, 10001),
-(3, 'kor3nt', 'Przegra', 10, 23, 2);
 
 -- --------------------------------------------------------
 
@@ -88,15 +69,6 @@ CREATE TABLE `zsebet_codes` (
 CREATE TABLE `zsebet_game` (
   `title` text COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
---
--- Zrzut danych tabeli `zsebet_game`
---
-
-INSERT INTO `zsebet_game` (`title`) VALUES
-('Counter-Strike: Global Offensive'),
-('Dirt 4'),
-('League of Legends');
 
 -- --------------------------------------------------------
 
@@ -121,15 +93,6 @@ CREATE TABLE `zsebet_match` (
   `block` int(11) NOT NULL COMMENT '0 - można obstawiać\r\n1 - zablokowany mecz'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
---
--- Zrzut danych tabeli `zsebet_match`
---
-
-INSERT INTO `zsebet_match` (`id`, `LabelMatch`, `TeamA`, `TagTeamA`, `multipleTeamA`, `costTeamA`, `TeamB`, `TagTeamB`, `multipleTeamB`, `costTeamB`, `game`, `winner`, `date`, `block`) VALUES
-(1, 'FFC - XD', 'FFC', 'FFC', 6, 1301, 'XD', 'XD', 1.1, 10001, 'Counter-Strike: Global Offensive', '', '2022-11-09 23:11:50', 0),
-(22, 'Fasola Funclub - Mieszanka', 'Fasola Funclub', 'FFC', 1.1, 15001, 'Mieszanka', 'XD', 910, 11, 'League of Legends', 'Fasola Funclub', '2022-11-09 23:10:50', 1),
-(23, 'Wyścig Tomek', 'Przegra', 'lostTomek', 1.1, 11, 'Wygra', 'winTomek', 8, 1, 'Dirt 4', 'Przegra', '2022-11-09 23:09:00', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -148,13 +111,6 @@ CREATE TABLE `zsebet_users` (
   `role` text COLLATE utf8_polish_ci NOT NULL,
   `token` text COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
---
--- Zrzut danych tabeli `zsebet_users`
---
-
-INSERT INTO `zsebet_users` (`id`, `nick`, `password`, `name`, `surname`, `email`, `verify`, `otp`, `role`, `token`) VALUES
-(1, 'kor3nt', '$2y$10$oXJglUapst3mFN47LeDSVeX5OEJDKblAI8hVSfyJF6dQWjVahGoM6', 'Klaudiusz', 'Jędrzejczyk', 'klaudiusz.jedrzejczyk@zse.krakow.pl', 1, '170507', 'admin', '9e38493594870ac5b32a3fddc7ae5f07');
 
 -- --------------------------------------------------------
 
@@ -216,25 +172,25 @@ ALTER TABLE `zsebet_users`
 -- AUTO_INCREMENT dla tabeli `zsebet_amount`
 --
 ALTER TABLE `zsebet_amount`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `zsebet_bet`
 --
 ALTER TABLE `zsebet_bet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `zsebet_match`
 --
 ALTER TABLE `zsebet_match`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `zsebet_users`
 --
 ALTER TABLE `zsebet_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
