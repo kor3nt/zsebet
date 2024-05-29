@@ -17,7 +17,7 @@ function sendMail($email, $otp){
   $mail ->Host = "ssl0.ovh.net";
   $mail -> SMTPAuth = true;
   $mail -> Username = "kontakt@esportwzse.pl";
-  $mail -> Password = 'pumpernikiel';
+  $mail -> Password = 'hasło';
   $mail -> Port = 465;
   $mail -> SMTPSecure = "ssl";
 
