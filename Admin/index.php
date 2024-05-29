@@ -52,39 +52,27 @@
     <div class="menu">
         <a href="../Bets">< Powrót</a>
         <a href="#" id="addBtn">Dodaj mecz</a>
-        <?php
-            if($_SESSION['role'] == "admin"){
-                echo '<a href="Players">Gracze</a>';
-                echo '<a href="#" id="codeBtn">Kody</a>';
-            }
-        ?>
-        
-        
+        <a href="Players">Gracze</a>
+        <a href="#" id="codeBtn">Kody</a> 
     </div>
     
-    <?php
-        if($_SESSION['role'] == "admin"){
-            echo '<!-- Tytuły gier -->
-            <div class="gameSection">
-                    <div class="row">
-                        <div class="addGameForm">
-                            <form>
-                                <label for="titleGame">Tytuł gry: </label><br>
-                                <input type="text" id="titleGame" name="titleGame"><br>
-        
-                                <button type="button" id="addGame">Dodaj</button>
-                            </form>
-                        </div>
-        
-                        <div id="gamesSection">
-                            
-                        </div>
-                    </div>
+    <!-- Tytuły gier -->
+    <div class="gameSection">
+            <div class="row">
+                <div class="addGameForm">
+                    <form>
+                        <label for="titleGame">Tytuł gry: </label><br>
+                        <input type="text" id="titleGame" name="titleGame"><br>
+
+                        <button type="button" id="addGame">Dodaj</button>
+                    </form>
+                </div>
+
+                <div id="gamesSection">
+                    
+                </div>
             </div>
-        ';
-        }
-    ?>
-    
+    </div>
     <!-- Panel z meczami zablokowanymi i aktywnymi -->
     <div class="Section">   
         <div class="choose">
@@ -221,56 +209,49 @@
         </div>
     </div>
 
-    
-
-    <?php
-        if($_SESSION['role'] == "admin"){
-            echo '<!-- Modal kodów -->
-            <div id="codeModal" class="modal">
-                <div class="modal-code">
-                    <span id="codeClose">&times;</span>
-                    
-                    <h2 id="codeTitle">Stwórz kod:</h2>
-                    
-                    <form id="MatchCode">
-                        <div class="input-code">
-                            <label for="codeLabel">Kod: </label><br>
-                            <input type="text" id="codeLabel" name="codeLabel" placeholder="Wprowadź kod">
-                        </div>
-        
-                        <div class="input-code">
-                            <label for="codeValue">Wartość: </label><br>
-                            <input type="number" id="codeValue" name="codeValue" placeholder="Wprowadź wartość">
-                        </div>
-        
-                        <div class="input-code">
-                            <p>Typ użycia:</p>
-                            <input type="radio" value="1" name="code" id="one"> <label for="one">Jednorazowy - 1 gracz</label><br>
-                            <input type="radio" value="2" name="code" id="few"> <label for="few">Wielorazowy - każdy gracz po 1 raz</label><br>
-                            <small id="errorCode" class="error"></small>
-                        </div>
-        
-                        <div class="input-btn">
-                            <button type="button" class="btnUnlock" id="btnCodeModal">Stwórz</button>
-                        </div>
-        
-                        <div class="scrollCode">
-                            <table id="codeTable">
-        
-                            </table>
-                        </div>
-                    </form>
+    <!-- Modal kodów -->
+    <div id="codeModal" class="modal">
+        <div class="modal-code">
+            <span id="codeClose">&times;</span>
+            
+            <h2 id="codeTitle">Stwórz kod:</h2>
+            
+            <form id="MatchCode">
+                <div class="input-code">
+                    <label for="codeLabel">Kod: </label><br>
+                    <input type="text" id="codeLabel" name="codeLabel" placeholder="Wprowadź kod">
                 </div>
-            </div>';
 
-            echo "<script src='code.js'></script>";
-            echo "<script src='game.js'></script>";
-        }
-    ?>
+                <div class="input-code">
+                    <label for="codeValue">Wartość: </label><br>
+                    <input type="number" id="codeValue" name="codeValue" placeholder="Wprowadź wartość">
+                </div>
+
+                <div class="input-code">
+                    <p>Typ użycia:</p>
+                    <input type="radio" value="1" name="code" id="one"> <label for="one">Jednorazowy - 1 gracz</label><br>
+                    <input type="radio" value="2" name="code" id="few"> <label for="few">Wielorazowy - każdy gracz po 1 raz</label><br>
+                    <small id="errorCode" class="error"></small>
+                </div>
+
+                <div class="input-btn">
+                    <button type="button" class="btnUnlock" id="btnCodeModal">Stwórz</button>
+                </div>
+
+                <div class="scrollCode">
+                    <table id="codeTable">
+
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src='code.js'></script>
     <script src='matches.js'></script>
     <script src='buttons.js'></script>
     <script src='modals.js'></script>
     <script src='createMatch.js'></script>
-    
+    <script src='game.js'></script>
 </body>
 </html>

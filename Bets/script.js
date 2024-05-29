@@ -35,11 +35,11 @@ function addBet(element) {
 
     $('.MatchElements').append('<div class="Match" id="' + element.name + 
     '"><div class="row"><div class="CloseElement"><small class="close" onclick="deleteBet(\'' + element.id +'\',\''+ element.name 
-     +'\');"><i class="fa fa-trash-o" aria-hidden="true"></i></small></div><div class="BetsInfo"><small class="team">' 
-     + label +'</small><p class="winner">Wynik meczu: <span class="text-bold text-blue">'
-     + element.id + '</span></p><label>Kurs: <span class="text-bold text-yellow">'
-     + multiple +'</span></label><input class="BetInput" onchange="updateValue(this);" min="10" type="number" id="'
-     +element.name+'" placeholder="Wprowadź stawkę"></div></div></div>');
+    +'\');"><i class="fa fa-trash-o" aria-hidden="true"></i></small></div><div class="BetsInfo"><small class="team">' 
+    + label +'</small><p class="winner">Wynik meczu: <span class="text-bold text-blue">'
+    + element.id + '</span></p><label>Kurs: <span class="text-bold text-yellow">'
+    + multiple +'</span></label><input class="BetInput" onchange="updateValue(this);" min="10" type="number" id="'
+    +element.name+'" placeholder="Wprowadź stawkę"></div></div></div>');
 }
 
 // Kasowanie wybranego meczu z obszaru obstawiania
@@ -118,8 +118,9 @@ function betMatches(){
                     else{
                         $('.loading').hide();
                         betsModal.style.display = "block";
-
+                        console.log( $.parseJSON(data))
                         var errorsBets = $.parseJSON(data);
+                        
 
                         $('#winPriceBets').html(errorsBets['info']['winPrice'].toFixed(0) + ' ZSE Coinsów');
                         $('#amountPriceBets').html(errorsBets['info']['amount'] + ' ZSE Coinsów');

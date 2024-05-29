@@ -318,8 +318,8 @@ body{
 
 .Button:hover{
     transition: all 0.2s ease-in-out;
-    background: #464A8C;
-    color: #0d0d0d;
+    background: #1f1f1f;
+    color: #fff;
 }
 
 #ArrowForward{

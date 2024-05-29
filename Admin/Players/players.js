@@ -33,7 +33,6 @@ function showPlayers(valueSearch){
                             '<select id="role' + players[i]['id'] + '-' + players[i]['nick'] + '">' +
                                 '<option value="' + players[i]['role'] + '" selected hidden>' + players[i]['role'] + '</option>' +
                                 '<option value="admin">admin</option>' +
-                                '<option value="mod">mod</option>' +
                                 '<option value="user">user</option>' +
                             '</select>' +
                         '</td>' +

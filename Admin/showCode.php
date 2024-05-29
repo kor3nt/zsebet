@@ -9,9 +9,18 @@
         $connect = new mysqli($host, $db_user, $db_password, $db_name);
         
         // Uzyskanie danych z pliku js
-        $code = $_POST['code'];
-        $value = $_POST['value'];
-        $type = $_POST['type'];
+        $id = $_POST['id'];
+        
+        $result = $connect->query("SELECT * FROM zsebet_codes WHERE code LIKE '".$id."';");
+        $row = $result->fetch_assoc();
+
+
+        if($row['showCode'] == 1){
+            $show = 0;
+        }
+        else {
+            $show = 1;
+        }
 
         if ($connect->connect_errno!=0)
         {
@@ -19,17 +28,7 @@
         }
         else
         {   
-            if ($result = $connect->query("SELECT * FROM zsebet_codes WHERE code LIKE '$code'"))
-            {
-                $numberCodes = $result->num_rows;
-                if($numberCodes>0){
-                    echo 'exist';
-                    return false;
-                }
-                
-            }
-
-            if ($connect->query("INSERT INTO zsebet_codes VALUES ('$code', '$value', '$type', 0)"))
+            if ($connect->query("UPDATE zsebet_codes SET showCode = ".$show." WHERE code LIKE '".$id."';"))
             {
                 echo 'success';
             }

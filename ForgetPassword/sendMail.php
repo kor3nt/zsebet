@@ -8,7 +8,7 @@ require "../PHPMailer/PHPMailer.php";
 require "../PHPMailer/SMTP.php";
 require "../PHPMailer/Exception.php";
 
-function sendMail($email, $otp){
+function sendMail($email, $link){
   $mail = new PHPMailer();
 
 	//smtp settings 
@@ -16,8 +16,8 @@ function sendMail($email, $otp){
   $mail -> isSMTP();
   $mail ->Host = "ssl0.ovh.net";
   $mail -> SMTPAuth = true;
-  $mail -> Username = "email@email.com";
-  $mail -> Password = 'haslo';
+  $mail -> Username = "kontakt@esportwzse.pl";
+  $mail -> Password = 'pumpernikiel';
   $mail -> Port = 465;
   $mail -> SMTPSecure = "ssl";
 

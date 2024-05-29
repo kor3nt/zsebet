@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZSEBET</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="../Img/coin.png" type="image/x-icon">
-    
+
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="../Img/coin.png" type="image/x-icon">
 </head>
 <body>
     <?php 
@@ -59,7 +59,7 @@
                     <div id="intro">
                         <h1 id="HeroH1">Witaj <?php echo $account ?>!</h1>
                         <p id="HeroP">Twoje saldo</p>
-                        <img src="../IMG/coin.png" alt="coin" id="coin"><span id="balanceP"><?php echo $coin["coins"] ?></span>
+                        <img src="../Img/coin.png" alt="coin" id="coin"><span id="balanceP"><?php echo $coin["coins"] ?></span>
                     </div>
             <!-- Account-stat -->
                     <div id="stat">

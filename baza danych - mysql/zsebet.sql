@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 15 Lis 2022, 22:33
--- Wersja serwera: 10.4.21-MariaDB
--- Wersja PHP: 8.0.10
+-- Czas generowania: 24 Mar 2024, 14:40
+-- Wersja serwera: 10.4.17-MariaDB
+-- Wersja PHP: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,6 +33,13 @@ CREATE TABLE `zsebet_amount` (
   `coins` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
+--
+-- Zrzut danych tabeli `zsebet_amount`
+--
+
+INSERT INTO `zsebet_amount` (`id`, `nick`, `coins`) VALUES
+(1, 'kor3nt', 1000);
+
 -- --------------------------------------------------------
 
 --
@@ -57,7 +64,8 @@ CREATE TABLE `zsebet_bet` (
 CREATE TABLE `zsebet_codes` (
   `code` text COLLATE utf8_polish_ci NOT NULL,
   `value` int(11) NOT NULL,
-  `type` int(11) NOT NULL
+  `type` int(11) NOT NULL COMMENT '0 - kod zużyto\r\n1 - kod jednorazowy\r\n2 - kod dla wielu użytkowników',
+  `showCode` int(11) NOT NULL COMMENT '0 - ukryto\r\n1 - pokazano'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
@@ -111,6 +119,13 @@ CREATE TABLE `zsebet_users` (
   `role` text COLLATE utf8_polish_ci NOT NULL,
   `token` text COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `zsebet_users`
+--
+
+INSERT INTO `zsebet_users` (`id`, `nick`, `password`, `name`, `surname`, `email`, `verify`, `otp`, `role`, `token`) VALUES
+(1, 'kor3nt', '$2y$10$.py7saVJhWlqAqtb4I39F.yw9ZjidiX7Q9Yrd4xJzSoaBXgs0UaiO', 'Klaudiusz', 'Jędrzejczyk', 'klaudiusz.jedrzejczyk@zse.krakow.pl', 1, '386822', 'admin', '28f591a8f29f4fc0330d5c56b6262fb8');
 
 -- --------------------------------------------------------
 
@@ -172,7 +187,7 @@ ALTER TABLE `zsebet_users`
 -- AUTO_INCREMENT dla tabeli `zsebet_amount`
 --
 ALTER TABLE `zsebet_amount`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `zsebet_bet`
@@ -190,7 +205,7 @@ ALTER TABLE `zsebet_match`
 -- AUTO_INCREMENT dla tabeli `zsebet_users`
 --
 ALTER TABLE `zsebet_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

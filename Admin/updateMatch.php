@@ -7,7 +7,7 @@
     try 
     {
         $connect = new mysqli($host, $db_user, $db_password, $db_name);
-        
+
         // Uzyskanie danych z pliku js
         $id = $_POST['id'];
         $teamA = $_POST['teamA'];
@@ -18,6 +18,9 @@
         $label = $_POST['label'];
         $game = $_POST['game'];
         $winner = $_POST['winner'];
+
+        $winFromDB = $connect->query("SELECT * FROM zsebet_match WHERE id = '$id'");
+        $winFromDB = $winFromDB->fetch_assoc();
 
         if($winner == "null"){
             $winner = NULL;
@@ -31,7 +34,7 @@
         {   
             if ($connect->query("UPDATE zsebet_match SET LabelMatch='$label', TeamA='$teamA', TagTeamA='$tagA', TeamB='$teamB', TagTeamB='$tagB', game='$game', winner='$winner', date='$date' WHERE id = '$id'"))
             {
-                if($winner){   
+                if($winner && $winFromDB['winner'] != $winner){   
                     if ($result = @$connect->query("SELECT * FROM zsebet_bet WHERE team LIKE '$winner'"))
                     {
                         $numberBets = $result->num_rows;

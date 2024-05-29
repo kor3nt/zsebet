@@ -57,7 +57,8 @@ function getCodes(){
                 '<td>' + codes[i]['code'] + '<br> (' + codes[i]['value'] + ')</td>'+
                 '<td>' + uses + '</td>'+
                 '<td>'+
-                    '<button type="button" class="deleteBtn" onclick="deleteCodes(\'' + codes[i]['code'] + '\')">Skasuj</button>'+
+                    '<button type="button" class="deleteBtn" onclick="deleteCodes(\'' + codes[i]['code'] + '\')">Skasuj</button> '+
+                    '<button type="button" class="showBtn" onclick="showCodes(\'' + codes[i]['code'] + '\')">' + (codes[i]['showCode'] == 0 ? 'Pokaż' : 'Ukryj') + '</button>'+
                 '</td>'+
             '</tr>');
             }
@@ -75,6 +76,30 @@ function deleteCodes(id){
         },
         cache: false,
         success: function(data) {
+            // Zwrócenie poprawnego wyniku
+            if(/success/.test(data)){
+                getCodes();
+            }
+
+            // Serwer wyłączony / awaria
+            if(/servers/.test(data)){
+                alert('Błąd serwera! Przepraszamy za niedogodności i prosimy o skontaktowanie się z administracją!')
+            }
+        }
+    });
+}
+
+function showCodes(id){
+
+    $.ajax({
+        type: "POST",
+        url: "showCode.php",
+        data: {
+            id: id
+        },
+        cache: false,
+        success: function(data) {
+            console.log(data)
             // Zwrócenie poprawnego wyniku
             if(/success/.test(data)){
                 getCodes();

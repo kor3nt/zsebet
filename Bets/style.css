@@ -838,7 +838,7 @@ form {
         left: -100%;
         margin-bottom: 15px;
         top: 0;
-        position: absolute;
+        position: fixed;
         height: 100%;
         border-radius: 0px;
         z-index: 4;

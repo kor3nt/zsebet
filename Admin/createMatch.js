@@ -5,6 +5,7 @@ var btnAdd = document.getElementById("addBtn");
 
 btnAdd.addEventListener("click", ()=> {
     modalAdd.style.display = "block";
+    $('#chooseGame').html("");
     for(let game of games){
         $('#chooseGame').append('<option value="'+ game['title'] +'">'+ game['title'] +'</option>');
     }  

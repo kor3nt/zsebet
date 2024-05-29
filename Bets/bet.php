@@ -1,9 +1,38 @@
 <?php
+    
+
     session_start();
 
     require_once "../connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
     
+    function multiple($input){
+        if($input > 100001){
+            return round($input/100000, 2);
+        }
+        else if($input > 10001){
+            return round($input/10000, 2);
+        }
+        else if($input > 1001){
+            return round($input/1000, 2);
+        }
+        else if($input > 101){
+            return round($input/100, 2);
+        }
+        else if($input > 10.5){
+            return round($input/10, 2);
+        }
+        else if(1.5 < $input && $input <= 10.5){
+            return round($input, 2);
+        }
+        else if(0.3 < $input && $input <= 1.5){
+            return 1.5;
+        }
+        else{
+            return 1.2;
+        }
+    }
+
     try 
     {
         $connect = new mysqli($host, $db_user, $db_password, $db_name);
@@ -45,20 +74,10 @@
                     else{
                         $costB += $amountBet;
                     }
-    
-                    $sum = $costA + $costB;
-    
-                    $multipleA = round(($sum / $costA / $multipleA));
-                    $multipleB = round(($sum / $costB / $multipleB));
-                
-                    if($multipleA < 1.1){
-                        $multipleA = 1.1;
-                    }
-                    
-                    if($multipleB < 1.1){
-                        $multipleB = 1.1;
-                    }
-                    
+
+                    $multipleA = multiple($costB/$costA);
+                    $multipleB = multiple($costA/$costB);
+
                     $connect->query("UPDATE zsebet_match SET costTeamA='$costA', costTeamB='$costB', multipleTeamA='$multipleA', multipleTeamB='$multipleB' WHERE  id LIKE '".$bets[$key] -> id."'");
     
                     $connect->query("INSERT INTO zsebet_bet VALUES (NULL, '$nick', '".$bets[$key] -> yourBet."', '".$bets[$key] -> amount."', '".$bets[$key] -> id."', '".$bets[$key] -> multiple."')");

@@ -15,13 +15,13 @@
 
      $mail = new PHPMailer();
 
-    //smtp settings 
-    $mail->CharSet = "UTF-8";
+	//smtp settings 
+	$mail->CharSet = "UTF-8";
     $mail -> isSMTP();
     $mail ->Host = "ssl0.ovh.net";
     $mail -> SMTPAuth = true;
     $mail -> Username = "kontakt@esportwzse.pl";
-    $mail -> Password = 'haslo';
+    $mail -> Password = 'pumpernikiel';
     $mail -> Port = 465;
     $mail -> SMTPSecure = "ssl";
 

@@ -30,7 +30,7 @@
 
                         $email= $row['email'];
                         $token= $row['token'];
-                        $link = "http://localhost/zsebet/ForgetPassword/forgetPassword.php?token=".$token."&email=".$email;
+                        $link = "https://esportwzse.pl/zsebet/ForgetPassword/forgetPassword.php?token=".$token."&email=".$email;
 
                         require_once "sendMail.php";
 					    sendMail($email, $link);
